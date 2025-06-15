@@ -1,4 +1,4 @@
-# UniCare Medicine E-commerce Platform
+# UniCare HealthCare Platform
 
 A full-featured e-commerce platform for medical products and devices.
 
