@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniCare - Online Pharmacy</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/medicines.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <!-- OpenStreetMap Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- OpenStreetMap Geocoder CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <div class="header-left">
+            <h1 id="firstlogo">UNI<span>CARE</span></h1>
+        </div>
+        <div class="header-right">
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="GYM.html">Fitness</a>
+                <a href="medicines.html" class="active">Medicine</a>
+                <a href="ai-doctor.html">AI Doctor</a>
+                <a href="diet-planner.html">Diet</a>
+            </nav>
+            <div class="auth-buttons" id="auth-section">
+                <a href="login.html" class="login-btn" id="login-btn">Login</a>
+                <a href="login.html" class="signup-btn" id="signup-btn">
+                    Sign up
+                    <div class="arrow-wrapper">
+                        <div class="arrow"></div>
+                    </div>
+                </a>
+                <!-- Add user profile section (initially hidden) -->
+                <div class="user-profile" id="user-profile" style="display: none;">
+                    <div class="user-initial" id="user-initial"></div>
+                    <div class="dropdown-menu">
+                        <a href="login.html" id="logout-btn">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fixed Cart Button -->
+    <div id="fixed-cart-btn">
+        <a href="#" id="cart-btn"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a>
+    </div>
+
+    <!-- User Actions Section -->
+    <div class="user-actions-container">
+        <div class="selected-address-display" id="header-address-container">
+            <span id="current-address-display" style="cursor: pointer;" onclick="showAddressModal()">
+                <i class="fas fa-map-marker-alt"></i>
+                <span id="header-address">Select delivery location</span>
+            </span>
+        </div>
+        <div class="location-selector">
+            <i class="fas fa-map-marker-alt"></i>
+            <div class="location-input-wrapper">
+                <input type="text" id="location-input" placeholder="Enter your delivery location">
+                <div id="location-suggestions" class="location-suggestions"></div>
+            </div>
+            <button id="detect-location" class="detect-location-btn">
+                <i class="fas fa-crosshairs"></i>
+            </button>
+        </div>
+        <div class="user-buttons">
+           
+            <a href="#" id="offers-btn"><i class="fas fa-percent"></i> Offers</a>
+            <!-- Cart button removed from here as it's now fixed at the top right -->
+        </div>
+    </div>
+
+    <!-- Remove the separate Navigation Menu since it's now integrated in the header -->
+   
+
+    <!-- Search Section -->
+    <div class="search-section">
+        <div class="search-container">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="search-input" placeholder="Search for medicines, health products and more">
+            <div id="search-suggestions" class="search-suggestions"></div>
+            <button id="search-btn">Search</button>
+        </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="quick-links">
+        <div class="quick-link-card" onclick="scrollToProducts()">
+            <img src="images/med.jpg" alt="Medicine">
+            <h3>Medicine</h3>
+            <p>SAVE 24% OFF</p>
+        </div>
+        <div class="quick-link-card" onclick="window.location.href='diet-planner.html'">
+            <img src="images/diet.png" alt="Diet">
+            <h3>Diet</h3>
+            <p>UPTO 70% OFF</p>
+        </div>
+        <div class="quick-link-card" onclick="window.location.href='ai-doctor.html'">
+            <img src="images/DOCTOR.png" alt="Doctor">
+            <h3>Doctor Consult</h3>
+            <p>Starting at ₹199</p>
+        </div>
+       
+    </div>
+
+    <!-- Featured Sections -->
+    <div class="featured-section">
+        <div class="featured-card">
+            <img src="images/nutrition.jpg" alt="Nutrition">
+            <div class="featured-content">
+                <h2>Start your Nutrition Journey</h2>
+                <p>Get Extra 5% + UniCare Credits</p>
+                <button>SHOP NOW</button>
+            </div>
+        </div>
+        <div class="featured-card">
+            <img src="images/cancer.webp" alt="Cancer Care">
+            <div class="featured-content">
+                <h2>Affordable Cancer Medicines</h2>
+                <p>UPTO 45% OFF</p>
+                <button>Order Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Categories -->
+    <section class="product-categories">
+        <h2>Shop by Category</h2>
+        <div class="category-grid">
+            <div class="category-card" data-category="covid" onclick="scrollToSection('covid')">
+                <img src="images/covid.jpg" alt="Covid Essentials">
+                <h3>Covid Essentials</h3>
+            </div>
+            <div class="category-card" data-category="diabetes" onclick="scrollToSection('diabetes')">
+                <img src="images/diabetes.jpg" alt="Diabetes Care">
+                <h3>Diabetes Care</h3>
+            </div>
+            <div class="category-card" data-category="cardiac" onclick="scrollToSection('cardiac')">
+                <img src="images/heartcare.jpg" alt="Cardiac Care">
+                <h3>Cardiac Care</h3>
+            </div>
+            <div class="category-card" data-category="stomach" onclick="scrollToSection('stomach')">
+                <img src="images/stomach care.jpg" alt="Stomach Care">
+                <h3>Stomach Care</h3>
+            </div>
+            <div class="category-card" data-category="vitamins" onclick="scrollToSection('vitamins')">
+                <img src="images/vitaminsup.jpg" alt="Vitamins">
+                <h3>Vitamins & Supplements</h3>
+            </div>
+            <div class="category-card" data-category="personal" onclick="scrollToSection('personal')">
+                <img src="images/personalcare.jpg" alt="Personal Care">
+                <h3>Personal Care</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="products-section">
+        <h2>Popular Products</h2>
+        <div class="products-container">
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/paraceta.jpg" alt="Paracetamol" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">15% OFF</div>
+                <div class="savings-tag">Save ₹12</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Paracetamol 500mg</h3>
+                <p class="product-description">Strip of 10 tablets</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹68.00</span>
+                    <span class="original-price">₹80.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/multiv.jpg" alt="Multivitamin" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">25% OFF</div>
+                <div class="savings-tag">Save ₹125</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Daily Multivitamin</h3>
+                <p class="product-description">Bottle of 30 tablets</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹375.00</span>
+                    <span class="original-price">₹500.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/bpmnitor.jpg" alt="BP Monitor" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">20% OFF</div>
+                <div class="savings-tag">Save ₹300</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Digital BP Monitor</h3>
+                <p class="product-description">Automatic with memory function</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹1200.00</span>
+                    <span class="original-price">₹1500.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/sanitizer.jpg" alt="Hand Sanitizer" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">10% OFF</div>
+                <div class="savings-tag">Save ₹20</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Hand Sanitizer 200ml</h3>
+                <p class="product-description">Kills 99.9% germs</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹180.00</span>
+                    <span class="original-price">₹200.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/whey protien.jpg" alt="Protein Powder" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">18% OFF</div>
+                <div class="savings-tag">Save ₹180</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Whey Protein Powder</h3>
+                <p class="product-description">500g, chocolate flavor</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹820.00</span>
+                    <span class="original-price">₹1000.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Products -->
+    <section class="trending-section">
+        <h2>Trending Now</h2>
+        <div class="trending-container">
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/dolo.jpg" alt="Product 1" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">20% OFF</div>
+                <div class="savings-tag">Save ₹150</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Dolo 650mg Tablet</h3>
+                <p class="product-description">Strip of 15 tablets</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹30.40</span>
+                    <span class="original-price">₹38.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/vitamind34.jpg" alt="Vitamin D3" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">20% OFF</div>
+                <div class="savings-tag">Save ₹79.80</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Vitamin D3 Tablets</h3>
+                <p class="product-description">Bottle of 60 tablets</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹319.20</span>
+                    <span class="original-price">₹399.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/bloodgluco.jpg" alt="Glucose Monitor" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">30% OFF</div>
+                <div class="savings-tag">Save ₹299.80</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Blood Glucose Monitor</h3>
+                <p class="product-description">With 10 free strips</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹1199.20</span>
+                    <span class="original-price">₹1499.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <!-- More product cards will be dynamically loaded here -->
+        </div>
+    </section>
+
+    <!-- Category Sections -->
+    <!-- Replace the empty product grids in each category section with these cards -->
+    
+    <!-- For the Covid Essentials section -->
+    <section id="covid" class="category-section">
+        <h2>Covid Essentials</h2>
+        <div class="section-description">
+            <p>Essential products to stay safe and protected during the pandemic. Our range includes masks, sanitizers, immunity boosters, and more.</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/N95 mask.jpg" alt="N95 Face Mask" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">15% OFF</div>
+                <div class="savings-tag">Save ₹45</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">N95 Face Mask (Pack of 10)</h3>
+                <p class="product-description">High filtration, comfortable fit</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹255.00</span>
+                    <span class="original-price">₹300.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/sanitizer.jpg" alt="Hand Sanitizer" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">20% OFF</div>
+                <div class="savings-tag">Save ₹50</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Hand Sanitizer 500ml</h3>
+                <p class="product-description">70% Alcohol, kills 99.9% germs</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹200.00</span>
+                    <span class="original-price">₹250.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/pulse.jpg" alt="Pulse Oximeter" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">10% OFF</div>
+                <div class="savings-tag">Save ₹120</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Digital Pulse Oximeter</h3>
+                <p class="product-description">Measures SpO2 & Pulse Rate</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹1080.00</span>
+                    <span class="original-price">₹1200.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/infrared.jpg" alt="Infrared Thermometer" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">25% OFF</div>
+                <div class="savings-tag">Save ₹250</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Infrared Thermometer</h3>
+                <p class="product-description">Non-contact, instant reading</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹750.00</span>
+                    <span class="original-price">₹1000.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/immunity.jpg" alt="Immunity Booster" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">15% OFF</div>
+                <div class="savings-tag">Save ₹75</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Immunity Booster</h3>
+                <p class="product-description">30 tablets with Zinc & Vitamin C</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹425.00</span>
+                    <span class="original-price">₹500.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- For the Diabetes Care section -->
+    <section id="diabetes" class="category-section">
+        <h2>Diabetes Care</h2>
+        <div class="section-description">
+            <p>Comprehensive range of products for diabetes management, including glucose monitors, insulin accessories, and dietary supplements.</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/bloodgluco.jpg" alt="Glucose Monitor" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">20% OFF</div>
+                <div class="savings-tag">Save ₹300</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Advanced Glucose Monitor</h3>
+                <p class="product-description">With 25 test strips included</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹1200.00</span>
+                    <span class="original-price">₹1500.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/insulinpen.jpg" alt="Insulin Pen" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">15% OFF</div>
+                <div class="savings-tag">Save ₹150</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Insulin Pen Device</h3>
+                <p class="product-description">Reusable with easy dial mechanism</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹850.00</span>
+                    <span class="original-price">₹1000.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/diabeticsocks.jpg" alt="Diabetic Socks" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">25% OFF</div>
+                <div class="savings-tag">Save ₹125</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Diabetic Socks (3 Pairs)</h3>
+                <p class="product-description">Non-binding, moisture-wicking</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹375.00</span>
+                    <span class="original-price">₹500.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/sugarfree.jpg" alt="Sugar Free Sweetener" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">10% OFF</div>
+                <div class="savings-tag">Save ₹20</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Sugar Free Sweetener</h3>
+                <p class="product-description">100 tablets, zero calories</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹180.00</span>
+                    <span class="original-price">₹200.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/footcarecream.jpg" alt="Foot Care Cream" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">18% OFF</div>
+                <div class="savings-tag">Save ₹90</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Diabetic Foot Care Cream</h3>
+                <p class="product-description">Moisturizing & healing formula</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹410.00</span>
+                    <span class="original-price">₹500.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- For the Cardiac Care section -->
+    <section id="cardiac" class="category-section">
+        <h2>Cardiac Care</h2>
+        <div class="section-description">
+            <p>Products designed to support heart health, including BP monitors, supplements, and medications for cardiovascular wellness.</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/bpmnitor.jpg" alt="BP Monitor" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">22% OFF</div>
+                <div class="savings-tag">Save ₹440</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Digital BP Monitor</h3>
+                <p class="product-description">Automatic with irregular heartbeat detection</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹1560.00</span>
+                    <span class="original-price">₹2000.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/omega3fish.jpg" alt="Omega 3" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">15% OFF</div>
+                <div class="savings-tag">Save ₹105</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Omega-3 Fish Oil</h3>
+                <p class="product-description">60 softgels, heart health support</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹595.00</span>
+                    <span class="original-price">₹700.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/Coq10 su.jpg" alt="CoQ10" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">20% OFF</div>
+                <div class="savings-tag">Save ₹180</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">CoQ10 Supplement</h3>
+                <p class="product-description">100mg, 30 capsules</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹720.00</span>
+                    <span class="original-price">₹900.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/Low-Dose Aspirin.jpg" alt="Aspirin" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">10% OFF</div>
+                <div class="savings-tag">Save ₹15</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Low-Dose Aspirin</h3>
+                <p class="product-description">75mg, 30 tablets</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹135.00</span>
+                    <span class="original-price">₹150.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/garlic.jpg" alt="Garlic Extract" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">18% OFF</div>
+                <div class="savings-tag">Save ₹72</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Garlic Extract</h3>
+                <p class="product-description">Odorless, 60 tablets</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹328.00</span>
+                    <span class="original-price">₹400.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- For the Stomach Care section -->
+    <section id="stomach" class="category-section">
+        <h2>Stomach Care</h2>
+        <div class="section-description">
+            <p>Relief for digestive issues with our range of antacids, probiotics, and supplements for optimal gut health and digestion.</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/antacid.jpg" alt="Antacid" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">12% OFF</div>
+                <div class="savings-tag">Save ₹24</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Antacid Suspension</h3>
+                <p class="product-description">200ml, mint flavor</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹176.00</span>
+                    <span class="original-price">₹200.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/probiotic.jpg" alt="Probiotic" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">20% OFF</div>
+                <div class="savings-tag">Save ₹120</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Probiotic Capsules</h3>
+                <p class="product-description">10 billion CFU, 30 capsules</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹480.00</span>
+                    <span class="original-price">₹600.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/fibre.jpg" alt="Fiber Supplement" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">15% OFF</div>
+                <div class="savings-tag">Save ₹60</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Fiber Supplement</h3>
+                <p class="product-description">Orange flavor, 30 servings</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹340.00</span>
+                    <span class="original-price">₹400.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/digestive.jpg" alt="Digestive Enzyme" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">18% OFF</div>
+                <div class="savings-tag">Save ₹90</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Digestive Enzyme Complex</h3>
+                <p class="product-description">60 tablets, plant-based</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹410.00</span>
+                    <span class="original-price">₹500.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/gasrelief.jpg" alt="Gas Relief" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">10% OFF</div>
+                <div class="savings-tag">Save ₹15</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Gas Relief Drops</h3>
+                <p class="product-description">30ml, fast-acting formula</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹135.00</span>
+                    <span class="original-price">₹150.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- For the Vitamins & Supplements section -->
+    <section id="vitamins" class="category-section">
+        <h2>Vitamins & Supplements</h2>
+        <div class="section-description">
+            <p>Boost your health with our premium range of vitamins, minerals, and nutritional supplements for daily wellness.</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/multivitamin.jpg" alt="Multivitamin" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">25% OFF</div>
+                <div class="savings-tag">Save ₹150</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Daily Multivitamin</h3>
+                <p class="product-description">60 tablets, complete formula</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹450.00</span>
+                    <span class="original-price">₹600.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/vitaminc.jpg" alt="Vitamin C" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">20% OFF</div>
+                <div class="savings-tag">Save ₹80</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Vitamin C 1000mg</h3>
+                <p class="product-description">60 tablets, with rose hips</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹320.00</span>
+                    <span class="original-price">₹400.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/vitamind34.jpg" alt="Vitamin B Complex" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">15% OFF</div>
+                <div class="savings-tag">Save ₹60</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Vitamin B Complex</h3>
+                <p class="product-description">30 tablets, energy support</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹340.00</span>
+                    <span class="original-price">₹400.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/calciumvitamind3.jpg" alt="Calcium" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">18% OFF</div>
+                <div class="savings-tag">Save ₹90</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Calcium + Vitamin D3</h3>
+                <p class="product-description">60 tablets, bone health</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹410.00</span>
+                    <span class="original-price">₹500.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/iron.jpg" alt="Iron Supplement" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">12% OFF</div>
+                <div class="savings-tag">Save ₹36</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Iron + Folic Acid</h3>
+                <p class="product-description">30 tablets, gentle formula</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹264.00</span>
+                    <span class="original-price">₹300.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- For the Personal Care section -->
+    <section id="personal" class="category-section">
+        <h2>Personal Care</h2>
+        <div class="section-description">
+            <p>Quality personal care products including skincare, dental care, and hygiene essentials for your daily routine.</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/cetaphil.jpg" alt="Face Wash" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">15% OFF</div>
+                <div class="savings-tag">Save ₹45</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Gentle Face Wash</h3>
+                <p class="product-description">100ml, for sensitive skin</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹255.00</span>
+                    <span class="original-price">₹300.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/moisture.jpg" alt="Moisturizing Lotion" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">20% OFF</div>
+                <div class="savings-tag">Save ₹100</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Moisturizing Lotion</h3>
+                <p class="product-description">200ml, 24-hour hydration</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹400.00</span>
+                    <span class="original-price">₹500.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/dentalcarekit.jpg" alt="Dental Care Kit" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">25% OFF</div>
+                <div class="savings-tag">Save ₹125</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Dental Care Kit</h3>
+                <p class="product-description">Toothbrush, toothpaste & floss</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹375.00</span>
+                    <span class="original-price">₹500.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/shampoo.jpg" alt="Shampoo" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">18% OFF</div>
+                <div class="savings-tag">Save ₹72</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Herbal Shampoo</h3>
+                <p class="product-description">250ml, for all hair types</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹328.00</span>
+                    <span class="original-price">₹400.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/cream.jpg" alt="Hand Cream" class="product-image">
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="discount-badge">10% OFF</div>
+                <div class="savings-tag">Save ₹20</div>
+                <div class="stock-status in-stock">In Stock</div>
+                <h3 class="product-title">Intensive Hand Cream</h3>
+                <p class="product-description">75ml, non-greasy formula</p>
+                <div class="price-container">
+                    <span class="discounted-price">₹180.00</span>
+                    <span class="original-price">₹200.00</span>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2>Shopping Cart</h2>
+            <button id="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items">
+            <!-- Cart items will be dynamically loaded here -->
+        </div>
+        <div class="cart-total">
+            <div class="savings-info">
+                <i class="fas fa-piggy-bank"></i>
+                <span>Total Savings: ₹<span id="total-savings">0.00</span></span>
+            </div>
+            <h3>Total: <span id="cart-total-amount">₹0.00</span></h3>
+            <button id="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Product Modal -->
+    <div class="product-modal" id="product-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <!-- Product details will be dynamically loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Delivery Address Modal -->
+    <div class="delivery-address-modal" id="delivery-address-modal">
+        <div class="modal-content">
+            <span class="close-address-modal">&times;</span>
+            <div class="modal-header">
+                <h2>Manage Delivery Addresses</h2>
+            </div>
+            <div class="address-modal-body">
+                <!-- Change this section in the address modal -->
+                <div class="address-list-container">
+                    <h3>Current Delivery Location</h3>
+                    <div id="saved-addresses" class="saved-addresses">
+                        <!-- Current location will be displayed here -->
+                    </div>
+                    <button id="detect-location" class="detect-location-btn" style="margin: 10px 0;">
+                        <i class="fas fa-crosshairs"></i> Detect My Current Location
+                    </button>
+                    <button id="add-new-address" class="add-address-btn">
+                        <i class="fas fa-plus"></i> Add New Address
+                    </button>
+                    
+                    <!-- Delivery Map Display for Selected Address -->
+                    <div class="delivery-map-container">
+                        <h3>Delivery Location</h3>
+                        <div id="delivery-map"></div>
+                        <div class="delivery-info">
+                            <div class="delivery-status">
+                                <i class="fas fa-truck"></i>
+                                <span>Delivery available to this location</span>
+                            </div>
+                            <div class="delivery-time">
+                                <i class="fas fa-clock"></i>
+                                <span>Estimated delivery: <strong>24-48 hours</strong></span>
+                            </div>
+                        </div>
+                        <button id="proceed-with-address" class="proceed-address-btn">
+                            Proceed with this Address
+                        </button>
+                    </div>
+                </div>
+                <div class="address-form-container">
+                    <h3>Add New Address</h3>
+                    <form id="address-form">
+                        <div class="form-group">
+                            <label for="address-name">Address Nickname (e.g. Home, Office)</label>
+                            <input type="text" id="address-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="full-name">Full Name</label>
+                            <input type="text" id="full-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mobile-number">Mobile Number</label>
+                            <input type="tel" id="mobile-number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pincode">Pincode</label>
+                            <input type="text" id="pincode" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="house-no">House No, Building Name</label>
+                            <input type="text" id="house-no" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="street">Road Name, Area, Colony</label>
+                            <input type="text" id="street" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="city">City</label>
+                                <input type="text" id="city" required>
+                            </div>
+                            <div class="form-group half">
+                                <label for="state">State</label>
+                                <input type="text" id="state" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address-type">Address Type</label>
+                            <div class="address-type-container">
+                                <label class="address-type">
+                                    <input type="radio" name="address-type" value="home" checked>
+                                    <span>Home</span>
+                                </label>
+                                <label class="address-type">
+                                    <input type="radio" name="address-type" value="work">
+                                    <span>Work</span>
+                                </label>
+                                <label class="address-type">
+                                    <input type="radio" name="address-type" value="other">
+                                    <span>Other</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group form-checkbox">
+                            <input type="checkbox" id="default-address">
+                            <label for="default-address">Make this my default address</label>
+                        </div>
+                        <div class="map-container">
+                            <h4>Verify Location on Map</h4>
+                            <div id="address-map"></div>
+                            <p class="map-help">Drag the marker to adjust the precise delivery location</p>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="button" id="cancel-address">Cancel</button>
+                            <button type="submit" id="save-address">Save Address</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add button to Proceed to Checkout to open address modal -->
+    <script>
+        // Update the checkout button to manage addresses
+        document.getElementById('checkout-btn').addEventListener('click', function() {
+            // Open the delivery address modal
+            showDeliveryAddressModal();
+        });
+    </script>
+
+    <script src="js/medicines.js"></script>
+    <!-- OpenStreetMap Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- OpenStreetMap Geocoder JS -->
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <script>
+        // Initialize location functionality when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeLocationAutocomplete();
+            initializeAddressManagement();
+        });
+    </script>
+    <script src="js/medicines.js"></script>
+
+    <script>
+    function scrollToProducts() {
+        const productsSection = document.querySelector('.products-section');
+        if (productsSection) {
+            productsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    function scrollToSection(categoryId) {
+        const section = document.getElementById(categoryId);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+    </script>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-column">
+                    <h3 class="footer-logo">UNI<span>CARE</span></h3>
+                    <p class="footer-about">Your complete healthcare solution providing quality services for fitness, medicine, diet planning and AI-powered health assistance.</p>
+                    <div class="footer-social">
+                        <a href="https://www.snapchat.com/add/icon_918?share_id=M3ITbnj5EAU&locale=en-IN" target="_blank"  aria-label="Snapchat"><i class="fab fa-snapchat"></i></a>
+                        <a href="https://www.instagram.com/iwinsmlune_?utm_source=qr&igsh=ZDY2bXM4ZjZleGk1" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/icon-l-262687263?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="GYM.html">Fitness</a></li>
+                        <li><a href="medicines.html">Medicine</a></li>
+                        <li><a href="diet-planner.html">Diet Planner</a></li>
+                        <li><a href="ai-doctor.html">AI Doctor</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Medicine Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#covid">Covid Essentials</a></li>
+                        <li><a href="#diabetes">Diabetes Care</a></li>
+                        <li><a href="#cardiac">Cardiac Care</a></li>
+                        <li><a href="#stomach">Stomach Care</a></li>
+                        <li><a href="#vitamins">Vitamins & Supplements</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Jagannath University Jaipur </p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+91 9350456954</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>Jagannathunivesity29@gmailcom</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <p>Mon-Sat: 9:00 AM - 8:00 PM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 UNICARE. All Rights Reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+<script>
+    // Function to show the delivery address modal
+    function showAddressModal() {
+        const modal = document.getElementById('delivery-address-modal');
+        modal.style.display = 'block';
+    }
+
+    // Function to update the header address
+    function updateHeaderAddress(address) {
+        const headerAddress = document.getElementById('header-address');
+        headerAddress.textContent = address;
+    }
+
+    // Event listener for the address form submission
+    document.getElementById('address-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const nickname = document.getElementById('address-name').value;
+        const fullName = document.getElementById('full-name').value;
+        const mobileNumber = document.getElementById('mobile-number').value;
+        const houseNo = document.getElementById('house-no').value;
+        const street = document.getElementById('street').value;
+        const city = document.getElementById('city').value;
+        const state = document.getElementById('state').value;
+        const pincode = document.getElementById('pincode').value;
+        const isDefault = document.getElementById('default-address').checked;
+
+        // Create formatted address
+        const fullAddress = `${houseNo}, ${street}, ${city}, ${state} - ${pincode}`;
+        
+        // Create address data object
+        const addressData = {
+            nickname,
+            fullName,
+            mobileNumber,
+            houseNo,
+            street,
+            city,
+            state,
+            pincode,
+            fullAddress,
+            isDefault
+        };
+        
+        // Save address using the existing saveAddress function
+        saveAddress(addressData);
+        
+        // Update header address
+        updateHeaderAddress(addressData);
+        
+        // Close the modal
+        document.getElementById('delivery-address-modal').style.display = 'none';
+        
+        // Clear the form
+        this.reset();
+    });
+
+    // Close modal when clicking the close button
+    document.querySelector('.close-address-modal').addEventListener('click', function() {
+        document.getElementById('delivery-address-modal').style.display = 'none';
+    });
+
+    // Close modal when clicking outside
+    window.addEventListener('click', function(event) {
+        const modal = document.getElementById('delivery-address-modal');
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+    // Initialize the address display
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedAddress = localStorage.getItem('deliveryAddress');
+        if (savedAddress) {
+            updateHeaderAddress(savedAddress);
+        }
+        
+        // Add event listener for offers button to scroll to trending section
+        document.getElementById('offers-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            const trendingSection = document.querySelector('.trending-section');
+            if (trendingSection) {
+                trendingSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                
+                // Add highlight animation to the trending section
+                trendingSection.classList.add('highlight-section');
+                setTimeout(() => {
+                    trendingSection.classList.remove('highlight-section');
+                }, 2000);
+            }
+        });
+    });
+</script>
+<script src="js/main.js"></script>

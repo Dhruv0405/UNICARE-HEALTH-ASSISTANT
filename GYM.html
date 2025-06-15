@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GYM Fitness website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/css/lightslider.css">
+    <!-- Replace the local Font Awesome with CDN version -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="GYM.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head> <link rel="stylesheet" href="lightslider.css">
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="lightslider.js"></script>
+<script type="text/javascript" src="exercise.js"></script>
+<body>
+    <!-- Header Section with AI doctor style navigation -->
+    <div class="header">
+        <div class="header-left">
+            <h1 id="firstlogo">UNI<span>FIT</span></h1>
+        </div>
+        <div class="header-right">
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="GYM.html" class="active">Fitness</a>
+                <a href="medicines.html">Medicine</a>
+                <a href="diet-planner.html" >Diet</a>
+                <a href="ai-doctor.html">AI Doctor</a>
+            </nav>
+            <div class="auth-buttons" id="auth-section">
+                <a href="login.html" class="login-btn" id="login-btn">Login</a>
+                <a href="login.html" class="signup-btn" id="signup-btn">
+                    Sign up
+                    <div class="arrow-wrapper">
+                        <div class="arrow"></div>
+                    </div>
+                </a>
+                <!-- Add user profile section (initially hidden) -->
+                <div class="user-profile" id="user-profile" style="display: none;">
+                    <div class="user-initial" id="user-initial"></div>
+                    <div class="dropdown-menu">
+                        <a href="login.html" id="logout-btn">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
+    <!-- Login form start -->
+
+    <div class="login-form">
+    <form action="">
+    
+        <div id="closeloginform" class="fas fa-times"></div>
+        <div class="login-main">
+
+            <div class="form-content">
+                <h1 class="loginhead"> <i class="fas fa-user"></i> User Login</h1>
+                <input type="form">
+                <input type="password" name="" id="pass">
+            </div>
+        </div>
+    </form>
+    </div>
+
+</div>
+
+<div class="home">
+    <div class="main-home">
+        <div class="inner-content">
+          <img src="imain.jpg" alt="">
+            <h1> UNICARE BRINGS YOU <br> <span>UNIFIT</span></h1>
+            <p>The Best Platform For Training & Exercise. </p>
+
+            <div class="body-btn">
+                <a href="#exercise" class="try-out-link">
+                   
+                </a>
+            </div>
+        </div>
+
+
+        <div class="inner-content">
+            
+        </div>
+    </div>
+</div>
+
+
+    <div class="welcome" id="welcome">
+        <div class="main-welcome">
+            <div class="inner-content-welcome">
+                <div class="inner-content-welcome-inner">
+                    <h1>welcome to UNI<span>FIT</span></h1>
+                <p class="desc1">one stop shop for keeping your body fit and healthy with the right ingredients of diet and exercise. </p>
+                <p class="desc">you would be accompained by trainers and dieticians to keep your body stable. You can easily click on the exercise you would like to do ,it also give you the prescrition of the execises . beside our trainers will be there to guide you through each step</p>
+                <div class="body-btn-welcome">
+                    <a href="index.html#contact-section">Get in touch</a>
+                </div>
+                </div>
+                
+            </div>
+
+            <div class="inner-content-welcome">
+                <img src="gym2.png" alt="">
+            </div>
+        
+        </div>
+    </div>
+
+    <!-- Exercise Section -->
+    <div class="exercise-section" id="exercise">
+        <div class="exercise-heading">
+            <h2>Body Shaping Exercises</h2>
+            <div class="line3"></div>
+            <p>The greatest wealth is health.
+
+Exercise should be regarded as tribute to the heart.
+</p>
+        </div>
+
+        <div class="exercise-container">
+            <!-- Back Exercises -->
+            <div class="exercise-category">
+                <div class="category-header" data-target="back-exercises">
+                    <h3>Back Exercises <i class="fas fa-chevron-down"></i></h3>
+                </div>
+                <div class="exercise-list" id="back-exercises">
+                    <div class="exercise-item">
+                        <div class="exercise-image">
+                            <img src="/images/latpulldown.jpg">
+                        </div>
+                        <div class="exercise-details">
+                            <h4>Lat Pulldown</h4>
+                            <p><strong>Equipment:</strong> Cable Machine</p>
+                            <p><strong>Sets & Reps:</strong> 3 sets of 12 reps</p>
+                            <p><strong>Description:</strong> Sit at a lat pulldown machine with your thighs secured. Grab the bar with a wide grip, lean back slightly, and pull the bar down to your chest while squeezing your shoulder blades together. Slowly return to the starting position.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise-item">
+                        <div class="exercise-image">
+                            <img src="/images/seatedrow.jpg" alt="Seated Row">
+                        </div>
+                        <div class="exercise-details">
+                            <h4>Seated Row</h4>
+                            <p><strong>Equipment:</strong> Cable Machine</p>
+                            <p><strong>Sets & Reps:</strong> 3 sets of 10-12 reps</p>
+                            <p><strong>Description:</strong> Sit at a seated row machine with your feet on the platform and knees slightly bent. Pull the handle toward your lower abdomen while keeping your back straight. Squeeze your shoulder blades and slowly return to the starting position.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise-item">
+                        <div class="exercise-image">
+                            <img src="/images/barbell.jpg" alt="Barbell Row">
+                        </div>
+                        <div class="exercise-details">
+                            <h4>Barbell Row</h4>
+                            <p><strong>Equipment:</strong> Barbell</p>
+                            <p><strong>Sets & Reps:</strong> 4 sets of 8-10 reps</p>
+                            <p><strong>Description:</strong> Bend at your hips and knees, holding a barbell with an overhand grip. Keep your back flat and pull the barbell to your lower ribcage, squeezing your shoulder blades together. Lower the weight with control.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise-item">
+                        <div class="exercise-image">
+                            <img src="/images/tbar.jpg" alt="T-Bar Row">
+                        </div>
+                        <div class="exercise-details">
+                            <h4>T-Bar Row</h4>
+                            <p><strong>Equipment:</strong> T-Bar Row Machine</p>
+                            <p><strong>Sets & Reps:</strong> 3 sets of 10 reps</p>
+                            <p><strong>Description:</strong> Position yourself on the T-bar row machine with your chest against the pad. Grab the handles and pull the weight toward your chest, focusing on retracting your shoulder blades. Lower the weight with control.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise-item">
+                        <div class="exercise-image">
+                            <img src="/images/pullup.jpg" alt="Pull-ups">
+                        </div>
+                        <div class="exercise-details">
+                            <h4>Pull-ups</h4>
+                            <p><strong>Equipment:</strong> Pull-up Bar</p>
+                            <p><strong>Sets & Reps:</strong> 3 sets of max reps</p>
+                            <p><strong>Description:</strong> Hang from a pull-up bar with hands slightly wider than shoulder-width. Pull your body up until your chin clears the bar, then lower yourself with control. Focus on using your back muscles rather than your arms.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leg Exercises -->
+            <div class="exercise-category">
+                <div class="category-header" data-target="leg-exercises">
+                    <h3>Leg Exercises <i class="fas fa-chevron-down"></i></h3>
+                </div>
+                <div class="exercise-list" id="leg-exercises">
+                    <div class="exercise-item">
+                        <div class="exercise-image">
+                            <img src="/images/squat.jpg" alt="Barbell Squat">
+                        </div>
+                        <div class="exercise-details">
+                            <h4>Barbell Squat</h4>
+                            <p><strong>Equipment:</strong> Barbell, Squat Rack</p>
+                            <p><strong>Sets & Reps:</strong> 4 sets of 8-10 reps</p>
+                            <p><strong>Description:</strong> Position a barbell across your upper back and shoulders. Stand with feet shoulder-width apart and squat down until your thighs are parallel to the ground. Push through your heels to return to the starting position.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise-item">
+                        <div class="exercise-image">
+                            <img src="/images/legpress.jpg" alt="Leg Press">
+                        </div>
+                        <div class="exercise-details">
+                            <h4>Leg Press</h4>
+                            <p><strong>Equipment:</strong> Leg Press Machine</p>
+                            <p><strong>Sets & Reps:</strong> 3 sets of 12 reps</p>
+                            <p><strong>Description:</strong> Sit on the leg press machine with your feet shoulder-width apart on the platform. Release the safety and lower the platform by bending your knees. Push through your heels to extend your legs without locking your knees.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise-item">
+                        <div class="exercise-image">
+                            <img src="/images/legextention.jpg" alt="Leg Extension">
+                        </div>
+                        <div class="exercise-details">
+                            <h4>Leg Extension</h4>
+                            <p><strong>Equipment:</strong> Leg Extension Machine</p>
+                            <p><strong>Sets & Reps:</strong> 3 sets of 15 reps</p>
+                            <p><strong>Description:</strong> Sit on the leg extension machine with your ankles against the lower pad. Extend your knees to lift the weight, then lower it back with control. Focus on contracting your quadriceps throughout the movement.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise-item">
+                        <div class="exercise-image">
+                            <img src="/images/legcurl.jpg" alt="Lying Leg Curl">
+                        </div>
+                        <div class="exercise-details">
+                            <h4>Lying Leg Curl</h4>
+                            <p><strong>Equipment:</strong> Leg Curl Machine</p>
+                            <p><strong>Sets & Reps:</strong> 3 sets of 12 reps</p>
+                            <p><strong>Description:</strong> Lie face down on the leg curl machine with the pad against your ankles. Curl your legs up by bending your knees, bringing your heels toward your buttocks. Lower the weight with control.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise-item">
+                        <div class="exercise-image">
+                            <img src="/images/calf.jpg" alt="Standing Calf Raise">
+                        </div>
+                        <div class="exercise-details">
+                            <h4>Standing Calf Raise</h4>
+                            <p><strong>Equipment:</strong> Calf Raise Machine</p>
+                            <p><strong>Sets & Reps:</strong> 4 sets of 15-20 reps</p>
+                            <p><strong>Description:</strong> Stand on the calf raise machine with the balls of your feet on the platform. Lower your heels as far as possible, then raise up onto your toes as high as you can. Focus on a full range of motion and controlled movement.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Biceps Exercises -->
+            <div class="exercise-category">
+                <div class="category-header" data-target="biceps-exercises">
+                    <h3>Biceps Exercises <i class="fas fa-chevron-down"></i></h3>
+                </div>
+                <div class="exercise-list" id="biceps-exercises">
+                    <div class="exercise-item">
+                        <div class="exercise-image">
+                            <img src="/images/barbellcurl.jpg" alt="Barbell Curl">
+                        </div>
+                        <div class="exercise-details">
+                            <h4>Barbell Curl</h4>
+                            <p><strong>Equipment:</strong> Barbell</p>
+                            <p><strong>Sets & Reps:</strong> 3 sets of 10-12 reps</p>
+                            <p><strong>Description:</strong> Stand with feet shoulder-width apart holding a barbell with an underhand grip. Keep your upper arms stationary and curl the weight toward your shoulders. Lower the barbell with control.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise-item">
+                        <div class="exercise-image">
+                            <img src="/images/dumbellcurl.jpg" alt="Dumbbell Curl">
+                        </div>
+                        <div class="exercise-details">
+                            <h4>Dumbbell Curl</h4>
+                            <p><strong>Equipment:</strong> Dumbbells</p>
+                            <p><strong>Sets & Reps:</strong> 3 sets of 12 reps</p>
+                            <p><strong>Description:</strong> Stand holding dumbbells at your sides with palms facing forward. Keep your upper arms stationary and curl the weights toward your shoulders. Lower the dumbbells with control.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise-item">
+                        <div class="exercise-image">
+                            <img src="/images/preachercurl.jpg" alt="Preacher Curl">
+                        </div>
+                        <div class="exercise-details">
+                            <h4>Preacher Curl</h4>
+                            <p><strong>Equipment:</strong> Preacher Bench, EZ Bar</p>
+                            <p><strong>Sets & Reps:</strong> 3 sets of 10 reps</p>
+                            <p><strong>Description:</strong> Sit at a preacher bench with your upper arms resting on the pad. Hold an EZ bar with an underhand grip and curl the weight up. Lower the bar with control, fully extending your arms.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise-item">
+                        <div class="exercise-image">
+                            <img src="/images/cablecurl.jpg" alt="Cable Curl">
+                        </div>
+                        <div class="exercise-details">
+                            <h4>Cable Curl</h4>
+                            <p><strong>Equipment:</strong> Cable Machine</p>
+                            <p><strong>Sets & Reps:</strong> 3 sets of 15 reps</p>
+                            <p><strong>Description:</strong> Stand in front of a cable machine with a straight bar attachment set to the lowest position. Grip the bar with palms up and curl the bar toward your shoulders while keeping your upper arms stationary.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise-item">
+                        <div class="exercise-image">
+                            <img src="/images/hammercurl.jpg" alt="Hammer Curl">
+                        </div>
+                        <div class="exercise-details">
+                            <h4>Hammer Curl</h4>
+                            <p><strong>Equipment:</strong> Dumbbells</p>
+                            <p><strong>Sets & Reps:</strong> 3 sets of 12 reps</p>
+                            <p><strong>Description:</strong> Stand holding dumbbells at your sides with palms facing your body. Keep your upper arms stationary and curl the weights toward your shoulders while maintaining the neutral grip. Lower with control.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Triceps Exercises -->
+            <div class="exercise-category">
+                <div class="category-header" data-target="triceps-exercises">
+                    <h3>Triceps Exercises <i class="fas fa-chevron-down"></i></h3>
+                </div>
+                <div class="exercise-list" id="triceps-exercises">
+                    <div class="exercise-item">
+                        <div class="exercise-image">
+                            <img src="/images/tripuchdown.jpg" alt="Tricep Pushdown">
+                        </div>
+                        <div class="exercise-details">
+                            <h4>Tricep Pushdown</h4>
+                            <p><strong>Equipment:</strong> Cable Machine</p>
+                            <p><strong>Sets & Reps:</strong> 3 sets of 12-15 reps</p>
+                            <p><strong>Description:</strong> Sit facing a cable machine with a straight or V-bar attachment at upper chest height. Grab the bar with an overhand grip and push it down until your arms are fully extended. Slowly return to the starting position.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise-item">
+                        <div class="exercise-image">
+                            <img src="/images/smallcrush.jpg" alt="Skull Crushers">
+                        </div>
+                        <div class="exercise-details">
+                            <h4>Skull Crushers</h4>
+                            <p><strong>Equipment:</strong> EZ Bar, Bench</p>
+                            <p><strong>Sets & Reps:</strong> 3 sets of 10 reps</p>
+                            <p><strong>Description:</strong> Lie on a bench holding an EZ bar with an overhand grip. Extend your arms directly above your chest, then bend your elbows to lower the bar toward your forehead. Extend your arms to return to the starting position.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise-item">
+                        <div class="exercise-image">
+                            <img src="/images/tricdips.jpg" alt="Tricep Dips">
+                        </div>
+                        <div class="exercise-details">
+                            <h4>Tricep Dips</h4>
+                            <p><strong>Equipment:</strong> Dip Station or Bench</p>
+                            <p><strong>Sets & Reps:</strong> 3 sets of 10-12 reps</p>
+                            <p><strong>Description:</strong> Position yourself on parallel bars with arms extended. Lower your body by bending your elbows until your upper arms are parallel to the floor. Push yourself back up to the starting position.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise-item">
+                        <div class="exercise-image">
+                            <img src="/images/overhead.jpg" alt="Overhead Tricep Extension">
+                        </div>
+                        <div class="exercise-details">
+                            <h4>Overhead Tricep Extension</h4>
+                            <p><strong>Equipment:</strong> Dumbbell or Cable</p>
+                            <p><strong>Sets & Reps:</strong> 3 sets of 12 reps</p>
+                            <p><strong>Description:</strong> Stand or sit holding a dumbbell with both hands. Raise the dumbbell overhead, then lower it behind your head by bending your elbows. Extend your arms to raise the dumbbell back overhead.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise-item">
+                        <div class="exercise-image">
+                            <img src="/images/closegrip.jpg" alt="Close Grip Bench Press">
+                        </div>
+                        <div class="exercise-details">
+                            <h4>Close Grip Bench Press</h4>
+                            <p><strong>Equipment:</strong> Barbell, Bench</p>
+                            <p><strong>Sets & Reps:</strong> 3 sets of 8-10 reps</p>
+                            <p><strong>Description:</strong> Lie on a bench holding a barbell with hands shoulder-width apart or closer. Lower the bar to your lower chest, then press it back up by extending your arms. Keep your elbows close to your body throughout.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Abs Exercises -->
+            <div class="exercise-category">
+                <div class="category-header" data-target="abs-exercises">
+                    <h3>Abs Exercises <i class="fas fa-chevron-down"></i></h3>
+                </div>
+                <div class="exercise-list" id="abs-exercises">
+                    <div class="exercise-item">
+                        <div class="exercise-image">
+                            <img src="/images/cablecrunch.jpg" alt="Cable Crunch">
+                        </div>
+                        <div class="exercise-details">
+                            <h4>Cable Crunch</h4>
+                            <p><strong>Equipment:</strong> Cable Machine, Rope Attachment</p>
+                            <p><strong>Sets & Reps:</strong> 3 sets of 15 reps</p>
+                            <p><strong>Description:</strong> Kneel in front of a cable machine with a rope attachment at a high position. Hold the rope behind your head and crunch down, bringing your elbows toward your knees. Slowly return to the starting position.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise-item">
+                        <div class="exercise-image">
+                            <img src="/images/hangingleg.jpg" alt="Hanging Leg Raise">
+                        </div>
+                        <div class="exercise-details">
+                            <h4>Hanging Leg Raise</h4>
+                            <p><strong>Equipment:</strong> Pull-up Bar</p>
+                            <p><strong>Sets & Reps:</strong> 3 sets of 12 reps</p>
+                            <p><strong>Description:</strong> Hang from a pull-up bar with your arms fully extended. Keeping your legs straight, raise them until they form a 90-degree angle with your torso. Lower your legs with control.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise-item">
+                        <div class="exercise-image">
+                            <img src="/images/declinesitup.jpg" alt="Decline Sit-up">
+                        </div>
+                        <div class="exercise-details">
+                            <h4>Decline Sit-up</h4>
+                            <p><strong>Equipment:</strong> Decline Bench</p>
+                            <p><strong>Sets & Reps:</strong> 3 sets of 15 reps</p>
+                            <p><strong>Description:</strong> Secure your feet on a decline bench and lie back. Cross your arms over your chest or place hands behind your head. Sit up by flexing your abs to bring your chest toward your knees. Lower yourself with control.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise-item">
+                        <div class="exercise-image">
+                            <img src="/images/russ.jpg" alt="Russian Twist">
+                        </div>
+                        <div class="exercise-details">
+                            <h4>Russian Twist</h4>
+                            <p><strong>Equipment:</strong> Weight Plate or Medicine Ball</p>
+                            <p><strong>Sets & Reps:</strong> 3 sets of 20 twists (10 each side)</p>
+                            <p><strong>Description:</strong> Sit on the floor with knees bent and feet elevated. Hold a weight with both hands and lean back slightly. Twist your torso to bring the weight to one side, then the other. Keep your core engaged throughout.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise-item">
+                        <div class="exercise-image">
+                            <img src="/images/abrollout.jpg" alt="Ab Rollout">
+                        </div>
+                        <div class="exercise-details">
+                            <h4>Ab Rollout</h4>
+                            <p><strong>Equipment:</strong> Ab Wheel</p>
+                            <p><strong>Sets & Reps:</strong> 3 sets of 10 reps</p>
+                            <p><strong>Description:</strong> Kneel on the floor holding an ab wheel with both hands. Roll the wheel forward, extending your body as far as you can while keeping your core engaged. Use your abs to pull yourself back to the starting position.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trainers Section -->
+    <section class="trainers-section" id="trainer">
+        <div class="trainer-heading">
+            <h2>Meet Our Expert Trainers</h2>
+            <div class="line4"></div>
+            <p>Dedicated professionals to guide your fitness journey</p>
+        </div>
+
+        <div class="trainer-cards-container">
+            <!-- Trainer Card 1 -->
+            <div class="trainer-card">
+                <div class="trainer-picture">
+                    <!-- Placeholder image or SVG -->
+                     <img src="/images/trainer3.jpg" alt="Trainer 1" style="width:100%; height:100%; border-radius: 50%; object-fit: cover;">
+                </div>
+                <p class="name-trainer"> Alex Johnson
+                    <span>Strength & Conditioning Coach
+                    </span>
+                </p>
+                <div class="social-media">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
+                        <span class="tooltip-social">Twitter</span>
+                    </a>
+                    <a href="#">
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
+                        <span class="tooltip-social">Instagram</span>
+                    </a>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>
+                        <span class="tooltip-social">LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Trainer Card 2 -->
+             <div class="trainer-card">
+                <div class="trainer-picture">
+                     <img src="trainer1.jpg" alt="Trainer 2" style="width:100%; height:100%; border-radius: 50%; object-fit: cover;">
+                </div>
+                <p class="name-trainer"> Samantha Lee
+                    <span>Yoga & Flexibility Expert
+                    </span>
+                </p>
+                 <div class="social-media">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
+                        <span class="tooltip-social">Twitter</span>
+                    </a>
+                    <a href="#">
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
+                        <span class="tooltip-social">Instagram</span>
+                    </a>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>
+                        <span class="tooltip-social">LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+
+             <!-- Trainer Card 3 -->
+             <div class="trainer-card">
+                <div class="trainer-picture">
+                     <img src="/images/trainer4.jpg" alt="Trainer 3" style="width:100%; height:100%; border-radius: 50%; object-fit: cover;">
+                </div>
+                <p class="name-trainer"> David Chen
+                    <span>Nutritionist & Diet Planner
+                    </span>
+                </p>
+                 <div class="social-media">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
+                        <span class="tooltip-social">Twitter</span>
+                    </a>
+                    <a href="#">
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
+                        <span class="tooltip-social">Instagram</span>
+                    </a>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>
+                        <span class="tooltip-social">LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+
+             <!-- Trainer Card 4 -->
+             <div class="trainer-card">
+                <div class="trainer-picture">
+                     <img src="/images/trainer2.jpg" alt="Trainer 4" style="width:100%; height:100%; border-radius: 50%; object-fit: cover;">
+                </div>
+                <p class="name-trainer"> Maria Garcia
+                    <span>Cardio & Endurance Specialist
+                    </span>
+                </p>
+                 <div class="social-media">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
+                        <span class="tooltip-social">Twitter</span>
+                    </a>
+                    <a href="#">
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
+                        <span class="tooltip-social">Instagram</span>
+                    </a>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>
+                        <span class="tooltip-social">LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="gym-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <h2>UNI<span>FIT</span></h2>
+                </div>
+                <p>Your one-stop destination for all your fitness needs. We provide expert training, nutrition advice, and a supportive community to help you achieve your health goals.</p>
+                <div class="social-icons">
+                   <a href="https://www.snapchat.com/add/icon_918?share_id=M3ITbnj5EAU&locale=en-IN"  target="_blank" aria-label="Snapchat"><i class="fab fa-snapchat"></i></a>
+                            <a href="https://www.instagram.com/iwinsmlune_?utm_source=qr&igsh=ZDY2bXM4ZjZleGk1"  target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/icon-l-262687263?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"  aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#welcome">About Us</a></li>
+                    <li><a href="#exercise">Exercises</a></li>
+                    <li><a href="#trainer">Trainers</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Exercises</h3>
+                <ul class="footer-links">
+                    <li><a href="#back-exercises">Back Workouts</a></li>
+                    <li><a href="#leg-exercises">Leg Workouts</a></li>
+                    <li><a href="#biceps-exercises">Biceps Workouts</a></li>
+                    <li><a href="#triceps-exercises">Triceps Workouts</a></li>
+                    <li><a href="#abs-exercises">Abs Workouts</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Jagannath University Jaipur </p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p>+91 9350456954</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>Jagannathunivesity29@gmailcom</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <p>Mon-Sat: 6:00 AM - 10:00 PM</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 UNIFIT. All Rights Reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Responsive Menu Script -->
+    <script>
+        // Menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.querySelector('#menubar');
+            const navbar = document.querySelector('.navbar');
+            const header = document.querySelector('.header');
+            
+            // Add scroll event for fixed header
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.classList.add('fixed-header');
+                } else {
+                    header.classList.remove('fixed-header');
+                }
+            });
+            
+            if (menuBtn) {
+                menuBtn.addEventListener('click', function() {
+                    navbar.classList.toggle('active');
+                });
+            }
+            
+            // Close menu when clicking elsewhere
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.navbar') && !event.target.closest('#menubar')) {
+                    navbar.classList.remove('active');
+                }
+            });
+            
+            // Login form functionality
+            const loginBtn = document.querySelector('#loginbtn');
+            const loginForm = document.querySelector('.login-form');
+            const closeLoginForm = document.querySelector('#closeloginform');
+            
+            if (loginBtn) {
+                loginBtn.addEventListener('click', function() {
+                    loginForm.classList.add('active');
+                });
+            }
+            
+            if (closeLoginForm) {
+                closeLoginForm.addEventListener('click', function() {
+                    loginForm.classList.remove('active');
+                });
+            }
+        });
+    </script>
+    <!-- Add this before the closing body tag -->
+    <script src="js/main.js"></script>
+</body>
+</html>

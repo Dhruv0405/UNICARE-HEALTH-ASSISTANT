@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNIFIT Diet Planner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/diet-planner.css">
+</head>
+<body>
+    <!-- Header Section with navigation -->
+    <div class="header">
+        <div class="header-left">
+            <h1 id="firstlogo">UNI<span>FIT</span></h1>
+        </div>
+        <div class="header-right">
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="GYM.html">Fitness</a>
+                <a href="medicines.html">Medicine</a>
+                <a href="diet-planner.html" class="active">Diet</a>
+                <a href="ai-doctor.html">AI Doctor</a>
+            </nav>
+            <div class="auth-buttons" id="auth-section">
+                <a href="login.html" class="login-btn" id="login-btn">Login</a>
+                <a href="login.html" class="signup-btn" id="signup-btn">
+                    Sign up
+                    <div class="arrow-wrapper">
+                        <div class="arrow"></div>
+                    </div>
+                </a>
+                <!-- Add user profile section (initially hidden) -->
+                <div class="user-profile" id="user-profile" style="display: none;">
+                    <div class="user-initial" id="user-initial"></div>
+                    <div class="dropdown-menu">
+                        <a href="login.html" id="logout-btn">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>Personalized Diet Planner</h1>
+            <p>Get a customized meal plan based on your body metrics and goals</p>
+        </div>
+    </div>
+
+    <!-- BMI Calculator Section -->
+    <div class="calculator-section">
+        <div class="calculator-container">
+            <h2>Calculate Your BMI</h2>
+            <p>Enter your height and weight to calculate your Body Mass Index (BMI)</p>
+            
+            <div class="calculator-form">
+                <div class="form-group">
+                    <label for="height">Height (cm)</label>
+                    <input type="number" id="height" placeholder="Enter your height" min="100" max="250">
+                </div>
+                
+                <div class="form-group">
+                    <label for="weight">Weight (kg)</label>
+                    <input type="number" id="weight" placeholder="Enter your weight" min="30" max="300">
+                </div>
+                
+                <button id="calculate-btn">Calculate BMI</button>
+            </div>
+            
+            <div class="result-container" id="result-container">
+                <div class="bmi-result">
+                    <h3>Your BMI Result</h3>
+                    <div class="bmi-value" id="bmi-value">--</div>
+                    <div class="bmi-category" id="bmi-category">--</div>
+                </div>
+                
+                <div class="bmi-scale">
+                    <div class="scale-item underweight">
+                        <span class="scale-label">Underweight</span>
+                        <span class="scale-value">&lt;18.5</span>
+                    </div>
+                    <div class="scale-item normal">
+                        <span class="scale-label">Normal</span>
+                        <span class="scale-value">18.5-24.9</span>
+                    </div>
+                    <div class="scale-item overweight">
+                        <span class="scale-label">Overweight</span>
+                        <span class="scale-value">25-29.9</span>
+                    </div>
+                    <div class="scale-item obese">
+                        <span class="scale-label">Obese</span>
+                        <span class="scale-value">&gt;30</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Diet Plans Section -->
+    <div class="diet-plans-section">
+        <h2>Your Personalized Diet Plan</h2>
+        <p>Based on your BMI calculation, here's a recommended diet plan</p>
+        
+        <!-- Diet Plan Container -->
+        <div class="diet-plan-container" id="diet-plan-container">
+            <!-- This will be populated by JavaScript -->
+            <div class="diet-plan-placeholder">
+                <i class="fas fa-utensils"></i>
+                <p>Calculate your BMI to get a personalized diet plan</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nutrition Information Section -->
+    <div class="nutrition-info-section">
+        <h2>Nutrition Information</h2>
+        
+        <div class="info-cards">
+            <div class="info-card">
+                <div class="info-icon">
+                    <i class="fas fa-apple-alt"></i>
+                </div>
+                <h3>Balanced Diet</h3>
+                <p>A balanced diet includes proteins, carbohydrates, fats, vitamins, and minerals in the right proportions to maintain good health.</p>
+            </div>
+            
+            <div class="info-card">
+                <div class="info-icon">
+                    <i class="fas fa-tint"></i>
+                </div>
+                <h3>Hydration</h3>
+                <p>Drink at least 8 glasses of water daily to stay hydrated. Water helps in digestion, absorption, and transportation of nutrients.</p>
+            </div>
+            
+            <div class="info-card">
+                <div class="info-icon">
+                    <i class="fas fa-carrot"></i>
+                </div>
+                <h3>Portion Control</h3>
+                <p>Control your portion sizes to avoid overeating. Use smaller plates and listen to your body's hunger and fullness cues.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-column">
+                    <h3 class="footer-logo">UNI<span>CARE</span></h3>
+                    <p class="footer-about">Your complete healthcare solution providing quality services for fitness, medicine, diet planning and AI-powered health assistance.</p>
+                    <div class="footer-social">
+                       <a href="https://www.snapchat.com/add/icon_918?share_id=M3ITbnj5EAU&locale=en-IN"  target="_blank" aria-label="Snapchat"><i class="fab fa-snapchat"></i></a>
+                            <a href="https://www.instagram.com/iwinsmlune_?utm_source=qr&igsh=ZDY2bXM4ZjZleGk1"  target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/icon-l-262687263?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"  aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="GYM.html">Fitness</a></li>
+                        <li><a href="medicines.html">Medicine</a></li>
+                        <li><a href="diet-planner.html">Diet Planner</a></li>
+                        <li><a href="ai-doctor.html">AI Doctor</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Nutrition Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">BMI Calculator</a></li>
+                        <li><a href="#">Meal Plans</a></li>
+                        <li><a href="#">Nutrition Facts</a></li>
+                        <li><a href="#">Healthy Recipes</a></li>
+                        <li><a href="#">Diet Tips</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Jagannath University Jaipur </p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+91 9350456954</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>Jagannathunivesity29@gmailcom</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <p>Mon-Sat: 9:00 AM - 8:00 PM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 UNICARE. All Rights Reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/diet-planner.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

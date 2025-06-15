@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniCare - AI Doctor</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/aidoctor.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section - Removing address, offers and cart buttons -->
+    <div class="header">
+        <div class="header-left">
+            <h1 id="firstlogo">UNI<span>CARE</span></h1>
+        </div>
+        <div class="header-right">
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="GYM.html" class="active">Fitness</a>
+                <a href="medicines.html">Medicine</a>
+                <a href="diet-planner.html" >Diet</a>
+                <a href="ai-doctor.html">AI Doctor</a>
+            </nav>
+            <div class="auth-buttons" id="auth-section">
+                <a href="login.html" class="login-btn" id="login-btn">Login</a>
+                <a href="login.html" class="signup-btn" id="signup-btn">
+                    Sign up
+                    <div class="arrow-wrapper">
+                        <div class="arrow"></div>
+                    </div>
+                </a>
+                <!-- Add user profile section (initially hidden) -->
+                <div class="user-profile" id="user-profile" style="display: none;">
+                    <div class="user-initial" id="user-initial"></div>
+                    <div class="dropdown-menu">
+                        <a href="#" id="logout-btn">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navigation Menu - Ensuring proper display of links -->
+
+    <!-- Banner Image Section -->
+    <div class="ai-banner-container">
+        <img src="images/ai-healthcare-banner.jpg" alt="AI Healthcare Banner" class="ai-banner-image">
+        <div class="ai-banner-text">
+            <h2>AI-Powered Healthcare</h2>
+            <p>Get instant medical guidance from our advanced health assistant</p>
+        </div>
+    </div>
+
+    <!-- AI Doctor Section -->
+    <div class="ai-doctor-container">
+        <div class="ai-doctor-info">
+            <img src="images/aidoctor.jpg" alt="AI Doctor" class="doctor-image">
+            <h2>UniCare AI Health Assistant</h2>
+            <p>Our AI-powered health assistant is here to help you understand your symptoms and provide guidance on next steps.</p>
+            
+            <ul class="feature-list">
+                <li><i class="fas fa-robot"></i> 24/7 Symptom Assessment</li>
+                <li><i class="fas fa-heartbeat"></i> Health Condition Information</li>
+                <li><i class="fas fa-pills"></i> Medication Guidance</li>
+                <li><i class="fas fa-user-md"></i> Doctor Consultation Recommendations</li>
+            </ul>
+            
+            <div class="common-symptoms">
+                <h3>Common Symptoms</h3>
+                <p>Click on any symptom to quickly ask about it:</p>
+                <div class="symptom-chips">
+                    <div class="symptom-chip" onclick="addSymptom('headache')">Headache</div>
+                    <div class="symptom-chip" onclick="addSymptom('fever')">Fever</div>
+                    <div class="symptom-chip" onclick="addSymptom('cough')">Cough</div>
+                    <div class="symptom-chip" onclick="addSymptom('sore throat')">Sore Throat</div>
+                    <div class="symptom-chip" onclick="addSymptom('stomach pain')">Stomach Pain</div>
+                    <div class="symptom-chip" onclick="addSymptom('back pain')">Back Pain</div>
+                    <div class="symptom-chip" onclick="addSymptom('rash')">Skin Rash</div>
+                    <div class="symptom-chip" onclick="addSymptom('fatigue')">Fatigue</div>
+                </div>
+            </div>
+            
+            <div class="disclaimer">
+                <strong>Important:</strong> This AI assistant provides general information only and is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.
+            </div>
+        </div>
+        
+        <div class="ai-doctor-chat">
+            <div class="chat-header">
+                <img src="images/doctoricon.jpeg" alt="AI Doctor Avatar">
+                <h2>UniCare Health Assistant</h2>
+            </div>
+            
+            <!-- Find this section in your HTML file and replace the existing message -->
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot-message">
+                    Hello! I'm your UniCare Health Assistant. How can I help you today? Please tell me about any symptoms or health concerns you're experiencing, and I'll do my best to provide guidance. Remember, I'm here to offer information, not to replace professional medical advice.
+                </div>
+            </div>
+            
+            <div class="chat-input">
+                <textarea id="user-input" placeholder="Describe your symptoms here..." rows="1"></textarea>
+                <button id="send-button" onclick="sendMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-column">
+                    <h3 class="footer-logo">UNI<span>CARE</span></h3>
+                    <p class="footer-about">Your complete healthcare solution providing quality services for fitness, medicine, diet planning and AI-powered health assistance.</p>
+                    <div class="footer-social">
+                        <a href="https://www.snapchat.com/add/icon_918?share_id=M3ITbnj5EAU&locale=en-IN"  target="_blank" aria-label="Snapchat"><i class="fab fa-snapchat"></i></a>
+                            <a href="https://www.instagram.com/iwinsmlune_?utm_source=qr&igsh=ZDY2bXM4ZjZleGk1"  target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/icon-l-262687263?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"  aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                       </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="GYM.html">Fitness</a></li>
+                        <li><a href="medicines.html">Medicine</a></li>
+                        <li><a href="diet-planner.html">Diet Planner</a></li>
+                        <li><a href="ai-doctor.html">AI Doctor</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Health Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Symptom Checker</a></li>
+                        <li><a href="#">Health Articles</a></li>
+                        <li><a href="#">Medical Conditions</a></li>
+                        <li><a href="#">Medication Information</a></li>
+                        <li><a href="#">First Aid Guides</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Jagannath University Jaipur </p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+91 9350456954</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>Jagannathunivesity29@gmailcom</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <p>Mon-Sat: 9:00 AM - 8:00 PM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 UNICARE. All Rights Reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Auto-resize textarea as user types
+        const textarea = document.getElementById('user-input');
+        textarea.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+        });
+
+        // Allow sending message with Enter key (Shift+Enter for new line)
+        textarea.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+
+        // Function to add symptom to input field
+        function addSymptom(symptom) {
+            const currentText = textarea.value;
+            if (currentText.trim() === '') {
+                textarea.value = `I'm experiencing ${symptom}. `;
+            } else {
+                textarea.value = `${currentText} I also have ${symptom}. `;
+            }
+            textarea.focus();
+            // Trigger the input event to resize the textarea
+            const event = new Event('input', { bubbles: true });
+            textarea.dispatchEvent(event);
+        }
+
+        // Function to send message
+        function sendMessage() {
+            const userInput = document.getElementById('user-input').value.trim();
+            if (userInput === '') return;
+
+            // Add user message to chat
+            addMessage(userInput, 'user');
+            
+            // Clear input field and reset height to a comfortable default
+            document.getElementById('user-input').value = '';
+            document.getElementById('user-input').style.height = '44px'; // Changed from 24px to 44px
+            
+            // Show typing indicator
+            showTypingIndicator();
+            
+            // Process the message and get AI response (simulated)
+            setTimeout(() => {
+                // Remove typing indicator
+                removeTypingIndicator();
+                
+                // Get AI response based on user input
+                const aiResponse = getAIResponse(userInput);
+                
+                // Add AI response to chat
+                addMessage(aiResponse, 'bot');
+            }, 1500); // Simulate AI thinking time
+        }
+
+        // Function to add message to chat
+        function addMessage(text, sender) {
+            const chatMessages = document.getElementById('chat-messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+            messageDiv.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
+            
+            // Use innerHTML instead of textContent to render HTML tags
+            messageDiv.innerHTML = text;
+            
+            chatMessages.appendChild(messageDiv);
+            
+            // Scroll to bottom of chat
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Function to show typing indicator
+        // Add this to your existing script section
+        
+        // Function to toggle FAQ answers
+        function toggleFAQ(element) {
+            // Toggle active class on question
+            element.classList.toggle('active');
+            
+            // Toggle active class on answer
+            const answer = element.nextElementSibling;
+            answer.classList.toggle('active');
+        }
+        
+        // Enhance the typing indicator animation
+        function showTypingIndicator() {
+            const chatMessages = document.getElementById('chat-messages');
+            const typingDiv = document.createElement('div');
+            typingDiv.classList.add('message', 'bot-message', 'loading');
+            typingDiv.id = 'typing-indicator';
+            
+            const typingIndicator = document.createElement('div');
+            typingIndicator.classList.add('typing-indicator');
+            
+            for (let i = 0; i < 3; i++) {
+                const dot = document.createElement('span');
+                // Add a small delay to each dot for a more natural effect
+                dot.style.animationDelay = (i * 0.15) + 's';
+                typingIndicator.appendChild(dot);
+            }
+            
+            typingDiv.appendChild(typingIndicator);
+            chatMessages.appendChild(typingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Function to remove typing indicator
+        function removeTypingIndicator() {
+            const typingIndicator = document.getElementById('typing-indicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+
+        // Function to get AI response based on user input (simplified for demo)
+        function getAIResponse(userInput) {
+            // Convert input to lowercase for easier matching
+            const input = userInput.toLowerCase();
+            
+            // Check for common symptoms and provide responses
+            if (input.includes('headache')) {
+                return "<strong>POSSIBLE CAUSES:</strong>\n• Stress\n• Dehydration\n• Lack of sleep\n• Eye strain\n\n<strong>RECOMMENDED ACTIONS:</strong>\n• Take over-the-counter pain relievers like acetaminophen or ibuprofen\n• Stay hydrated\n• Get adequate rest\n\n<strong>WHEN TO SEE A DOCTOR:</strong>\n• If headache is severe or persistent\n• If accompanied by fever, vision changes, or neck stiffness\n• If it interferes with daily activities";
+            } 
+            else if (input.includes('fever')) {
+                return "<strong>WHAT IT MEANS:</strong>\n• Sign that your body is fighting an infection\n\n<strong>HOME CARE:</strong>\n• Rest and stay hydrated\n• Take acetaminophen or ibuprofen to reduce fever\n• Use lightweight clothing and bedding\n\n<strong>SEEK MEDICAL ATTENTION IF:</strong>\n• Fever is above 103°F/39.4°C\n• Lasts more than three days\n• Accompanied by severe symptoms\n• For children, consult pediatrician for guidance";
+            }
+            else if (input.includes('cough')) {
+                return "<strong>COMMON CAUSES:</strong>\n• Viral infections\n• Allergies\n• Environmental irritants\n\n<strong>SELF-CARE MEASURES:</strong>\n• Stay hydrated\n• Use honey (if over 1 year old)\n• Try cough drops for soothing\n\n<strong>CONSULT HEALTHCARE PROVIDER IF:</strong>\n• Cough persists for more than 2 weeks\n• Produces colored phlegm\n• Accompanied by shortness of breath, chest pain, or fever";
+            }
+            else if (input.includes('sore throat')) {
+                return "<strong>TYPICAL CAUSES:</strong>\n• Viral infections like common cold\n• Bacterial infections\n• Allergies or irritants\n\n<strong>RELIEF MEASURES:</strong>\n• Gargle with warm salt water\n• Drink warm liquids\n• Use throat lozenges\n\n<strong>WARNING SIGNS:</strong>\n• Severe pain lasting longer than a week\n• Difficulty swallowing\n• Fever over 101°F\n• White patches on tonsils (may indicate strep throat)";
+            }
+            else if (input.includes('stomach') || input.includes('abdominal') || input.includes('belly')) {
+                return "<strong>POTENTIAL CAUSES:</strong>\n• Indigestion\n• Gas or bloating\n• Food intolerance\n• More serious conditions\n\n<strong>HOME REMEDIES:</strong>\n• Rest and avoid spicy/fatty foods\n• Take antacids if appropriate\n• Apply gentle heat to the abdomen\n\n<strong>EMERGENCY SYMPTOMS:</strong>\n• Severe or persistent pain\n• Fever or vomiting\n• Bloody stools\n• Yellowing of the skin";
+            }
+            else if (input.includes('back pain')) {
+                return "<strong>COMMON CAUSES:</strong>\n• Muscle strain\n• Poor posture\n• Overexertion\n• Spinal issues\n\n<strong>RELIEF STRATEGIES:</strong>\n• Rest and gentle stretching\n• Over-the-counter pain relievers\n• Ice for first 48-72 hours, then heat\n\n<strong>RED FLAGS:</strong>\n• Pain radiating down legs\n• Numbness or tingling\n• Following an injury\n• Loss of bladder/bowel control";
+            }
+            else if (input.includes('rash') || input.includes('skin')) {
+                return "<strong>POSSIBLE TRIGGERS:</strong>\n• Allergic reactions\n• Infections\n• Skin conditions\n• Environmental factors\n\n<strong>CARE TIPS:</strong>\n• Avoid scratching\n• Use mild soap\n• Apply moisturizer to dry areas\n• Try over-the-counter hydrocortisone cream\n\n<strong>SEEK IMMEDIATE CARE IF:</strong>\n• Rash is widespread or painful\n• Blistering occurs\n• Accompanied by fever\n• Facial/throat swelling present";
+            }
+            else if (input.includes('tired') || input.includes('fatigue') || input.includes('exhausted')) {
+                return "<strong>CONTRIBUTING FACTORS:</strong>\n• Poor sleep quality\n• Stress or anxiety\n• Overexertion\n• Medical conditions\n\n<strong>LIFESTYLE ADJUSTMENTS:</strong>\n• Aim for 7-9 hours of quality sleep\n• Stay hydrated and eat nutritious foods\n• Engage in regular physical activity\n• Practice stress management\n\n<strong>CONSULT A DOCTOR IF:</strong>\n• Fatigue persists despite lifestyle changes\n• Accompanied by unexplained weight changes\n• Persistent pain present\n• Mood changes occur";
+            }
+            else if (input.includes('covid') || input.includes('coronavirus')) {
+                return "<strong>COMMON SYMPTOMS:</strong>\n• Fever and chills\n• Cough and shortness of breath\n• Fatigue and body aches\n• Loss of taste/smell\n\n<strong>RECOMMENDED ACTIONS:</strong>\n• Get tested if symptoms appear\n• Follow local health guidelines for isolation\n• Rest and stay hydrated\n• Take over-the-counter medications for symptom relief\n\n<strong>EMERGENCY WARNING SIGNS:</strong>\n• Difficulty breathing\n• Persistent chest pain or pressure\n• Confusion or inability to wake/stay awake\n• Bluish lips or face";
+            }
+            else if (input.includes('blood pressure') || input.includes('hypertension')) {
+                return "<strong>ABOUT HYPERTENSION:</strong>\n• Often has no symptoms but can lead to serious health problems\n• Risk factors include age, family history, diet, and lifestyle\n\n<strong>MANAGEMENT STRATEGIES:</strong>\n• Regular exercise\n• Balanced diet low in sodium\n• Limited alcohol consumption\n• No smoking\n• Stress management\n\n<strong>MEDICAL CARE:</strong>\n• Take medications as prescribed\n• Monitor blood pressure regularly\n• Attend regular check-ups";
+            }
+            else if (input.includes('diabetes') || input.includes('blood sugar')) {
+                return "<strong>DIABETES MANAGEMENT:</strong>\n• Monitor blood sugar levels regularly\n• Take medications as prescribed\n• Follow a balanced diet\n• Engage in regular physical activity\n\n<strong>SIGNS OF HIGH BLOOD SUGAR:</strong>\n• Increased thirst\n• Frequent urination\n• Fatigue\n• Blurred vision\n\n<strong>SIGNS OF LOW BLOOD SUGAR:</strong>\n• Shakiness\n• Sweating\n• Confusion\n• Irritability";
+            }
+            else {
+                return "<strong>GENERAL RECOMMENDATIONS:</strong>\n• Monitor your condition for 24-48 hours\n• Stay hydrated and get plenty of rest\n• Consider appropriate over-the-counter medications\n\n<strong>LIFESTYLE SUPPORT:</strong>\n• Maintain a balanced diet\n• Ensure adequate sleep\n• Manage stress levels\n\n<strong>WHEN TO SEEK MEDICAL HELP:</strong>\n• If condition worsens or persists beyond a few days\n• If you develop high fever, severe pain, or difficulty breathing\n• If symptoms interfere with daily activities";
+            }
+        }
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>

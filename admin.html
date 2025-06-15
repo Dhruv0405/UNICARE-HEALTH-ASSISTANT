@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniCare - Admin Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Add Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .admin-container {
+            max-width: 1400px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #4e54c8, #8f94fb);
+            border-radius: 8px;
+            color: white;
+        }
+        .admin-header h2 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .user-count {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 16px;
+        }
+        .user-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .user-table th {
+            background: #f8f9fa;
+            color: #2c3e50;
+            font-weight: 600;
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 2px solid #e9ecef;
+        }
+        .user-table td {
+            padding: 15px 20px;
+            border-bottom: 1px solid #e9ecef;
+            color: #2c3e50;
+        }
+        .user-table tr:hover {
+            background-color: #f8f9fa;
+            transition: background-color 0.3s ease;
+        }
+        .address-management {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            margin-top: 30px;
+        }
+        #user-select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            transition: border-color 0.3s ease;
+        }
+        #user-select:focus {
+            outline: none;
+            border-color: #4e54c8;
+        }
+        .address-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 20px;
+        }
+        .address-table th {
+            background: #f8f9fa;
+            color: #2c3e50;
+            font-weight: 600;
+            padding: 15px;
+            text-align: left;
+            border-bottom: 2px solid #e9ecef;
+        }
+        .address-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .current-delivery-address {
+            background-color: #e8f5fe;
+        }
+        .current-delivery-address td {
+            border-left: 4px solid #2196f3;
+            color: #1976d2;
+            font-weight: 500;
+        }
+        .admin-section {
+            padding: 0 30px;
+            margin-bottom: 40px;
+        }
+        .admin-section h3 {
+            color: #2c3e50;
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .user-addresses-container {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            min-height: 120px;
+        }
+        /* Status badges */
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .status-active {
+            background-color: #e3f2fd;
+            color: #1976d2;
+        }
+        .status-inactive {
+            background-color: #f5f5f5;
+            color: #757575;
+        }
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .admin-container {
+                margin: 15px;
+                padding: 15px;
+            }
+            .admin-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            .user-table {
+                display: block;
+                overflow-x: auto;
+            }
+            .admin-section {
+                padding: 0 15px;
+            }
+        }
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-column {
+                flex: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <h1 id="firstlogo">UNI<span>CARE</span></h1>
+        </div>
+        <div class="header-right">
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="admin.html" class="active">Admin</a>
+            </nav>
+            <div class="auth-buttons" id="auth-section">
+                <div class="user-profile" id="admin-profile">
+                    <div class="user-initial" id="admin-initial">A</div>
+                    <div class="dropdown-menu">
+                        <a href="#" id="admin-logout-btn">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="admin-login" class="admin-login">
+        <h2>Admin Login</h2>
+        <form id="admin-login-form">
+            <input type="password" id="admin-password" placeholder="Admin Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <div id="admin-dashboard" class="admin-container" style="display: none;">
+        <div class="admin-header">
+            <h2>User Management</h2>
+            <p>Total Users: <span id="user-count">0</span></p>
+        </div>
+        <table class="user-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Registration Date</th>
+                </tr>
+            </thead>
+            <tbody id="user-table-body">
+                <!-- User data will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Add this to the admin-dashboard div -->
+    <div class="admin-section">
+        <h3>User Addresses</h3>
+        <div class="address-management">
+            <select id="user-select">
+                <option value="">Select a user</option>
+                <!-- User options will be added dynamically -->
+            </select>
+            <div id="user-addresses" class="user-addresses-container">
+                <!-- User addresses will be displayed here -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About UniCare</h3>
+                    <p>UniCare is a comprehensive healthcare platform providing medical services, fitness programs, medicine delivery, and personalized health solutions.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="GYM.html">Fitness Programs</a></li>
+                        <li><a href="medicines.html">Medicine Delivery</a></li>
+                        <li><a href="diet-planner.html">Personalized Diet Plans</a></li>
+                        <li><a href="ai-doctor.html">AI Health Consultation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Jagannath University Jaipur </p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+91 9350456954</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>Jagannathunivesity29@gmailcom</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <p>Mon-Sat: 9:00 AM - 8:00 PM</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 UNICARE. All Rights Reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Function to load user addresses in admin panel
+        function loadUserAddresses() {
+            const userSelect = document.getElementById('user-select');
+            const userAddressesContainer = document.getElementById('user-addresses');
+            
+            // Clear previous options
+            userSelect.innerHTML = '<option value="">Select a user</option>';
+            userAddressesContainer.innerHTML = '';
+            
+            // Get all addresses from localStorage
+            const allAddressesJSON = localStorage.getItem('allUserAddresses');
+            if (!allAddressesJSON) {
+                userAddressesContainer.innerHTML = '<p>No user addresses found</p>';
+                return;
+            }
+            
+            const allAddresses = JSON.parse(allAddressesJSON);
+            const userEmails = Object.keys(allAddresses);
+            
+            // Add users to select dropdown
+            userEmails.forEach(email => {
+                const option = document.createElement('option');
+                option.value = email;
+                option.textContent = email;
+                userSelect.appendChild(option);
+            });
+            
+            // Add event listener to select
+            userSelect.addEventListener('change', function() {
+                const selectedUser = this.value;
+                displayUserAddresses(selectedUser, allAddresses);
+            });
+        }
+        
+        // Function to display addresses for a selected user
+        function displayUserAddresses(userEmail, allAddresses) {
+            const userAddressesContainer = document.getElementById('user-addresses');
+            userAddressesContainer.innerHTML = '';
+            
+            if (!userEmail || !allAddresses[userEmail] || allAddresses[userEmail].length === 0) {
+                userAddressesContainer.innerHTML = '<p>No addresses found for this user</p>';
+                return;
+            }
+            
+            const addresses = allAddresses[userEmail];
+            
+            // Create a table to display addresses
+            const table = document.createElement('table');
+            table.className = 'address-table';
+            table.innerHTML = `
+                <thead>
+                    <tr>
+                        <th>Nickname</th>
+                        <th>Address</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            `;
+            
+            const tbody = table.querySelector('tbody');
+            
+            // Add each address to the table
+            addresses.forEach(address => {
+                const row = document.createElement('tr');
+                // Add a special class for the current delivery address
+                if (address.isDefault) {
+                    row.className = 'current-delivery-address';
+                }
+                row.innerHTML = `
+                    <td>${address.nickname}</td>
+                    <td>${address.fullAddress}</td>
+                    <td>${address.isDefault ? '🚚 Current Delivery Address' : 'Saved Address'}</td>
+                `;
+                tbody.appendChild(row);
+            });
+            
+            userAddressesContainer.appendChild(table);
+        }
+        
+        // Call this function when admin dashboard loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simple admin password - in a real app, use proper authentication
+            const ADMIN_PASSWORD = 'admin123';
+            
+            const adminLoginForm = document.getElementById('admin-login-form');
+            const adminLogin = document.getElementById('admin-login');
+            const adminDashboard = document.getElementById('admin-dashboard');
+            const adminProfile = document.getElementById('admin-profile');
+            const adminInitial = document.getElementById('admin-initial');
+            const adminLogoutBtn = document.getElementById('admin-logout-btn');
+            
+            // Check if admin is logged in
+            const isAdminLoggedIn = localStorage.getItem('adminLoggedIn') === 'true';
+            
+            if (isAdminLoggedIn) {
+                adminLogin.style.display = 'none';
+                adminDashboard.style.display = 'block';
+                adminProfile.style.display = 'block';
+                loadUsers();
+                loadUserAddresses(); // Load user addresses if available
+            } else {
+                adminProfile.style.display = 'none';
+            }
+            
+            // Admin login
+            adminLoginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const password = document.getElementById('admin-password').value;
+                
+                if (password === ADMIN_PASSWORD) {
+                    localStorage.setItem('adminLoggedIn', 'true');
+                    adminLogin.style.display = 'none';
+                    adminDashboard.style.display = 'block';
+                    adminProfile.style.display = 'block';
+                    loadUsers();
+                    loadUserAddresses(); // Load user addresses if available
+                } else {
+                    alert('Invalid admin password');
+                }
+            });
+            
+            // Toggle dropdown on click
+            adminInitial.addEventListener('click', function(e) {
+                e.stopPropagation();
+                adminInitial.classList.toggle('active');
+                document.querySelector('#admin-profile .dropdown-menu').classList.toggle('show');
+            });
+            
+            // Close dropdown when clicking elsewhere
+            document.addEventListener('click', function(e) {
+                if (!adminProfile.contains(e.target)) {
+                    document.querySelector('#admin-profile .dropdown-menu').classList.remove('show');
+                    adminInitial.classList.remove('active');
+                }
+            });
+            
+            // Admin logout
+            adminLogoutBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.removeItem('adminLoggedIn');
+                adminLogin.style.display = 'block';
+                adminDashboard.style.display = 'none';
+                adminProfile.style.display = 'none';
+            });
+        });
+
+        // Load users from users.json
+        function loadUsers() {
+            fetch('/users.json')
+                .then(response => response.json())
+                .then(users => {
+                    const userTableBody = document.getElementById('user-table-body');
+                    const userCount = document.getElementById('user-count');
+                    const userSelect = document.getElementById('user-select');
+                    
+                    userCount.textContent = users.length;
+                    userTableBody.innerHTML = '';
+                    userSelect.innerHTML = '<option value="">Select a user</option>';
+                    
+                    users.forEach(user => {
+                        const row = document.createElement('tr');
+                        
+                        // Format date
+                        const date = new Date(user.date);
+                        const formattedDate = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+                        
+                        row.innerHTML = `
+                            <td>${user.id}</td>
+                            <td>${user.name}</td>
+                            <td>${user.email}</td>
+                            <td>${formattedDate}</td>
+                            <td>${user.address || 'No address'}</td>
+                        `;
+                        
+                        userTableBody.appendChild(row);
+                        
+                        // Add user to select dropdown - Use email instead of ID
+                        const option = document.createElement('option');
+                        option.value = user.email; // Changed from user.id to user.email
+                        option.textContent = `${user.name} (${user.email})`;
+                        userSelect.appendChild(option);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading users:', error);
+                    alert('Error loading users. See console for details.');
+                });
+        }
+
+        // Add event listener for user selection
+        document.getElementById('user-select').addEventListener('change', function(e) {
+            const userEmail = e.target.value;
+            const userAddressesContainer = document.getElementById('user-addresses');
+            
+            if (!userEmail) {
+                userAddressesContainer.innerHTML = '<p>Please select a user to view their addresses</p>';
+                return;
+            }
+            
+            // Get addresses from localStorage
+            const allAddressesJSON = localStorage.getItem('allUserAddresses');
+            if (!allAddressesJSON) {
+                userAddressesContainer.innerHTML = '<p>No addresses found in localStorage</p>';
+                return;
+            }
+            
+            const allAddresses = JSON.parse(allAddressesJSON);
+            console.log('All addresses:', allAddresses);
+            console.log('Looking for email:', userEmail);
+            
+            // Check for addresses case-insensitively
+            const userEmailLower = userEmail.toLowerCase();
+            let userAddresses = null;
+            
+            // Look for addresses with case-insensitive email matching
+            Object.keys(allAddresses).forEach(email => {
+                console.log('Comparing:', email.toLowerCase(), 'with:', userEmailLower);
+                if (email.toLowerCase() === userEmailLower) {
+                    userAddresses = allAddresses[email];
+                    console.log('Found addresses:', userAddresses);
+                }
+            });
+            
+            if (!userAddresses || userAddresses.length === 0) {
+                userAddressesContainer.innerHTML = `
+                    <p>No addresses found for this user</p>
+                    <p>Debug info:</p>
+                    <ul>
+                        <li>Looking for email: ${userEmail}</li>
+                        <li>Available emails: ${Object.keys(allAddresses).join(', ')}</li>
+                    </ul>
+                `;
+                return;
+            }
+            
+            // Display addresses in cards
+            const addressHTML = userAddresses.map(address => `
+                <div class="address-card">
+                    <h4>${address.nickname || 'Delivery Address'}</h4>
+                    <p>${address.fullAddress}</p>
+                    <p>Default: ${address.isDefault ? 'Yes' : 'No'}</p>
+                </div>
+            `).join('');
+            
+            userAddressesContainer.innerHTML = addressHTML;
+        });
+    </script>
+    <script>
+        // Toggle password visibility
+        document.getElementById('toggle-password').addEventListener('click', function() {
+            const passwordInput = document.getElementById('admin-password');
+            const icon = this;
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            }
+        });
+        
+        // Form submission with validation
+        document.getElementById('admin-login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const password = document.getElementById('admin-password').value;
+            const messageElement = document.getElementById('login-message');
+            
+            // Clear previous messages
+            messageElement.className = 'login-message';
+            messageElement.style.display = 'none';
+            messageElement.textContent = '';
+            
+            // Simple validation (replace with your actual validation logic)
+            if (password === 'admin123') {
+                // Store admin login state
+                localStorage.setItem('adminLoggedIn', 'true');
+                
+                // Show admin dashboard
+                document.getElementById('admin-login').style.display = 'none';
+                document.getElementById('admin-dashboard').style.display = 'block';
+            } else {
+                // Show error message
+                messageElement.textContent = 'Invalid password. Please try again.';
+                messageElement.classList.add('login-error');
+                messageElement.style.display = 'block';
+                
+                // Clear password field
+                document.getElementById('admin-password').value = '';
+                document.getElementById('admin-password').focus();
+            }
+        });
+    </script>
+</body>
+</html>
+
+<style>
+    .admin-container {
+        max-width: 1400px;
+        margin: 30px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .admin-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+        padding: 20px;
+        background: linear-gradient(135deg, #4e54c8, #8f94fb);
+        border-radius: 8px;
+        color: white;
+    }
+    .admin-header h2 {
+        margin: 0;
+        font-size: 24px;
+        font-weight: 600;
+    }
+    .user-count {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 16px;
+    }
+    .user-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin: 20px 0;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .user-table th {
+        background: #f8f9fa;
+        color: #2c3e50;
+        font-weight: 600;
+        padding: 15px 20px;
+        text-align: left;
+        border-bottom: 2px solid #e9ecef;
+    }
+    .user-table td {
+        padding: 15px 20px;
+        border-bottom: 1px solid #e9ecef;
+        color: #2c3e50;
+    }
+    .user-table tr:hover {
+        background-color: #f8f9fa;
+        transition: background-color 0.3s ease;
+    }
+    .address-management {
+        background: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        margin-top: 30px;
+    }
+    #user-select {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #e9ecef;
+        border-radius: 6px;
+        font-size: 16px;
+        color: #2c3e50;
+        margin-bottom: 20px;
+        transition: border-color 0.3s ease;
+    }
+    #user-select:focus {
+        outline: none;
+        border-color: #4e54c8;
+    }
+    .address-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin-top: 20px;
+    }
+    .address-table th {
+        background: #f8f9fa;
+        color: #2c3e50;
+        font-weight: 600;
+        padding: 15px;
+        text-align: left;
+        border-bottom: 2px solid #e9ecef;
+    }
+    .address-table td {
+        padding: 15px;
+        border-bottom: 1px solid #e9ecef;
+    }
+    .current-delivery-address {
+        background-color: #e8f5fe;
+    }
+    .current-delivery-address td {
+        border-left: 4px solid #2196f3;
+        color: #1976d2;
+        font-weight: 500;
+    }
+    .admin-section {
+        padding: 0 30px;
+        margin-bottom: 40px;
+    }
+    .admin-section h3 {
+        color: #2c3e50;
+        font-size: 20px;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+    .user-addresses-container {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        min-height: 120px;
+    }
+    /* Status badges */
+    .status-badge {
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .status-active {
+        background-color: #e3f2fd;
+        color: #1976d2;
+    }
+    .status-inactive {
+        background-color: #f5f5f5;
+        color: #757575;
+    }
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .admin-container {
+            margin: 15px;
+            padding: 15px;
+        }
+        .admin-header {
+            flex-direction: column;
+            text-align: center;
+            gap: 10px;
+        }
+        .user-table {
+            display: block;
+            overflow-x: auto;
+        }
+        .admin-section {
+            padding: 0 15px;
+        }
+    }
+    .footer-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 30px;
+    }
+    
+    .footer-column {
+        flex: 1;
+        min-width: 250px;
+    }
+    
+    @media (max-width: 768px) {
+        .footer-column {
+            flex: 100%;
+        }
+    }
+</style>
+
+.admin-login {
+    max-width: 450px;
+    margin: 80px auto;
+    padding: 0;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+.admin-login h2 {
+    background: linear-gradient(135deg, #4e54c8, #8f94fb);
+    color: white;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.admin-login-container {
+    padding: 30px;
+}
+
+.admin-login-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.admin-login-header i {
+    font-size: 48px;
+    color: #4e54c8;
+    margin-bottom: 15px;
+}
+
+.admin-login-header h3 {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.password-input-wrapper {
+    position: relative;
+}
+
+.password-input-wrapper input {
+    width: 100%;
+    padding: 12px 40px 12px 15px;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #2c3e50;
+    transition: all 0.3s ease;
+}
+
+.password-input-wrapper input:focus {
+    outline: none;
+    border-color: #4e54c8;
+    box-shadow: 0 0 0 3px rgba(78, 84, 200, 0.1);
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.toggle-password:hover {
+    color: #4e54c8;
+}
+
+.form-footer {
+    margin-top: 30px;
+}
+
+.admin-login-btn {
+    width: 100%;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #4e54c8, #8f94fb);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.admin-login-btn:hover {
+    background: linear-gradient(135deg, #3f44a9, #7a80e8);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-login-btn span {
+    margin-right: 10px;
+}
+
+.login-message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 14px;
+    display: none;
+}
+
+.login-error {
+    background-color: #ffe5e5;
+    color: #d63031;
+    border: 1px solid #ffcccc;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .admin-login {
+        margin: 40px 15px;
+    }
+}
+
