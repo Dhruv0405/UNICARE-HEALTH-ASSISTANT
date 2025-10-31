@@ -4,53 +4,154 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UniCare - Online Pharmacy</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/medicines.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <!-- OpenStreetMap Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <!-- OpenStreetMap Geocoder CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
-</head>
+
+    <style>
+        /* Base header adjustments for flex */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%; 
+            position: relative; /* For z-index to work */
+            z-index: 1002;
+            /* Assuming background/shadow are in style.css */
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-right-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Style the hamburger menu icon */
+        .menu-toggle {
+            display: none; /* Hide by default */
+            font-size: 24px;
+            cursor: pointer;
+            color: #333; /* Adjust color as needed */
+            margin-left: 20px;
+            z-index: 1001;
+        }
+
+        /* Media Query for mobile (e.g., 992px and below) */
+        @media (max-width: 992px) {
+            .header {
+                padding: 15px 20px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .header-right-content {
+                display: none;
+                position: absolute;
+                top: 100%; /* Position right below the header */
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                flex-direction: column;
+                padding: 20px;
+                z-index: 1000;
+                border-top: 1px solid #eee;
+            }
+
+            .header-right-content.active {
+                display: flex;
+            }
+
+            .main-nav {
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+            }
+            .main-nav a {
+                padding: 12px 0;
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid #eee;
+            }
+            .main-nav a:last-child {
+                border-bottom: none;
+            }
+
+            .auth-buttons {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 15px;
+                align-items: center;
+            }
+            .auth-buttons .login-btn,
+            .auth-buttons .signup-btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+                margin: 5px 0;
+            }
+             .auth-buttons .signup-btn {
+                margin-bottom: 10px;
+            }
+            .user-profile {
+                margin-top: 15px;
+                align-self: center;
+            }
+        }
+    </style>
+    </head>
 <body>
-    <!-- Header Section -->
     <div class="header">
         <div class="header-left">
             <h1 id="firstlogo">UNI<span>CARE</span></h1>
         </div>
         <div class="header-right">
-            <nav class="main-nav">
-                <a href="index.html">Home</a>
-                <a href="GYM.html">Fitness</a>
-                <a href="medicines.html" class="active">Medicine</a>
-                <a href="ai-doctor.html">AI Doctor</a>
-                <a href="diet-planner.html">Diet</a>
-            </nav>
-            <div class="auth-buttons" id="auth-section">
-                <a href="login.html" class="login-btn" id="login-btn">Login</a>
-                <a href="login.html" class="signup-btn" id="signup-btn">
-                    Sign up
-                    <div class="arrow-wrapper">
-                        <div class="arrow"></div>
-                    </div>
-                </a>
-                <!-- Add user profile section (initially hidden) -->
-                <div class="user-profile" id="user-profile" style="display: none;">
-                    <div class="user-initial" id="user-initial"></div>
-                    <div class="dropdown-menu">
-                        <a href="login.html" id="logout-btn">Logout</a>
+            <div class="header-right-content" id="header-right-content">
+                <nav class="main-nav">
+                    <a href="index.html">Home</a>
+                    <a href="GYM.html">Fitness</a>
+                    <a href="medicines.html" class="active">Medicine</a>
+                    <a href="ai-doctor.html">AI Doctor</a>
+                    <a href="diet-planner.html">Diet</a>
+                </nav>
+                <div class="auth-buttons" id="auth-section">
+                    <a href="login.html" class="login-btn" id="login-btn">Login</a>
+                    <a href="login.html" class="signup-btn" id="signup-btn">
+                        Sign up
+                        <div class="arrow-wrapper">
+                            <div class="arrow"></div>
+                        </div>
+                    </a>
+                    <div class="user-profile" id="user-profile" style="display: none;">
+                        <div class="user-initial" id="user-initial"></div>
+                        <div class="dropdown-menu">
+                            <a href="login.html" id="logout-btn">Logout</a>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </div>
-
-    <!-- Fixed Cart Button -->
     <div id="fixed-cart-btn">
         <a href="#" id="cart-btn"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a>
     </div>
 
-    <!-- User Actions Section -->
     <div class="user-actions-container">
         <div class="selected-address-display" id="header-address-container">
             <span id="current-address-display" style="cursor: pointer;" onclick="showAddressModal()">
@@ -69,16 +170,11 @@
             </button>
         </div>
         <div class="user-buttons">
-           
+            
             <a href="#" id="offers-btn"><i class="fas fa-percent"></i> Offers</a>
-            <!-- Cart button removed from here as it's now fixed at the top right -->
-        </div>
+            </div>
     </div>
 
-    <!-- Remove the separate Navigation Menu since it's now integrated in the header -->
-   
-
-    <!-- Search Section -->
     <div class="search-section">
         <div class="search-container">
             <i class="fas fa-search search-icon"></i>
@@ -88,7 +184,6 @@
         </div>
     </div>
 
-    <!-- Quick Links -->
     <div class="quick-links">
         <div class="quick-link-card" onclick="scrollToProducts()">
             <img src="images/med.jpg" alt="Medicine">
@@ -108,7 +203,6 @@
        
     </div>
 
-    <!-- Featured Sections -->
     <div class="featured-section">
         <div class="featured-card">
             <img src="images/nutrition.jpg" alt="Nutrition">
@@ -128,7 +222,6 @@
         </div>
     </div>
 
-    <!-- Product Categories -->
     <section class="product-categories">
         <h2>Shop by Category</h2>
         <div class="category-grid">
@@ -159,7 +252,6 @@
         </div>
     </section>
 
-    <!-- Products Grid -->
     <section class="products-section">
         <h2>Popular Products</h2>
         <div class="products-container">
@@ -250,7 +342,6 @@
         </div>
     </section>
 
-    <!-- Trending Products -->
     <section class="trending-section">
         <h2>Trending Now</h2>
         <div class="trending-container">
@@ -304,14 +395,9 @@
                 </div>
                 <button class="add-to-cart-btn">Add to Cart</button>
             </div>
-            <!-- More product cards will be dynamically loaded here -->
-        </div>
+            </div>
     </section>
 
-    <!-- Category Sections -->
-    <!-- Replace the empty product grids in each category section with these cards -->
-    
-    <!-- For the Covid Essentials section -->
     <section id="covid" class="category-section">
         <h2>Covid Essentials</h2>
         <div class="section-description">
@@ -405,7 +491,6 @@
         </div>
     </section>
     
-    <!-- For the Diabetes Care section -->
     <section id="diabetes" class="category-section">
         <h2>Diabetes Care</h2>
         <div class="section-description">
@@ -499,7 +584,6 @@
         </div>
     </section>
     
-    <!-- For the Cardiac Care section -->
     <section id="cardiac" class="category-section">
         <h2>Cardiac Care</h2>
         <div class="section-description">
@@ -593,7 +677,6 @@
         </div>
     </section>
     
-    <!-- For the Stomach Care section -->
     <section id="stomach" class="category-section">
         <h2>Stomach Care</h2>
         <div class="section-description">
@@ -687,7 +770,6 @@
         </div>
     </section>
     
-    <!-- For the Vitamins & Supplements section -->
     <section id="vitamins" class="category-section">
         <h2>Vitamins & Supplements</h2>
         <div class="section-description">
@@ -781,7 +863,6 @@
         </div>
     </section>
     
-    <!-- For the Personal Care section -->
     <section id="personal" class="category-section">
         <h2>Personal Care</h2>
         <div class="section-description">
@@ -875,15 +956,13 @@
         </div>
     </section>
 
-    <!-- Shopping Cart Sidebar -->
     <div class="cart-sidebar" id="cart-sidebar">
         <div class="cart-header">
             <h2>Shopping Cart</h2>
             <button id="close-cart"><i class="fas fa-times"></i></button>
         </div>
         <div class="cart-items">
-            <!-- Cart items will be dynamically loaded here -->
-        </div>
+            </div>
         <div class="cart-total">
             <div class="savings-info">
                 <i class="fas fa-piggy-bank"></i>
@@ -894,17 +973,14 @@
         </div>
     </div>
 
-    <!-- Product Modal -->
     <div class="product-modal" id="product-modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <div class="modal-body">
-                <!-- Product details will be dynamically loaded here -->
-            </div>
+                </div>
         </div>
     </div>
 
-    <!-- Delivery Address Modal -->
     <div class="delivery-address-modal" id="delivery-address-modal">
         <div class="modal-content">
             <span class="close-address-modal">&times;</span>
@@ -912,20 +988,17 @@
                 <h2>Manage Delivery Addresses</h2>
             </div>
             <div class="address-modal-body">
-                <!-- Change this section in the address modal -->
                 <div class="address-list-container">
                     <h3>Current Delivery Location</h3>
                     <div id="saved-addresses" class="saved-addresses">
-                        <!-- Current location will be displayed here -->
-                    </div>
-                    <button id="detect-location" class="detect-location-btn" style="margin: 10px 0;">
+                        </div>
+                    <button id="detect-location-modal" class="detect-location-btn" style="margin: 10px 0;">
                         <i class="fas fa-crosshairs"></i> Detect My Current Location
                     </button>
                     <button id="add-new-address" class="add-address-btn">
                         <i class="fas fa-plus"></i> Add New Address
                     </button>
                     
-                    <!-- Delivery Map Display for Selected Address -->
                     <div class="delivery-map-container">
                         <h3>Delivery Location</h3>
                         <div id="delivery-map"></div>
@@ -1017,27 +1090,34 @@
         </div>
     </div>
 
-    <!-- Add button to Proceed to Checkout to open address modal -->
     <script>
         // Update the checkout button to manage addresses
         document.getElementById('checkout-btn').addEventListener('click', function() {
             // Open the delivery address modal
             showDeliveryAddressModal();
         });
+        
+        // Duplicated script block from user's code, pointing to the same file
+        // It's better to have this only once, but keeping it as per user's file structure
+        // <script src="js/medicines.js"></script> 
     </script>
 
-    <script src="js/medicines.js"></script>
-    <!-- OpenStreetMap Leaflet JS -->
+    
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <!-- OpenStreetMap Geocoder JS -->
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
     <script>
         // Initialize location functionality when the page loads
         document.addEventListener('DOMContentLoaded', function() {
-            initializeLocationAutocomplete();
-            initializeAddressManagement();
+            // Check if functions exist before calling to avoid errors from duplicated script tags
+            if (typeof initializeLocationAutocomplete === 'function') {
+                initializeLocationAutocomplete();
+            }
+            if (typeof initializeAddressManagement === 'function') {
+                initializeAddressManagement();
+            }
         });
     </script>
+    
     <script src="js/medicines.js"></script>
 
     <script>
@@ -1056,7 +1136,6 @@
     }
     </script>
 
-    <!-- Footer Section -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-row">
@@ -1123,104 +1202,148 @@
             </div>
         </div>
     </footer>
-</body>
-</html>
 
-<script>
-    // Function to show the delivery address modal
-    function showAddressModal() {
-        const modal = document.getElementById('delivery-address-modal');
-        modal.style.display = 'block';
-    }
-
-    // Function to update the header address
-    function updateHeaderAddress(address) {
-        const headerAddress = document.getElementById('header-address');
-        headerAddress.textContent = address;
-    }
-
-    // Event listener for the address form submission
-    document.getElementById('address-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form values
-        const nickname = document.getElementById('address-name').value;
-        const fullName = document.getElementById('full-name').value;
-        const mobileNumber = document.getElementById('mobile-number').value;
-        const houseNo = document.getElementById('house-no').value;
-        const street = document.getElementById('street').value;
-        const city = document.getElementById('city').value;
-        const state = document.getElementById('state').value;
-        const pincode = document.getElementById('pincode').value;
-        const isDefault = document.getElementById('default-address').checked;
-
-        // Create formatted address
-        const fullAddress = `${houseNo}, ${street}, ${city}, ${state} - ${pincode}`;
-        
-        // Create address data object
-        const addressData = {
-            nickname,
-            fullName,
-            mobileNumber,
-            houseNo,
-            street,
-            city,
-            state,
-            pincode,
-            fullAddress,
-            isDefault
-        };
-        
-        // Save address using the existing saveAddress function
-        saveAddress(addressData);
-        
-        // Update header address
-        updateHeaderAddress(addressData);
-        
-        // Close the modal
-        document.getElementById('delivery-address-modal').style.display = 'none';
-        
-        // Clear the form
-        this.reset();
-    });
-
-    // Close modal when clicking the close button
-    document.querySelector('.close-address-modal').addEventListener('click', function() {
-        document.getElementById('delivery-address-modal').style.display = 'none';
-    });
-
-    // Close modal when clicking outside
-    window.addEventListener('click', function(event) {
-        const modal = document.getElementById('delivery-address-modal');
-        if (event.target === modal) {
-            modal.style.display = 'none';
+    <script>
+        // Function to show the delivery address modal
+        function showAddressModal() {
+            const modal = document.getElementById('delivery-address-modal');
+            modal.style.display = 'block';
         }
-    });
 
-    // Initialize the address display
-    document.addEventListener('DOMContentLoaded', function() {
-        const savedAddress = localStorage.getItem('deliveryAddress');
-        if (savedAddress) {
-            updateHeaderAddress(savedAddress);
+        // Function to update the header address
+        function updateHeaderAddress(address) {
+            const headerAddress = document.getElementById('header-address');
+            headerAddress.textContent = address;
         }
-        
-        // Add event listener for offers button to scroll to trending section
-        document.getElementById('offers-btn').addEventListener('click', function(e) {
+
+        // Event listener for the address form submission
+        document.getElementById('address-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            const trendingSection = document.querySelector('.trending-section');
-            if (trendingSection) {
-                trendingSection.scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-                
-                // Add highlight animation to the trending section
-                trendingSection.classList.add('highlight-section');
-                setTimeout(() => {
-                    trendingSection.classList.remove('highlight-section');
-                }, 2000);
+            
+            // Get form values
+            const nickname = document.getElementById('address-name').value;
+            const fullName = document.getElementById('full-name').value;
+            const mobileNumber = document.getElementById('mobile-number').value;
+            const houseNo = document.getElementById('house-no').value;
+            const street = document.getElementById('street').value;
+            const city = document.getElementById('city').value;
+            const state = document.getElementById('state').value;
+            const pincode = document.getElementById('pincode').value;
+            const isDefault = document.getElementById('default-address').checked;
+
+            // Create formatted address
+            const fullAddress = `${houseNo}, ${street}, ${city}, ${state} - ${pincode}`;
+            
+            // Create address data object
+            const addressData = {
+                nickname,
+                fullName,
+                mobileNumber,
+                houseNo,
+                street,
+                city,
+                state,
+                pincode,
+                fullAddress,
+                isDefault
+            };
+            
+            // Save address using the existing saveAddress function
+            // This function should be defined in medicines.js
+            if (typeof saveAddress === 'function') {
+                saveAddress(addressData);
+            }
+            
+            // Update header address
+            updateHeaderAddress(addressData.fullAddress); // Use fullAddress
+            
+            // Close the modal
+            document.getElementById('delivery-address-modal').style.display = 'none';
+            
+            // Clear the form
+            this.reset();
+        });
+
+        // Close modal when clicking the close button
+        document.querySelector('.close-address-modal').addEventListener('click', function() {
+            document.getElementById('delivery-address-modal').style.display = 'none';
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('delivery-address-modal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
             }
         });
-    });
-</script>
-<script src="js/main.js"></script>
+
+        // Initialize the address display
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedAddress = localStorage.getItem('deliveryAddress');
+            if (savedAddress) {
+                try {
+                    const parsedAddress = JSON.parse(savedAddress);
+                    updateHeaderAddress(parsedAddress.fullAddress || "Select delivery location");
+                } catch (e) {
+                    updateHeaderAddress(savedAddress); // Fallback for old string format
+                }
+            }
+            
+            // Add event listener for offers button to scroll to trending section
+            document.getElementById('offers-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                const trendingSection = document.querySelector('.trending-section');
+                if (trendingSection) {
+                    trendingSection.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Add highlight animation to the trending section
+                    trendingSection.classList.add('highlight-section');
+                    setTimeout(() => {
+                        trendingSection.classList.remove('highlight-section');
+                    }, 2000);
+                }
+            });
+        });
+    </script>
+    <script src="js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menu-toggle');
+            const headerRightContent = document.getElementById('header-right-content');
+
+            if (menuToggle && headerRightContent) {
+                menuToggle.addEventListener('click', function() {
+                    // Toggle the 'active' class on the menu content
+                    headerRightContent.classList.toggle('active');
+                    
+                    // Toggle the icon between 'bars' and 'times' (X)
+                    const icon = menuToggle.querySelector('i');
+                    if (headerRightContent.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            }
+
+            // Fix for duplicated detect-location ID
+            const detectLocationModalBtn = document.getElementById('detect-location-modal');
+            const detectLocationHeaderBtn = document.getElementById('detect-location');
+
+            if(detectLocationModalBtn && typeof detectLocation === 'function') {
+                detectLocationModalBtn.addEventListener('click', detectLocation);
+            }
+            if(detectLocationHeaderBtn && typeof detectLocation === 'function') {
+                detectLocationHeaderBtn.addEventListener('click', detectLocation);
+            }
+
+        });
+    </script>
+    </body>
+</html>
