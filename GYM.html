@@ -23,6 +23,8 @@
             padding: 15px 5%;
             position: relative;
             z-index: 1002;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
         .header-right {
@@ -35,6 +37,25 @@
             align-items: center;
         }
 
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .main-nav a.active {
+            color: #4e54c8;
+            font-weight: 700;
+        }
+
+        /* Style the hamburger menu icon */
         .menu-toggle {
             display: none;
             font-size: 24px;
@@ -44,6 +65,7 @@
             z-index: 1001;
         }
 
+        /* Media Query for mobile (e.g., 992px and below) */
         @media (max-width: 992px) {
             .header {
                 padding: 15px 20px;
@@ -75,6 +97,7 @@
                 flex-direction: column;
                 width: 100%;
                 align-items: center;
+                gap: 0;
             }
 
             .main-nav a {
@@ -94,29 +117,12 @@
                 margin-top: 15px;
                 align-items: center;
             }
-
-            .auth-buttons .login-btn,
-            .auth-buttons .signup-btn {
-                width: 100%;
-                max-width: 300px;
-                text-align: center;
-                margin: 5px 0;
-            }
-
-            .auth-buttons .signup-btn {
-                margin-bottom: 10px;
-            }
-
-            .user-profile {
-                margin-top: 15px;
-                align-self: center;
-            }
         }
     </style>
 </head>
 
 <body>
-    <div class="header">
+    <header class="header">
         <div class="header-left">
             <h1 id="firstlogo">UNI<span>CARE</span></h1>
         </div>
@@ -131,13 +137,8 @@
                 </nav>
                 <div class="auth-buttons" id="auth-section">
                     <a href="login.html" class="login-btn" id="login-btn">Login</a>
-                    <a href="login.html#register" class="signup-btn" id="signup-btn">
-                        Sign up
-                        <div class="arrow-wrapper">
-                            <div class="arrow"></div>
-                        </div>
-                    </a>
-                    <div class="user-profile" id="user-profile">
+                    <a href="login.html#register" class="signup-btn" id="signup-btn">Sign up</a>
+                    <div class="user-profile" id="user-profile" style="display: none;">
                         <div class="user-initial" id="user-initial"></div>
                         <div class="dropdown-menu">
                             <a href="login.html" id="logout-btn">Logout</a>
@@ -149,22 +150,8 @@
                 <i class="fas fa-bars"></i>
             </div>
         </div>
-        <div class="login-form">
-            <form action="">
+    </header>
 
-                <div id="closeloginform" class="fas fa-times"></div>
-                <div class="login-main">
-
-                    <div class="form-content">
-                        <h1 class="loginhead"> <i class="fas fa-user"></i> User Login</h1>
-                        <input type="form">
-                        <input type="password" name="" id="pass">
-                    </div>
-                </div>
-            </form>
-        </div>
-
-    </div>
 
     <div class="home">
         <div class="main-home">
@@ -846,7 +833,56 @@
         </div>
     </footer>
 
+    <script>
+        // Menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuBtn = document.querySelector('#menubar');
+            const navbar = document.querySelector('.navbar');
+            const header = document.querySelector('.header');
+
+            // Add scroll event for fixed header
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 100) {
+                    header.classList.add('fixed-header');
+                } else {
+                    header.classList.remove('fixed-header');
+                }
+            });
+
+            if (menuBtn) {
+                menuBtn.addEventListener('click', function () {
+                    navbar.classList.toggle('active');
+                });
+            }
+
+            // Close menu when clicking elsewhere
+            document.addEventListener('click', function (event) {
+                if (navbar && !event.target.closest('.navbar') && menuBtn && !event.target.closest('#menubar')) {
+                    if (navbar && !event.target.closest('.navbar') && menuBtn && !event.target.closest('#menubar')) {
+                        navbar.classList.remove('active');
+                    }
+                });
+
+            // Login form functionality
+            const loginBtn = document.querySelector('#loginbtn');
+            const loginForm = document.querySelector('.login-form');
+            const closeLoginForm = document.querySelector('#closeloginform');
+
+            if (loginBtn) {
+                loginBtn.addEventListener('click', function () {
+                    loginForm.classList.add('active');
+                });
+            }
+
+            if (closeLoginForm) {
+                closeLoginForm.addEventListener('click', function () {
+                    loginForm.classList.remove('active');
+                });
+            }
+        });
+    </script>
     <script src="js/main.js"></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const menuToggle = document.getElementById('menu-toggle');
@@ -854,7 +890,10 @@
 
             if (menuToggle && headerRightContent) {
                 menuToggle.addEventListener('click', function () {
+                    // Toggle the 'active' class on the menu content
                     headerRightContent.classList.toggle('active');
+
+                    // Toggle the icon between 'bars' and 'times' (X)
                     const icon = menuToggle.querySelector('i');
                     if (headerRightContent.classList.contains('active')) {
                         icon.classList.remove('fa-bars');
@@ -865,21 +904,33 @@
                     }
                 });
             }
-
-            // Close menu when clicking elsewhere
-            document.addEventListener('click', function (event) {
-                if (headerRightContent && !event.target.closest('.header-right-content') &&
-                    menuToggle && !event.target.closest('#menu-toggle')) {
-                    headerRightContent.classList.remove('active');
-                    const icon = menuToggle.querySelector('i');
-                    if (icon) {
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                    }
-                }
-            });
         });
     </script>
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuToggle = document.getElementById('menu-toggle');
+        const headerRightContent = document.getElementById('header-right-content');
+
+        if (menuToggle && headerRightContent) {
+            menuToggle.addEventListener('click', function () {
+                // Toggle the 'active' class on the menu content
+                headerRightContent.classList.toggle('active');
+
+                // Toggle the icon between 'bars' and 'times' (X)
+                const icon = menuToggle.querySelector('i');
+                if (headerRightContent.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        }
+    });
+</script>
 </body>
 
 </html>

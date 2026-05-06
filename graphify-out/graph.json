@@ -38,16 +38,16 @@
     {
       "label": "create-image-placeholders.js",
       "file_type": "code",
-      "source_file": "create-image-placeholders.js",
+      "source_file": "D:/128 gb files/CODING/icon/create-image-placeholders.js",
       "source_location": "L1",
-      "id": "create_image_placeholders_js",
+      "id": "d_128_gb_files_coding_icon_create_image_placeholders_js",
       "community": 4,
       "norm_label": "create-image-placeholders.js"
     },
     {
       "label": "createImagePlaceholder()",
       "file_type": "code",
-      "source_file": "icon/create-image-placeholders.js",
+      "source_file": "D:/128 gb files/CODING/icon/icon/create-image-placeholders.js",
       "source_location": "L12",
       "id": "icon_create_image_placeholders_createimageplaceholder",
       "community": 4,
@@ -56,7 +56,7 @@
     {
       "label": "createAllImages()",
       "file_type": "code",
-      "source_file": "icon/create-image-placeholders.js",
+      "source_file": "D:/128 gb files/CODING/icon/icon/create-image-placeholders.js",
       "source_location": "L93",
       "id": "icon_create_image_placeholders_createallimages",
       "community": 4,
@@ -65,16 +65,16 @@
     {
       "label": "create-placeholder-images.js",
       "file_type": "code",
-      "source_file": "create-placeholder-images.js",
+      "source_file": "D:/128 gb files/CODING/icon/create-placeholder-images.js",
       "source_location": "L1",
-      "id": "create_placeholder_images_js",
+      "id": "d_128_gb_files_coding_icon_create_placeholder_images_js",
       "community": 5,
       "norm_label": "create-placeholder-images.js"
     },
     {
       "label": "createPlaceholderImage()",
       "file_type": "code",
-      "source_file": "icon/create-placeholder-images.js",
+      "source_file": "D:/128 gb files/CODING/icon/icon/create-placeholder-images.js",
       "source_location": "L11",
       "id": "icon_create_placeholder_images_createplaceholderimage",
       "community": 5,
@@ -83,7 +83,7 @@
     {
       "label": "createAllImages()",
       "file_type": "code",
-      "source_file": "icon/create-placeholder-images.js",
+      "source_file": "D:/128 gb files/CODING/icon/icon/create-placeholder-images.js",
       "source_location": "L73",
       "id": "icon_create_placeholder_images_createallimages",
       "community": 5,
@@ -92,61 +92,61 @@
     {
       "label": "download-images.js",
       "file_type": "code",
-      "source_file": "download-images.js",
+      "source_file": "D:/128 gb files/CODING/icon/download-images.js",
       "source_location": "L1",
-      "id": "download_images_js",
-      "community": 6,
+      "id": "d_128_gb_files_coding_icon_download_images_js",
+      "community": 3,
       "norm_label": "download-images.js"
     },
     {
       "label": "downloadImage()",
       "file_type": "code",
-      "source_file": "icon/download-images.js",
+      "source_file": "D:/128 gb files/CODING/icon/icon/download-images.js",
       "source_location": "L76",
       "id": "icon_download_images_downloadimage",
-      "community": 6,
+      "community": 3,
       "norm_label": "downloadimage()"
     },
     {
       "label": "downloadAllImages()",
       "file_type": "code",
-      "source_file": "icon/download-images.js",
+      "source_file": "D:/128 gb files/CODING/icon/icon/download-images.js",
       "source_location": "L97",
       "id": "icon_download_images_downloadallimages",
-      "community": 6,
+      "community": 3,
       "norm_label": "downloadallimages()"
     },
     {
       "label": "exercise.js",
       "file_type": "code",
-      "source_file": "exercise.js",
+      "source_file": "D:/128 gb files/CODING/icon/exercise.js",
       "source_location": "L1",
-      "id": "exercise_js",
-      "community": 14,
+      "id": "d_128_gb_files_coding_icon_exercise_js",
+      "community": 16,
       "norm_label": "exercise.js"
     },
     {
       "label": "jquery.js",
       "file_type": "code",
-      "source_file": "jquery.js",
+      "source_file": "D:/128 gb files/CODING/icon/jquery.js",
       "source_location": "L1",
-      "id": "jquery_js",
-      "community": 15,
+      "id": "d_128_gb_files_coding_icon_jquery_js",
+      "community": 17,
       "norm_label": "jquery.js"
     },
     {
       "label": "lightslider.js",
       "file_type": "code",
-      "source_file": "lightslider.js",
+      "source_file": "D:/128 gb files/CODING/icon/lightslider.js",
       "source_location": "L1",
-      "id": "lightslider_js",
+      "id": "d_128_gb_files_coding_icon_lightslider_js",
       "community": 8,
       "norm_label": "lightslider.js"
     },
     {
       "label": "changeSlide()",
       "file_type": "code",
-      "source_file": "icon/lightslider.js",
+      "source_file": "D:/128 gb files/CODING/icon/icon/lightslider.js",
       "source_location": "L34",
       "id": "icon_lightslider_changeslide",
       "community": 8,
@@ -155,10 +155,10 @@
     {
       "label": "punycode-shim.js",
       "file_type": "code",
-      "source_file": "punycode-shim.js",
+      "source_file": "D:/128 gb files/CODING/icon/punycode-shim.js",
       "source_location": "L1",
-      "id": "punycode_shim_js",
-      "community": 16,
+      "id": "d_128_gb_files_coding_icon_punycode_shim_js",
+      "community": 18,
       "norm_label": "punycode-shim.js"
     },
     {
@@ -167,7 +167,7 @@
       "source_file": "server.js",
       "source_location": "L1",
       "id": "server_js",
-      "community": 2,
+      "community": 7,
       "norm_label": "server.js"
     },
     {
@@ -176,166 +176,166 @@
       "source_file": "server.js",
       "source_location": "L39",
       "id": "icon_server_initializedatabase",
-      "community": 2,
+      "community": 7,
       "norm_label": "initializedatabase()"
     },
     {
       "label": "create-image-placeholders.js",
       "file_type": "code",
-      "source_file": "icon/create-image-placeholders.js",
+      "source_file": "D:/128 gb files/CODING/icon/icon/create-image-placeholders.js",
       "source_location": "L1",
-      "id": "icon_create_image_placeholders_js",
+      "id": "d_128_gb_files_coding_icon_icon_create_image_placeholders_js",
       "community": 4,
       "norm_label": "create-image-placeholders.js"
     },
     {
       "label": "create-placeholder-images.js",
       "file_type": "code",
-      "source_file": "icon/create-placeholder-images.js",
+      "source_file": "D:/128 gb files/CODING/icon/icon/create-placeholder-images.js",
       "source_location": "L1",
-      "id": "icon_create_placeholder_images_js",
+      "id": "d_128_gb_files_coding_icon_icon_create_placeholder_images_js",
       "community": 5,
       "norm_label": "create-placeholder-images.js"
     },
     {
       "label": "download-images.js",
       "file_type": "code",
-      "source_file": "icon/download-images.js",
+      "source_file": "D:/128 gb files/CODING/icon/icon/download-images.js",
       "source_location": "L1",
-      "id": "icon_download_images_js",
-      "community": 6,
+      "id": "d_128_gb_files_coding_icon_icon_download_images_js",
+      "community": 3,
       "norm_label": "download-images.js"
     },
     {
       "label": "exercise.js",
       "file_type": "code",
-      "source_file": "icon/exercise.js",
+      "source_file": "D:/128 gb files/CODING/icon/icon/exercise.js",
       "source_location": "L1",
-      "id": "icon_exercise_js",
-      "community": 17,
+      "id": "d_128_gb_files_coding_icon_icon_exercise_js",
+      "community": 19,
       "norm_label": "exercise.js"
     },
     {
       "label": "jquery.js",
       "file_type": "code",
-      "source_file": "icon/jquery.js",
+      "source_file": "D:/128 gb files/CODING/icon/icon/jquery.js",
       "source_location": "L1",
-      "id": "icon_jquery_js",
-      "community": 18,
+      "id": "d_128_gb_files_coding_icon_icon_jquery_js",
+      "community": 20,
       "norm_label": "jquery.js"
     },
     {
       "label": "lightslider.js",
       "file_type": "code",
-      "source_file": "icon/lightslider.js",
+      "source_file": "D:/128 gb files/CODING/icon/icon/lightslider.js",
       "source_location": "L1",
-      "id": "icon_lightslider_js",
+      "id": "d_128_gb_files_coding_icon_icon_lightslider_js",
       "community": 8,
       "norm_label": "lightslider.js"
     },
     {
       "label": "punycode-shim.js",
       "file_type": "code",
-      "source_file": "icon/punycode-shim.js",
+      "source_file": "D:/128 gb files/CODING/icon/icon/punycode-shim.js",
       "source_location": "L1",
-      "id": "icon_punycode_shim_js",
-      "community": 19,
+      "id": "d_128_gb_files_coding_icon_icon_punycode_shim_js",
+      "community": 21,
       "norm_label": "punycode-shim.js"
     },
     {
       "label": "server.js",
       "file_type": "code",
-      "source_file": "icon/server.js",
+      "source_file": "D:/128 gb files/CODING/icon/icon/server.js",
       "source_location": "L1",
-      "id": "icon_server_js",
-      "community": 2,
+      "id": "d_128_gb_files_coding_icon_icon_server_js",
+      "community": 7,
       "norm_label": "server.js"
     },
     {
       "label": "saveUsers()",
       "file_type": "code",
-      "source_file": "icon/server.js",
+      "source_file": "D:/128 gb files/CODING/icon/icon/server.js",
       "source_location": "L42",
       "id": "icon_server_saveusers",
-      "community": 2,
+      "community": 7,
       "norm_label": "saveusers()"
     },
     {
       "label": "startServer()",
       "file_type": "code",
-      "source_file": "icon/server.js",
+      "source_file": "D:/128 gb files/CODING/icon/icon/server.js",
       "source_location": "L199",
       "id": "icon_server_startserver",
-      "community": 2,
+      "community": 7,
       "norm_label": "startserver()"
     },
     {
       "label": "auth.js",
       "file_type": "code",
-      "source_file": "icon/js/auth.js",
+      "source_file": "D:/128 gb files/CODING/icon/icon/js/auth.js",
       "source_location": "L1",
-      "id": "icon_js_auth_js",
-      "community": 3,
+      "id": "d_128_gb_files_coding_icon_icon_js_auth_js",
+      "community": 1,
       "norm_label": "auth.js"
     },
     {
       "label": "handleSignup()",
       "file_type": "code",
-      "source_file": "js/auth.js",
+      "source_file": "D:/128 gb files/CODING/icon/js/auth.js",
       "source_location": "L2",
       "id": "js_auth_handlesignup",
-      "community": 3,
+      "community": 1,
       "norm_label": "handlesignup()"
     },
     {
       "label": "handleLogin()",
       "file_type": "code",
-      "source_file": "js/auth.js",
+      "source_file": "D:/128 gb files/CODING/icon/js/auth.js",
       "source_location": "L50",
       "id": "js_auth_handlelogin",
-      "community": 3,
+      "community": 1,
       "norm_label": "handlelogin()"
     },
     {
       "label": "diet-planner.js",
       "file_type": "code",
-      "source_file": "icon/js/diet-planner.js",
+      "source_file": "D:/128 gb files/CODING/icon/icon/js/diet-planner.js",
       "source_location": "L1",
-      "id": "icon_js_diet_planner_js",
-      "community": 7,
+      "id": "d_128_gb_files_coding_icon_icon_js_diet_planner_js",
+      "community": 6,
       "norm_label": "diet-planner.js"
     },
     {
       "label": "calculateBMI()",
       "file_type": "code",
-      "source_file": "js/diet-planner.js",
+      "source_file": "D:/128 gb files/CODING/icon/js/diet-planner.js",
       "source_location": "L15",
       "id": "js_diet_planner_calculatebmi",
-      "community": 7,
+      "community": 6,
       "norm_label": "calculatebmi()"
     },
     {
       "label": "generateDietPlan()",
       "file_type": "code",
-      "source_file": "js/diet-planner.js",
+      "source_file": "D:/128 gb files/CODING/icon/js/diet-planner.js",
       "source_location": "L53",
       "id": "js_diet_planner_generatedietplan",
-      "community": 7,
+      "community": 6,
       "norm_label": "generatedietplan()"
     },
     {
       "label": "login.js",
       "file_type": "code",
-      "source_file": "icon/js/login.js",
+      "source_file": "D:/128 gb files/CODING/icon/icon/js/login.js",
       "source_location": "L1",
-      "id": "icon_js_login_js",
+      "id": "d_128_gb_files_coding_icon_icon_js_login_js",
       "community": 9,
       "norm_label": "login.js"
     },
     {
       "label": "signInWithGoogle()",
       "file_type": "code",
-      "source_file": "js/login.js",
+      "source_file": "D:/128 gb files/CODING/icon/js/login.js",
       "source_location": "L40",
       "id": "js_login_signinwithgoogle",
       "community": 9,
@@ -344,16 +344,16 @@
     {
       "label": "main.js",
       "file_type": "code",
-      "source_file": "icon/js/main.js",
+      "source_file": "D:/128 gb files/CODING/icon/icon/js/main.js",
       "source_location": "L1",
-      "id": "icon_js_main_js",
+      "id": "d_128_gb_files_coding_icon_icon_js_main_js",
       "community": 10,
       "norm_label": "main.js"
     },
     {
       "label": "updateAuthUI()",
       "file_type": "code",
-      "source_file": "js/main.js",
+      "source_file": "D:/128 gb files/CODING/icon/js/main.js",
       "source_location": "L93",
       "id": "js_main_updateauthui",
       "community": 10,
@@ -390,7 +390,7 @@
       "label": "initializeAddToCartButtons()",
       "file_type": "code",
       "source_file": "js/medicines.js",
-      "source_location": "L121",
+      "source_location": "L141",
       "id": "js_medicines_initializeaddtocartbuttons",
       "community": 0,
       "norm_label": "initializeaddtocartbuttons()"
@@ -399,7 +399,7 @@
       "label": "addToCart()",
       "file_type": "code",
       "source_file": "js/medicines.js",
-      "source_location": "L136",
+      "source_location": "L156",
       "id": "js_medicines_addtocart",
       "community": 0,
       "norm_label": "addtocart()"
@@ -408,7 +408,7 @@
       "label": "saveCart()",
       "file_type": "code",
       "source_file": "js/medicines.js",
-      "source_location": "L182",
+      "source_location": "L202",
       "id": "js_medicines_savecart",
       "community": 0,
       "norm_label": "savecart()"
@@ -417,7 +417,7 @@
       "label": "loadCart()",
       "file_type": "code",
       "source_file": "js/medicines.js",
-      "source_location": "L187",
+      "source_location": "L207",
       "id": "js_medicines_loadcart",
       "community": 0,
       "norm_label": "loadcart()"
@@ -426,7 +426,7 @@
       "label": "updateCartUI()",
       "file_type": "code",
       "source_file": "js/medicines.js",
-      "source_location": "L196",
+      "source_location": "L216",
       "id": "js_medicines_updatecartui",
       "community": 0,
       "norm_label": "updatecartui()"
@@ -435,7 +435,7 @@
       "label": "updateCartTotal()",
       "file_type": "code",
       "source_file": "js/medicines.js",
-      "source_location": "L262",
+      "source_location": "L282",
       "id": "js_medicines_updatecarttotal",
       "community": 0,
       "norm_label": "updatecarttotal()"
@@ -444,7 +444,7 @@
       "label": "decreaseQuantity()",
       "file_type": "code",
       "source_file": "js/medicines.js",
-      "source_location": "L271",
+      "source_location": "L291",
       "id": "js_medicines_decreasequantity",
       "community": 0,
       "norm_label": "decreasequantity()"
@@ -453,7 +453,7 @@
       "label": "increaseQuantity()",
       "file_type": "code",
       "source_file": "js/medicines.js",
-      "source_location": "L284",
+      "source_location": "L304",
       "id": "js_medicines_increasequantity",
       "community": 0,
       "norm_label": "increasequantity()"
@@ -462,7 +462,7 @@
       "label": "removeItem()",
       "file_type": "code",
       "source_file": "js/medicines.js",
-      "source_location": "L293",
+      "source_location": "L313",
       "id": "js_medicines_removeitem",
       "community": 0,
       "norm_label": "removeitem()"
@@ -471,7 +471,7 @@
       "label": "toggleCart()",
       "file_type": "code",
       "source_file": "js/medicines.js",
-      "source_location": "L302",
+      "source_location": "L322",
       "id": "js_medicines_togglecart",
       "community": 0,
       "norm_label": "togglecart()"
@@ -480,7 +480,7 @@
       "label": "checkout()",
       "file_type": "code",
       "source_file": "js/medicines.js",
-      "source_location": "L308",
+      "source_location": "L328",
       "id": "js_medicines_checkout",
       "community": 0,
       "norm_label": "checkout()"
@@ -489,7 +489,7 @@
       "label": "showNotification()",
       "file_type": "code",
       "source_file": "js/medicines.js",
-      "source_location": "L363",
+      "source_location": "L443",
       "id": "js_medicines_shownotification",
       "community": 0,
       "norm_label": "shownotification()"
@@ -498,7 +498,7 @@
       "label": "searchProducts()",
       "file_type": "code",
       "source_file": "js/medicines.js",
-      "source_location": "L398",
+      "source_location": "L478",
       "id": "js_medicines_searchproducts",
       "community": 0,
       "norm_label": "searchproducts()"
@@ -507,7 +507,7 @@
       "label": "saveAddress()",
       "file_type": "code",
       "source_file": "js/medicines.js",
-      "source_location": "L464",
+      "source_location": "L544",
       "id": "js_medicines_saveaddress",
       "community": 0,
       "norm_label": "saveaddress()"
@@ -516,7 +516,7 @@
       "label": "selectAddress()",
       "file_type": "code",
       "source_file": "js/medicines.js",
-      "source_location": "L517",
+      "source_location": "L614",
       "id": "js_medicines_selectaddress",
       "community": 0,
       "norm_label": "selectaddress()"
@@ -525,7 +525,7 @@
       "label": "deleteAddress()",
       "file_type": "code",
       "source_file": "js/medicines.js",
-      "source_location": "L542",
+      "source_location": "L685",
       "id": "js_medicines_deleteaddress",
       "community": 0,
       "norm_label": "deleteaddress()"
@@ -533,45 +533,45 @@
     {
       "label": "auth.js",
       "file_type": "code",
-      "source_file": "js/auth.js",
+      "source_file": "D:/128 gb files/CODING/icon/js/auth.js",
       "source_location": "L1",
-      "id": "js_auth_js",
-      "community": 3,
+      "id": "d_128_gb_files_coding_icon_js_auth_js",
+      "community": 1,
       "norm_label": "auth.js"
     },
     {
       "label": "handleLogout()",
       "file_type": "code",
-      "source_file": "js/auth.js",
+      "source_file": "D:/128 gb files/CODING/icon/js/auth.js",
       "source_location": "L110",
       "id": "js_auth_handlelogout",
-      "community": 3,
+      "community": 1,
       "norm_label": "handlelogout()"
     },
     {
       "label": "diet-planner.js",
       "file_type": "code",
-      "source_file": "js/diet-planner.js",
+      "source_file": "D:/128 gb files/CODING/icon/js/diet-planner.js",
       "source_location": "L1",
-      "id": "js_diet_planner_js",
-      "community": 7,
+      "id": "d_128_gb_files_coding_icon_js_diet_planner_js",
+      "community": 6,
       "norm_label": "diet-planner.js"
     },
     {
       "label": "login.js",
       "file_type": "code",
-      "source_file": "js/login.js",
+      "source_file": "D:/128 gb files/CODING/icon/js/login.js",
       "source_location": "L1",
-      "id": "js_login_js",
+      "id": "d_128_gb_files_coding_icon_js_login_js",
       "community": 9,
       "norm_label": "login.js"
     },
     {
       "label": "main.js",
       "file_type": "code",
-      "source_file": "js/main.js",
+      "source_file": "D:/128 gb files/CODING/icon/js/main.js",
       "source_location": "L1",
-      "id": "js_main_js",
+      "id": "d_128_gb_files_coding_icon_js_main_js",
       "community": 10,
       "norm_label": "main.js"
     },
@@ -583,6 +583,258 @@
       "id": "js_medicines_js",
       "community": 0,
       "norm_label": "medicines.js"
+    },
+    {
+      "label": "editAddress()",
+      "file_type": "code",
+      "source_file": "js/medicines.js",
+      "source_location": "L652",
+      "id": "js_medicines_editaddress",
+      "community": 0,
+      "norm_label": "editaddress()"
+    },
+    {
+      "label": "check_db_tables.js",
+      "file_type": "code",
+      "source_file": "scratch/check_db_tables.js",
+      "source_location": "L1",
+      "id": "scratch_check_db_tables_js",
+      "community": 11,
+      "norm_label": "check_db_tables.js"
+    },
+    {
+      "label": "checkDb()",
+      "file_type": "code",
+      "source_file": "scratch/check_db_tables.js",
+      "source_location": "L4",
+      "id": "scratch_check_db_tables_checkdb",
+      "community": 11,
+      "norm_label": "checkdb()"
+    },
+    {
+      "label": "migrate_db.js",
+      "file_type": "code",
+      "source_file": "scratch/migrate_db.js",
+      "source_location": "L1",
+      "id": "scratch_migrate_db_js",
+      "community": 12,
+      "norm_label": "migrate_db.js"
+    },
+    {
+      "label": "migrate()",
+      "file_type": "code",
+      "source_file": "scratch/migrate_db.js",
+      "source_location": "L4",
+      "id": "scratch_migrate_db_migrate",
+      "community": 12,
+      "norm_label": "migrate()"
+    },
+    {
+      "label": "create-image-placeholders.js",
+      "file_type": "code",
+      "source_file": "create-image-placeholders.js",
+      "source_location": "L1",
+      "community": 4,
+      "norm_label": "create-image-placeholders.js",
+      "id": "create_image_placeholders_js"
+    },
+    {
+      "label": "create-placeholder-images.js",
+      "file_type": "code",
+      "source_file": "create-placeholder-images.js",
+      "source_location": "L1",
+      "community": 5,
+      "norm_label": "create-placeholder-images.js",
+      "id": "create_placeholder_images_js"
+    },
+    {
+      "label": "download-images.js",
+      "file_type": "code",
+      "source_file": "download-images.js",
+      "source_location": "L1",
+      "community": 3,
+      "norm_label": "download-images.js",
+      "id": "download_images_js"
+    },
+    {
+      "label": "exercise.js",
+      "file_type": "code",
+      "source_file": "exercise.js",
+      "source_location": "L1",
+      "community": 22,
+      "norm_label": "exercise.js",
+      "id": "exercise_js"
+    },
+    {
+      "label": "jquery.js",
+      "file_type": "code",
+      "source_file": "jquery.js",
+      "source_location": "L1",
+      "community": 23,
+      "norm_label": "jquery.js",
+      "id": "jquery_js"
+    },
+    {
+      "label": "lightslider.js",
+      "file_type": "code",
+      "source_file": "lightslider.js",
+      "source_location": "L1",
+      "community": 8,
+      "norm_label": "lightslider.js",
+      "id": "lightslider_js"
+    },
+    {
+      "label": "punycode-shim.js",
+      "file_type": "code",
+      "source_file": "punycode-shim.js",
+      "source_location": "L1",
+      "community": 24,
+      "norm_label": "punycode-shim.js",
+      "id": "punycode_shim_js"
+    },
+    {
+      "label": "create-image-placeholders.js",
+      "file_type": "code",
+      "source_file": "icon/create-image-placeholders.js",
+      "source_location": "L1",
+      "community": 4,
+      "norm_label": "create-image-placeholders.js",
+      "id": "icon_create_image_placeholders_js"
+    },
+    {
+      "label": "create-placeholder-images.js",
+      "file_type": "code",
+      "source_file": "icon/create-placeholder-images.js",
+      "source_location": "L1",
+      "community": 5,
+      "norm_label": "create-placeholder-images.js",
+      "id": "icon_create_placeholder_images_js"
+    },
+    {
+      "label": "download-images.js",
+      "file_type": "code",
+      "source_file": "icon/download-images.js",
+      "source_location": "L1",
+      "community": 3,
+      "norm_label": "download-images.js",
+      "id": "icon_download_images_js"
+    },
+    {
+      "label": "exercise.js",
+      "file_type": "code",
+      "source_file": "icon/exercise.js",
+      "source_location": "L1",
+      "community": 25,
+      "norm_label": "exercise.js",
+      "id": "icon_exercise_js"
+    },
+    {
+      "label": "jquery.js",
+      "file_type": "code",
+      "source_file": "icon/jquery.js",
+      "source_location": "L1",
+      "community": 26,
+      "norm_label": "jquery.js",
+      "id": "icon_jquery_js"
+    },
+    {
+      "label": "lightslider.js",
+      "file_type": "code",
+      "source_file": "icon/lightslider.js",
+      "source_location": "L1",
+      "community": 8,
+      "norm_label": "lightslider.js",
+      "id": "icon_lightslider_js"
+    },
+    {
+      "label": "punycode-shim.js",
+      "file_type": "code",
+      "source_file": "icon/punycode-shim.js",
+      "source_location": "L1",
+      "community": 27,
+      "norm_label": "punycode-shim.js",
+      "id": "icon_punycode_shim_js"
+    },
+    {
+      "label": "server.js",
+      "file_type": "code",
+      "source_file": "icon/server.js",
+      "source_location": "L1",
+      "community": 7,
+      "norm_label": "server.js",
+      "id": "icon_server_js"
+    },
+    {
+      "label": "auth.js",
+      "file_type": "code",
+      "source_file": "icon/js/auth.js",
+      "source_location": "L1",
+      "community": 1,
+      "norm_label": "auth.js",
+      "id": "icon_js_auth_js"
+    },
+    {
+      "label": "diet-planner.js",
+      "file_type": "code",
+      "source_file": "icon/js/diet-planner.js",
+      "source_location": "L1",
+      "community": 6,
+      "norm_label": "diet-planner.js",
+      "id": "icon_js_diet_planner_js"
+    },
+    {
+      "label": "login.js",
+      "file_type": "code",
+      "source_file": "icon/js/login.js",
+      "source_location": "L1",
+      "community": 9,
+      "norm_label": "login.js",
+      "id": "icon_js_login_js"
+    },
+    {
+      "label": "main.js",
+      "file_type": "code",
+      "source_file": "icon/js/main.js",
+      "source_location": "L1",
+      "community": 10,
+      "norm_label": "main.js",
+      "id": "icon_js_main_js"
+    },
+    {
+      "label": "auth.js",
+      "file_type": "code",
+      "source_file": "js/auth.js",
+      "source_location": "L1",
+      "community": 1,
+      "norm_label": "auth.js",
+      "id": "js_auth_js"
+    },
+    {
+      "label": "diet-planner.js",
+      "file_type": "code",
+      "source_file": "js/diet-planner.js",
+      "source_location": "L1",
+      "community": 6,
+      "norm_label": "diet-planner.js",
+      "id": "js_diet_planner_js"
+    },
+    {
+      "label": "login.js",
+      "file_type": "code",
+      "source_file": "js/login.js",
+      "source_location": "L1",
+      "community": 9,
+      "norm_label": "login.js",
+      "id": "js_login_js"
+    },
+    {
+      "label": "main.js",
+      "file_type": "code",
+      "source_file": "js/main.js",
+      "source_location": "L1",
+      "community": 10,
+      "norm_label": "main.js",
+      "id": "js_main_js"
     },
     {
       "label": "server.js",
@@ -597,7 +849,7 @@
           "dotenv"
         ]
       },
-      "community": 1,
+      "community": 2,
       "norm_label": "server.js",
       "id": "server.js"
     },
@@ -608,7 +860,7 @@
         "description": "Handles user signup and login operations by communicating with the backend API.",
         "storage": "localStorage (token, userEmail)"
       },
-      "community": 1,
+      "community": 2,
       "norm_label": "auth.js",
       "id": "js/auth.js"
     },
@@ -622,7 +874,7 @@
           "Swiper"
         ]
       },
-      "community": 1,
+      "community": 2,
       "norm_label": "main.js",
       "id": "js/main.js"
     },
@@ -633,7 +885,7 @@
         "description": "Manages shopping cart logic, product search, and user delivery addresses.",
         "storage": "localStorage (cart, allUserAddresses)"
       },
-      "community": 12,
+      "community": 13,
       "norm_label": "medicines.js",
       "id": "js/medicines.js"
     },
@@ -643,7 +895,7 @@
       "properties": {
         "description": "BMI calculation logic and dynamic generation of personalized diet plans."
       },
-      "community": 11,
+      "community": 14,
       "norm_label": "diet-planner.js",
       "id": "js/diet-planner.js"
     },
@@ -653,7 +905,7 @@
       "properties": {
         "description": "Handles interactive collapsible categories for the exercise section."
       },
-      "community": 13,
+      "community": 15,
       "norm_label": "exercise.js",
       "id": "exercise.js"
     },
@@ -663,7 +915,7 @@
       "properties": {
         "description": "Landing page showcasing services (Fitness, Diet, Medicine, AI Doctor) and contact form."
       },
-      "community": 1,
+      "community": 2,
       "norm_label": "index.html",
       "id": "index.html"
     },
@@ -673,7 +925,7 @@
       "properties": {
         "description": "Online pharmacy interface for browsing products, managing addresses, and cart."
       },
-      "community": 12,
+      "community": 13,
       "norm_label": "medicines.html",
       "id": "medicines.html"
     },
@@ -683,7 +935,7 @@
       "properties": {
         "description": "Fitness section with body shaping exercises and expert trainer profiles."
       },
-      "community": 13,
+      "community": 15,
       "norm_label": "gym.html",
       "id": "GYM.html"
     },
@@ -693,7 +945,7 @@
       "properties": {
         "description": "UI for BMI calculation and diet plan visualization."
       },
-      "community": 11,
+      "community": 14,
       "norm_label": "diet-planner.html",
       "id": "diet-planner.html"
     },
@@ -703,7 +955,7 @@
       "properties": {
         "description": "AI-powered health assistant chat interface."
       },
-      "community": 1,
+      "community": 2,
       "norm_label": "ai-doctor.html",
       "id": "ai-doctor.html"
     },
@@ -713,7 +965,7 @@
       "properties": {
         "description": "Admin dashboard for managing users and viewing saved delivery addresses."
       },
-      "community": 1,
+      "community": 2,
       "norm_label": "admin.html",
       "id": "admin.html"
     },
@@ -723,7 +975,7 @@
       "properties": {
         "description": "Persistent JSON storage for user credentials and registration data."
       },
-      "community": 1,
+      "community": 2,
       "norm_label": "users.json",
       "id": "users.json"
     },
@@ -734,7 +986,7 @@
         "file_type": "rationale",
         "mechanism": "JWT with Bcrypt hashing and LocalStorage persistence"
       },
-      "community": 20,
+      "community": 28,
       "norm_label": "authentication system",
       "id": "AuthSystem"
     },
@@ -744,7 +996,7 @@
         "purpose": "Gym activity image showing a man running on a treadmill",
         "category": "Fitness"
       },
-      "community": 21,
+      "community": 29,
       "norm_label": "",
       "id": "D:\\128 gb files\\CODING\\icon\\gym2.png"
     },
@@ -754,7 +1006,7 @@
         "purpose": "Main workout image showing a woman using battle ropes",
         "category": "Fitness"
       },
-      "community": 22,
+      "community": 30,
       "norm_label": "",
       "id": "D:\\128 gb files\\CODING\\icon\\imain.jpg"
     },
@@ -764,7 +1016,7 @@
         "purpose": "Healthcare poster for 'UNI Care' featuring doctors and healthy lifestyle imagery",
         "category": "Healthcare"
       },
-      "community": 23,
+      "community": 31,
       "norm_label": "",
       "id": "D:\\128 gb files\\CODING\\icon\\poster.png"
     },
@@ -774,7 +1026,7 @@
         "purpose": "Professional profile image of a female fitness trainer",
         "category": "Fitness"
       },
-      "community": 24,
+      "community": 32,
       "norm_label": "",
       "id": "D:\\128 gb files\\CODING\\icon\\trainer1.jpg"
     },
@@ -784,7 +1036,7 @@
         "purpose": "Exercise demonstration image for ab rollout",
         "category": "Exercise"
       },
-      "community": 25,
+      "community": 33,
       "norm_label": "",
       "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\abrollout.jpg"
     },
@@ -794,7 +1046,7 @@
         "purpose": "Product image of a blood glucose monitor displaying a reading",
         "category": "Medical Device"
       },
-      "community": 26,
+      "community": 34,
       "norm_label": "",
       "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\advancegluco.jpg"
     },
@@ -804,7 +1056,7 @@
         "purpose": "Promotional banner for AI-driven healthcare services",
         "category": "Healthcare"
       },
-      "community": 27,
+      "community": 35,
       "norm_label": "",
       "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\ai-healthcare-banner.jpg"
     },
@@ -814,7 +1066,7 @@
         "purpose": "Avatar/icon representing an AI medical assistant",
         "category": "Healthcare"
       },
-      "community": 28,
+      "community": 36,
       "norm_label": "",
       "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\aidoctor.jpg"
     },
@@ -824,7 +1076,7 @@
         "purpose": "Product image for antacid oral suspension",
         "category": "Medicine"
       },
-      "community": 29,
+      "community": 37,
       "norm_label": "",
       "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\antacid.jpg"
     },
@@ -834,7 +1086,7 @@
         "purpose": "Exercise demonstration image for barbell upright row",
         "category": "Exercise"
       },
-      "community": 30,
+      "community": 38,
       "norm_label": "",
       "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\barbell.jpg"
     },
@@ -844,7 +1096,7 @@
         "purpose": "Exercise demonstration image for barbell curls",
         "category": "Exercise"
       },
-      "community": 31,
+      "community": 39,
       "norm_label": "",
       "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\barbellcurl.jpg"
     },
@@ -854,7 +1106,7 @@
         "purpose": "Product image for B-Complex vitamin supplement",
         "category": "Medicine"
       },
-      "community": 32,
+      "community": 40,
       "norm_label": "",
       "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\bcomplex.jpg"
     },
@@ -864,7 +1116,7 @@
         "purpose": "Product kit image for Dr Trust blood glucose monitor",
         "category": "Medical Device"
       },
-      "community": 33,
+      "community": 41,
       "norm_label": "",
       "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\bloodgluco.jpg"
     },
@@ -874,7 +1126,7 @@
         "purpose": "Product image for a digital blood pressure monitor",
         "category": "Medical Device"
       },
-      "community": 34,
+      "community": 42,
       "norm_label": "",
       "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\bpmnitor.jpg"
     },
@@ -884,7 +1136,7 @@
         "purpose": "Exercise demonstration image for cable crunches",
         "category": "Exercise"
       },
-      "community": 35,
+      "community": 43,
       "norm_label": "",
       "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\cablecrunch.jpg"
     },
@@ -894,7 +1146,7 @@
         "purpose": "Exercise demonstration image for cable curls",
         "category": "Exercise"
       },
-      "community": 36,
+      "community": 44,
       "norm_label": "",
       "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\cablecurl.jpg"
     },
@@ -904,7 +1156,7 @@
         "purpose": "Product image for Calcium and Vitamin D3 supplement",
         "category": "Medicine"
       },
-      "community": 37,
+      "community": 45,
       "norm_label": "",
       "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\calciumvitamind3.jpg"
     },
@@ -914,7 +1166,7 @@
         "purpose": "Exercise demonstration image for calf raises",
         "category": "Exercise"
       },
-      "community": 38,
+      "community": 46,
       "norm_label": "",
       "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\calf.jpg"
     },
@@ -924,7 +1176,7 @@
         "purpose": "Section banner or placeholder for Cancer Care services",
         "category": "Healthcare"
       },
-      "community": 39,
+      "community": 47,
       "norm_label": "",
       "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\cancer-care.jpg"
     }
@@ -933,12 +1185,62 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "D:/128 gb files/CODING/icon/create-image-placeholders.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "d_128_gb_files_coding_icon_create_image_placeholders_js",
+      "target": "icon_create_image_placeholders_createimageplaceholder"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "D:/128 gb files/CODING/icon/create-image-placeholders.js",
+      "source_location": "L93",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "d_128_gb_files_coding_icon_create_image_placeholders_js",
+      "target": "icon_create_image_placeholders_createallimages"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "D:/128 gb files/CODING/icon/icon/create-image-placeholders.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "d_128_gb_files_coding_icon_icon_create_image_placeholders_js",
+      "target": "icon_create_image_placeholders_createimageplaceholder"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "create-image-placeholders.js",
       "source_location": "L12",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "create_image_placeholders_js",
       "target": "icon_create_image_placeholders_createimageplaceholder"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/create-image-placeholders.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_create_image_placeholders_js",
+      "target": "icon_create_image_placeholders_createimageplaceholder"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "D:/128 gb files/CODING/icon/icon/create-image-placeholders.js",
+      "source_location": "L93",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "d_128_gb_files_coding_icon_icon_create_image_placeholders_js",
+      "target": "icon_create_image_placeholders_createallimages"
     },
     {
       "relation": "contains",
@@ -954,16 +1256,6 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "icon/create-image-placeholders.js",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "icon_create_image_placeholders_js",
-      "target": "icon_create_image_placeholders_createimageplaceholder"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "icon/create-image-placeholders.js",
       "source_location": "L93",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -973,12 +1265,62 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "D:/128 gb files/CODING/icon/create-placeholder-images.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "d_128_gb_files_coding_icon_create_placeholder_images_js",
+      "target": "icon_create_placeholder_images_createplaceholderimage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "D:/128 gb files/CODING/icon/create-placeholder-images.js",
+      "source_location": "L73",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "d_128_gb_files_coding_icon_create_placeholder_images_js",
+      "target": "icon_create_placeholder_images_createallimages"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "D:/128 gb files/CODING/icon/icon/create-placeholder-images.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "d_128_gb_files_coding_icon_icon_create_placeholder_images_js",
+      "target": "icon_create_placeholder_images_createplaceholderimage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "create-placeholder-images.js",
       "source_location": "L11",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "create_placeholder_images_js",
       "target": "icon_create_placeholder_images_createplaceholderimage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/create-placeholder-images.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_create_placeholder_images_js",
+      "target": "icon_create_placeholder_images_createplaceholderimage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "D:/128 gb files/CODING/icon/icon/create-placeholder-images.js",
+      "source_location": "L73",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "d_128_gb_files_coding_icon_icon_create_placeholder_images_js",
+      "target": "icon_create_placeholder_images_createallimages"
     },
     {
       "relation": "contains",
@@ -994,16 +1336,6 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "icon/create-placeholder-images.js",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "icon_create_placeholder_images_js",
-      "target": "icon_create_placeholder_images_createplaceholderimage"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "icon/create-placeholder-images.js",
       "source_location": "L73",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -1013,12 +1345,62 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "D:/128 gb files/CODING/icon/download-images.js",
+      "source_location": "L76",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "d_128_gb_files_coding_icon_download_images_js",
+      "target": "icon_download_images_downloadimage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "D:/128 gb files/CODING/icon/download-images.js",
+      "source_location": "L97",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "d_128_gb_files_coding_icon_download_images_js",
+      "target": "icon_download_images_downloadallimages"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "D:/128 gb files/CODING/icon/icon/download-images.js",
+      "source_location": "L76",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "d_128_gb_files_coding_icon_icon_download_images_js",
+      "target": "icon_download_images_downloadimage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "download-images.js",
       "source_location": "L76",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "download_images_js",
       "target": "icon_download_images_downloadimage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/download-images.js",
+      "source_location": "L76",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_download_images_js",
+      "target": "icon_download_images_downloadimage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "D:/128 gb files/CODING/icon/icon/download-images.js",
+      "source_location": "L97",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "d_128_gb_files_coding_icon_icon_download_images_js",
+      "target": "icon_download_images_downloadallimages"
     },
     {
       "relation": "contains",
@@ -1034,21 +1416,31 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "icon/download-images.js",
-      "source_location": "L76",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "icon_download_images_js",
-      "target": "icon_download_images_downloadimage"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "icon/download-images.js",
       "source_location": "L97",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "icon_download_images_js",
       "target": "icon_download_images_downloadallimages"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "D:/128 gb files/CODING/icon/lightslider.js",
+      "source_location": "L34",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "d_128_gb_files_coding_icon_lightslider_js",
+      "target": "icon_lightslider_changeslide"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "D:/128 gb files/CODING/icon/icon/lightslider.js",
+      "source_location": "L34",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "d_128_gb_files_coding_icon_icon_lightslider_js",
+      "target": "icon_lightslider_changeslide"
     },
     {
       "relation": "contains",
@@ -1076,9 +1468,9 @@
       "source_file": "server.js",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server_js",
-      "target": "icon_server_initializedatabase",
-      "confidence_score": 1.0
+      "target": "icon_server_initializedatabase"
     },
     {
       "relation": "contains",
@@ -1089,6 +1481,26 @@
       "confidence_score": 1.0,
       "source": "server_js",
       "target": "icon_server_saveusers"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "D:/128 gb files/CODING/icon/icon/server.js",
+      "source_location": "L42",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "d_128_gb_files_coding_icon_icon_server_js",
+      "target": "icon_server_saveusers"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "D:/128 gb files/CODING/icon/icon/server.js",
+      "source_location": "L199",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "d_128_gb_files_coding_icon_icon_server_js",
+      "target": "icon_server_startserver"
     },
     {
       "relation": "contains",
@@ -1113,12 +1525,62 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "D:/128 gb files/CODING/icon/icon/js/auth.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "d_128_gb_files_coding_icon_icon_js_auth_js",
+      "target": "js_auth_handlesignup"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "D:/128 gb files/CODING/icon/icon/js/auth.js",
+      "source_location": "L56",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "d_128_gb_files_coding_icon_icon_js_auth_js",
+      "target": "js_auth_handlelogin"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "D:/128 gb files/CODING/icon/js/auth.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "d_128_gb_files_coding_icon_js_auth_js",
+      "target": "js_auth_handlesignup"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "icon/js/auth.js",
       "source_location": "L2",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "icon_js_auth_js",
       "target": "js_auth_handlesignup"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/auth.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_auth_js",
+      "target": "js_auth_handlesignup"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "D:/128 gb files/CODING/icon/js/auth.js",
+      "source_location": "L50",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "d_128_gb_files_coding_icon_js_auth_js",
+      "target": "js_auth_handlelogin"
     },
     {
       "relation": "contains",
@@ -1134,16 +1596,6 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "js/auth.js",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_auth_js",
-      "target": "js_auth_handlesignup"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/auth.js",
       "source_location": "L50",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -1153,21 +1605,21 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "icon/js/diet-planner.js",
+      "source_file": "D:/128 gb files/CODING/icon/icon/js/diet-planner.js",
       "source_location": "L15",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "icon_js_diet_planner_js",
+      "source": "d_128_gb_files_coding_icon_icon_js_diet_planner_js",
       "target": "js_diet_planner_calculatebmi"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "icon/js/diet-planner.js",
+      "source_file": "D:/128 gb files/CODING/icon/icon/js/diet-planner.js",
       "source_location": "L53",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "icon_js_diet_planner_js",
+      "source": "d_128_gb_files_coding_icon_icon_js_diet_planner_js",
       "target": "js_diet_planner_generatedietplan"
     },
     {
@@ -1184,6 +1636,26 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "D:/128 gb files/CODING/icon/js/diet-planner.js",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "d_128_gb_files_coding_icon_js_diet_planner_js",
+      "target": "js_diet_planner_calculatebmi"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/js/diet-planner.js",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_js_diet_planner_js",
+      "target": "js_diet_planner_calculatebmi"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "js/diet-planner.js",
       "source_location": "L15",
       "weight": 1.0,
@@ -1194,12 +1666,52 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "D:/128 gb files/CODING/icon/js/diet-planner.js",
+      "source_location": "L53",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "d_128_gb_files_coding_icon_js_diet_planner_js",
+      "target": "js_diet_planner_generatedietplan"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/js/diet-planner.js",
+      "source_location": "L53",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_js_diet_planner_js",
+      "target": "js_diet_planner_generatedietplan"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "js/diet-planner.js",
       "source_location": "L53",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "js_diet_planner_js",
       "target": "js_diet_planner_generatedietplan"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "D:/128 gb files/CODING/icon/icon/js/login.js",
+      "source_location": "L40",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "d_128_gb_files_coding_icon_icon_js_login_js",
+      "target": "js_login_signinwithgoogle"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "D:/128 gb files/CODING/icon/js/login.js",
+      "source_location": "L40",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "d_128_gb_files_coding_icon_js_login_js",
+      "target": "js_login_signinwithgoogle"
     },
     {
       "relation": "contains",
@@ -1220,6 +1732,26 @@
       "confidence_score": 1.0,
       "source": "js_login_js",
       "target": "js_login_signinwithgoogle"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "D:/128 gb files/CODING/icon/icon/js/main.js",
+      "source_location": "L221",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "d_128_gb_files_coding_icon_icon_js_main_js",
+      "target": "js_main_updateauthui"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "D:/128 gb files/CODING/icon/js/main.js",
+      "source_location": "L93",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "d_128_gb_files_coding_icon_js_main_js",
+      "target": "js_main_updateauthui"
     },
     {
       "relation": "contains",
@@ -1599,9 +2131,9 @@
       "source_file": "js/medicines.js",
       "source_location": "L348",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "js_medicines_checkout",
-      "target": "js_medicines_savecart",
-      "confidence_score": 1.0
+      "target": "js_medicines_savecart"
     },
     {
       "relation": "calls",
@@ -1685,9 +2217,9 @@
       "source_file": "js/medicines.js",
       "source_location": "L349",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "js_medicines_checkout",
-      "target": "js_medicines_updatecartui",
-      "confidence_score": 1.0
+      "target": "js_medicines_updatecartui"
     },
     {
       "relation": "contains",
@@ -1746,9 +2278,9 @@
       "source_file": "js/medicines.js",
       "source_location": "L350",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "js_medicines_checkout",
-      "target": "js_medicines_togglecart",
-      "confidence_score": 1.0
+      "target": "js_medicines_togglecart"
     },
     {
       "relation": "calls",
@@ -1857,12 +2389,52 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "D:/128 gb files/CODING/icon/js/auth.js",
+      "source_location": "L110",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "d_128_gb_files_coding_icon_js_auth_js",
+      "target": "js_auth_handlelogout"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "js/auth.js",
       "source_location": "L110",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "js_auth_js",
       "target": "js_auth_handlelogout"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L652",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_js",
+      "target": "js_medicines_editaddress"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scratch/check_db_tables.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scratch_check_db_tables_js",
+      "target": "scratch_check_db_tables_checkdb"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scratch/migrate_db.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scratch_migrate_db_js",
+      "target": "scratch_migrate_db_migrate"
     },
     {
       "label": "calls",
@@ -1965,5 +2537,5 @@
       ]
     }
   ],
-  "built_at_commit": "164093e8d598bc723527a0c211967f22cb534d44"
+  "built_at_commit": "e11675e858c192dd226de3461de4211e9a30f469"
 }
