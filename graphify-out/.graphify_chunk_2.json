@@ -1,0 +1,256 @@
+{
+  "nodes": [
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\gym2.png",
+      "type": "file",
+      "properties": {
+        "purpose": "Gym activity image showing a man running on a treadmill",
+        "category": "Fitness"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\imain.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Main workout image showing a woman using battle ropes",
+        "category": "Fitness"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\poster.png",
+      "type": "file",
+      "properties": {
+        "purpose": "Healthcare poster for 'UNI Care' featuring doctors and healthy lifestyle imagery",
+        "category": "Healthcare"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\trainer1.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Professional profile image of a female fitness trainer",
+        "category": "Fitness"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\abrollout.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Exercise demonstration image for ab rollout",
+        "category": "Exercise"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\advancegluco.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Product image of a blood glucose monitor displaying a reading",
+        "category": "Medical Device"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\ai-healthcare-banner.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Promotional banner for AI-driven healthcare services",
+        "category": "Healthcare"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\aidoctor.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Avatar/icon representing an AI medical assistant",
+        "category": "Healthcare"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\antacid.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Product image for antacid oral suspension",
+        "category": "Medicine"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\barbell.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Exercise demonstration image for barbell upright row",
+        "category": "Exercise"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\barbellcurl.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Exercise demonstration image for barbell curls",
+        "category": "Exercise"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\bcomplex.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Product image for B-Complex vitamin supplement",
+        "category": "Medicine"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\bloodgluco.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Product kit image for Dr Trust blood glucose monitor",
+        "category": "Medical Device"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\bpmnitor.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Product image for a digital blood pressure monitor",
+        "category": "Medical Device"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\cablecrunch.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Exercise demonstration image for cable crunches",
+        "category": "Exercise"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\cablecurl.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Exercise demonstration image for cable curls",
+        "category": "Exercise"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\calciumvitamind3.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Product image for Calcium and Vitamin D3 supplement",
+        "category": "Medicine"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\calf.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Exercise demonstration image for calf raises",
+        "category": "Exercise"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\cancer-care.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Section banner or placeholder for Cancer Care services",
+        "category": "Healthcare"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\gym2.png",
+      "target": "Fitness",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\imain.jpg",
+      "target": "Fitness",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\trainer1.jpg",
+      "target": "Fitness",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\poster.png",
+      "target": "Healthcare",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\icon\\images\\ai-healthcare-banner.jpg",
+      "target": "Healthcare",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\icon\\images\\aidoctor.jpg",
+      "target": "Healthcare",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\icon\\images\\cancer-care.jpg",
+      "target": "Healthcare",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\icon\\images\\antacid.jpg",
+      "target": "Medicine",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\icon\\images\\bcomplex.jpg",
+      "target": "Medicine",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\icon\\images\\calciumvitamind3.jpg",
+      "target": "Medicine",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\icon\\images\\advancegluco.jpg",
+      "target": "Medical Device",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\icon\\images\\bloodgluco.jpg",
+      "target": "Medical Device",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\icon\\images\\bpmnitor.jpg",
+      "target": "Medical Device",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\icon\\images\\abrollout.jpg",
+      "target": "Exercise",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\icon\\images\\barbell.jpg",
+      "target": "Exercise",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\icon\\images\\barbellcurl.jpg",
+      "target": "Exercise",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\icon\\images\\cablecrunch.jpg",
+      "target": "Exercise",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\icon\\images\\cablecurl.jpg",
+      "target": "Exercise",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\icon\\images\\calf.jpg",
+      "target": "Exercise",
+      "type": "belongs_to"
+    }
+  ],
+  "hyperedges": [],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

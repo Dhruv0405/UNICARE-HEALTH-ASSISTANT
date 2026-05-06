@@ -1,0 +1,20 @@
+D:\128 gb files\CODING\icon\images\shampoo.jpg
+D:\128 gb files\CODING\icon\images\smallcrush.jpg
+D:\128 gb files\CODING\icon\images\squat.jpg
+D:\128 gb files\CODING\icon\images\stomach care.jpg
+D:\128 gb files\CODING\icon\images\sugarfree.jpg
+D:\128 gb files\CODING\icon\images\tbar.jpg
+D:\128 gb files\CODING\icon\images\trainer2.jpg
+D:\128 gb files\CODING\icon\images\trainer3.jpg
+D:\128 gb files\CODING\icon\images\trainer4.jpg
+D:\128 gb files\CODING\icon\images\tricdips.jpg
+D:\128 gb files\CODING\icon\images\tripuchdown.jpg
+D:\128 gb files\CODING\icon\images\vitaminc.jpg
+D:\128 gb files\CODING\icon\images\vitamind34.jpg
+D:\128 gb files\CODING\icon\images\vitaminsup.jpg
+D:\128 gb files\CODING\icon\images\whey protien.jpg
+D:\128 gb files\CODING\icon\js\auth.js
+D:\128 gb files\CODING\icon\js\diet-planner.js
+D:\128 gb files\CODING\icon\js\login.js
+D:\128 gb files\CODING\icon\js\main.js
+D:\128 gb files\CODING\icon\js\medicines.js

@@ -1,0 +1,396 @@
+/* AI Doctor Specific Styles */
+.ai-doctor-container {
+    max-width: 1200px;
+    margin: 130px auto 20px; /* Increased top margin from 60px to 200px */
+    padding: 20px;
+    display: flex;
+    gap: 30px;
+}
+
+.ai-doctor-info {
+    flex: 1;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Increase the height of the chat container */
+.ai-doctor-chat {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    height: 700px; /* Increased from 600px to 700px */
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Add more padding to the info box to increase its effective height */
+.ai-doctor-info {
+    flex: 1;
+    padding: 30px; /* Increased from 20px to 30px */
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Also update the responsive height for mobile */
+@media (max-width: 768px) {
+    .ai-doctor-container {
+        flex-direction: column;
+    }
+
+    .ai-doctor-chat {
+        height: 600px; /* Increased from 500px to 600px for mobile */
+    }
+}
+
+.chat-header {
+    background-color: #4e54c8;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chat-header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.chat-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #f8f9fa;
+}
+
+/* Enhanced message styling with darker borders and 3D effect */
+.message {
+    margin-bottom: 15px;
+    max-width: 80%;
+    padding: 12px 15px;
+    border-radius: 18px;
+    line-height: 1.5;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.2); /* Darker border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1); /* Enhanced 3D shadow */
+    transition: all 0.3s ease;
+}
+
+.user-message {
+    background-color: #e3f2fd;
+    color: #333;
+    margin-left: auto;
+    border-bottom-right-radius: 5px;
+    border-color: rgba(0, 0, 0, 0.15); /* Slightly darker border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(78, 84, 200, 0.1); /* Custom shadow with brand color */
+}
+
+.bot-message {
+    background-color: #ffffff;
+    color: #333;
+    border-bottom-left-radius: 5px;
+    border-color: rgba(0, 0, 0, 0.15); /* Slightly darker border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+}
+
+/* Add hover effect for more interactive feel */
+.message:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.bot-message.loading {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.typing-indicator {
+    display: flex;
+    gap: 3px;
+}
+
+.typing-indicator span {
+    width: 8px;
+    height: 8px;
+    background-color: #aaa;
+    border-radius: 50%;
+    display: inline-block;
+    animation: typing 1.4s infinite ease-in-out both;
+}
+
+.typing-indicator span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+    0%, 100% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+.chat-input {
+    display: flex;
+    padding: 15px;
+    background-color: #fff;
+    border-top: 1px solid #e0e0e0;
+}
+
+.chat-input textarea {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    resize: none;
+    font-family: inherit;
+    font-size: 14px;
+    height: 44px;
+    max-height: 120px;
+    overflow-y: auto;
+}
+
+.chat-input button {
+    background-color: #4e54c8;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    margin-left: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.chat-input button:hover {
+    background-color: #3a3f99;
+}
+
+.chat-input button:disabled {
+    background-color: #9fa0c5;
+    cursor: not-allowed;
+}
+
+.ai-doctor-info h2 {
+    color: #4e54c8;
+    margin-top: 0;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.feature-list li {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.feature-list li i {
+    color: #4e54c8;
+    font-size: 1.2rem;
+}
+
+.disclaimer {
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.doctor-image {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.common-symptoms {
+    margin-top: 30px;
+}
+
+.symptom-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.symptom-chip {
+    background-color: #e3f2fd;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.symptom-chip:hover {
+    background-color: #bbdefb;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .ai-doctor-container {
+        flex-direction: column;
+    }
+
+    .ai-doctor-chat {
+        height: 500px;
+    }
+}
+
+/* Glassmorphism effect for header/navbar */
+.header {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    margin: 10px auto;
+    max-width: 90%;
+    gap: 25px;
+}
+
+/* Make UNI text more visible */
+.header h1#firstlogo {
+    color: #333;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+    margin: 0;
+    margin-right: 15px;
+}
+
+.header h1#firstlogo span {
+    color: #4e54c8;
+}
+
+/* Style for the navigation links */
+.header a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.header a:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.header a.active {
+    color: #4e54c8;
+    font-weight: 600;
+    border-bottom: 2px solid #4e54c8;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 5px 15px;
+}
+
+.header-right {
+    flex: 1;
+    text-align: right;
+}
+
+/* Style for subheadings in AI responses */
+.bot-message strong {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #4e54c8;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+/* Make the first subheading not have a top margin */
+.bot-message strong:first-child {
+    margin-top: 0;
+}
+
+/* Banner Image Section */
+.ai-banner-container {
+    position: relative;
+    width: 100%;
+    height: 600px; /* Increased from 400px */
+    overflow: hidden;
+    margin-top: 50px; /* Reduced from 150px */
+    margin-bottom: 40px;
+}
+
+.ai-banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+.ai-banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    width: 80%;
+}
+
+.ai-banner-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.ai-banner-text p {
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+    .ai-banner-container {
+        height: 300px; /* Increased from 200px for mobile */
+    }
+    
+    .ai-banner-text h2 {
+        font-size: 1.8rem;
+    }
+    
+    .ai-banner-text p {
+        font-size: 1rem;
+    }
+}

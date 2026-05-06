@@ -1,16 +1,17 @@
-// Replace the simple users array with persistent storage
 const express = require('express');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 const fs = require('fs');
 const path = require('path');
-const nodemailer = require('nodemailer'); // Add this line
+const nodemailer = require('nodemailer');
+const mysql = require('mysql2/promise');
 require('dotenv').config();
 
 const app = express();
 
 // Add CORS headers
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*'); // Allow any origin
+    res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
     if (req.method === 'OPTIONS') {
         res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
@@ -21,67 +22,163 @@ app.use((req, res, next) => {
 
 // Middleware
 app.use(express.json());
-app.use(express.static('.')); // Serve static files
+app.use(express.static('.')); // Serve static files from project root
 
-// File path for storing users
-const usersFilePath = path.join(__dirname, 'users.json');
+// Database connection pool
+const pool = mysql.createPool({
+    host: process.env.DB_HOST || 'localhost',
+    user: process.env.DB_USER || 'root',
+    password: process.env.DB_PASSWORD || '',
+    database: process.env.DB_NAME || 'unicare',
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
+});
 
-// Load users from file or initialize empty array
-let users = [];
-try {
-    if (fs.existsSync(usersFilePath)) {
-        const data = fs.readFileSync(usersFilePath, 'utf8');
-        users = JSON.parse(data);
-        console.log(`Loaded ${users.length} users from storage`);
-    }
-} catch (error) {
-    console.error('Error loading users:', error);
-}
-
-// Function to save users to file
-function saveUsers() {
+// Initialize database tables
+async function initializeDatabase() {
     try {
-        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
-        console.log('Users saved to storage');
+        // Test connection first to ensure database exists and credentials are correct.
+        // It might be better to create database if not exists, but createPool targets a specific db.
+        // So we connect without database first to create it, then connect to pool.
+        
+        const tempConn = await mysql.createConnection({
+            host: process.env.DB_HOST || 'localhost',
+            user: process.env.DB_USER || 'root',
+            password: process.env.DB_PASSWORD || ''
+        });
+        
+        await tempConn.query(`CREATE DATABASE IF NOT EXISTS ${process.env.DB_NAME || 'unicare'}`);
+        await tempConn.end();
+
+        const connection = await pool.getConnection();
+        
+        // Create users table
+        await connection.query(`
+            CREATE TABLE IF NOT EXISTS users (
+                id VARCHAR(255) PRIMARY KEY,
+                name VARCHAR(255) NOT NULL,
+                email VARCHAR(255) UNIQUE NOT NULL,
+                password VARCHAR(255) NOT NULL,
+                date DATETIME DEFAULT CURRENT_TIMESTAMP
+            )
+        `);
+
+        // Create user_addresses table
+        await connection.query(`
+            CREATE TABLE IF NOT EXISTS user_addresses (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                user_email VARCHAR(255) NOT NULL,
+                nickname VARCHAR(100),
+                full_name VARCHAR(255),
+                mobile_number VARCHAR(20),
+                house_no VARCHAR(255),
+                street VARCHAR(255),
+                landmark VARCHAR(255),
+                city VARCHAR(100),
+                state VARCHAR(100),
+                pincode VARCHAR(20),
+                full_address TEXT,
+                is_default BOOLEAN DEFAULT FALSE,
+                created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (user_email) REFERENCES users(email) ON DELETE CASCADE
+            )
+        `);
+
+        // Check if landmark column exists, add it if not
+        try {
+            const [columns] = await connection.query("SHOW COLUMNS FROM user_addresses LIKE 'landmark'");
+            if (columns.length === 0) {
+                await connection.query("ALTER TABLE user_addresses ADD COLUMN landmark VARCHAR(255) AFTER street");
+                console.log("Added landmark column to user_addresses table");
+            }
+        } catch (err) {
+            console.error("Error checking/adding landmark column:", err);
+        }
+
+
+        // Create orders table
+        await connection.query(`
+            CREATE TABLE IF NOT EXISTS orders (
+                id VARCHAR(255) PRIMARY KEY,
+                user_email VARCHAR(255),
+                total_amount DECIMAL(10, 2),
+                status VARCHAR(50) DEFAULT 'Pending',
+                date DATETIME DEFAULT CURRENT_TIMESTAMP,
+                items JSON,
+                shipping_address JSON
+            )
+        `);
+
+        console.log('Database tables initialized successfully');
+
+        // Migrate users from users.json if exists
+        const usersFilePath = path.join(__dirname, 'users.json');
+        if (fs.existsSync(usersFilePath)) {
+            const data = fs.readFileSync(usersFilePath, 'utf8');
+            const usersJson = JSON.parse(data);
+            
+            for (const user of usersJson) {
+                try {
+                    await connection.query(
+                        'INSERT IGNORE INTO users (id, name, email, password) VALUES (?, ?, ?, ?)',
+                        [user.id || Date.now().toString(), user.name, user.email, user.password]
+                    );
+                } catch (err) {
+                    console.error('Error migrating user:', user.email, err.message);
+                }
+            }
+            console.log('User migration from JSON checked/completed.');
+            
+            // Rename users.json to prevent re-migration issues
+            fs.renameSync(usersFilePath, usersFilePath + '.bak');
+        }
+
+        connection.release();
     } catch (error) {
-        console.error('Error saving users:', error);
+        console.error('Error connecting to MySQL or initializing database tables. Make sure MySQL is running and credentials are correct.', error.message);
     }
 }
+
+// Initialize the database on startup
+initializeDatabase();
 
 // Health Check Route
 app.get('/api/health', (req, res) => {
     res.status(200).json({ 
-        status: 'ok'
+        status: 'ok',
+        timestamp: new Date().toISOString()
     });
 });
 
 // Signup Route
-app.post('/api/signup', (req, res) => {
+app.post('/api/signup', async (req, res) => {
     try {
         const { name, email, password } = req.body;
 
+        // Validate input
+        if (!name || !email || !password) {
+            return res.status(400).json({ message: 'Please provide name, email and password' });
+        }
+
         // Check if user already exists
-        const existingUser = users.find(user => user.email === email);
-        if (existingUser) {
+        const [existingUsers] = await pool.query('SELECT * FROM users WHERE email = ?', [email]);
+        if (existingUsers.length > 0) {
             return res.status(400).json({ message: 'User already exists' });
         }
 
-        // Create new user (in a real app, you would hash the password)
-        const newUser = {
-            id: Date.now().toString(),
-            name,
-            email,
-            password, // In a real app, NEVER store plain text passwords
-            date: new Date()
-        };
+        // Hash password before storing
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
 
-        // Save user to in-memory array
-        users.push(newUser);
+        // Create new user
+        const newUserId = Date.now().toString();
+        await pool.query(
+            'INSERT INTO users (id, name, email, password) VALUES (?, ?, ?, ?)',
+            [newUserId, name, email, hashedPassword]
+        );
+
         console.log('User created:', email);
-        
-        // Save to file
-        saveUsers();
-
         res.status(201).json({ message: 'User created successfully' });
     } catch (error) {
         console.error(error);
@@ -90,31 +187,163 @@ app.post('/api/signup', (req, res) => {
 });
 
 // Login Route
-app.post('/api/login', (req, res) => {
+app.post('/api/login', async (req, res) => {
     try {
         const { email, password } = req.body;
 
+        // Validate input
+        if (!email || !password) {
+            return res.status(400).json({ message: 'Please provide email and password' });
+        }
+
         // Check if user exists
-        const user = users.find(user => user.email === email);
-        if (!user) {
+        const [users] = await pool.query('SELECT * FROM users WHERE email = ?', [email]);
+        if (users.length === 0) {
             return res.status(400).json({ message: 'Invalid credentials' });
         }
 
-        // Validate password (simple comparison since we're not hashing)
-        if (user.password !== password) {
+        const user = users[0];
+
+        // Compare password with bcrypt hash
+        // Support legacy plain-text passwords for existing users
+        let isMatch = false;
+        if (user.password.startsWith('$2a$') || user.password.startsWith('$2b$')) {
+            // It's a bcrypt hash
+            isMatch = await bcrypt.compare(password, user.password);
+        } else {
+            // Legacy plain-text password — compare and upgrade
+            isMatch = (user.password === password);
+            if (isMatch) {
+                // Upgrade to hashed password
+                const salt = await bcrypt.genSalt(10);
+                const hashedNewPassword = await bcrypt.hash(password, salt);
+                await pool.query('UPDATE users SET password = ? WHERE email = ?', [hashedNewPassword, email]);
+                console.log(`Upgraded password hash for user: ${email}`);
+            }
+        }
+
+        if (!isMatch) {
             return res.status(400).json({ message: 'Invalid credentials' });
         }
 
         // Create and send JWT token
         const token = jwt.sign(
-            { userId: user.id },
+            { userId: user.id, email: user.email, name: user.name },
             process.env.JWT_SECRET || 'fallback_secret_key',
-            { expiresIn: '1h' }
+            { expiresIn: '24h' }
         );
 
-        res.json({ token });
+        res.json({ 
+            token,
+            user: {
+                name: user.name,
+                email: user.email
+            }
+        });
     } catch (error) {
         console.error(error);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+// Get users list (admin)
+app.get('/api/users', async (req, res) => {
+    try {
+        // Return users without passwords
+        const [users] = await pool.query('SELECT id, name, email, date FROM users');
+        res.json(users);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+// User Addresses Routes
+app.get('/api/addresses/:email', async (req, res) => {
+    try {
+        const email = req.params.email;
+        const [addresses] = await pool.query('SELECT * FROM user_addresses WHERE user_email = ?', [email]);
+        
+        // Map database fields to frontend structure
+        const mappedAddresses = addresses.map(addr => ({
+            id: addr.id.toString(),
+            userEmail: addr.user_email,
+            nickname: addr.nickname,
+            fullName: addr.full_name,
+            mobileNumber: addr.mobile_number,
+            houseNo: addr.house_no,
+            street: addr.street,
+            landmark: addr.landmark,
+            city: addr.city,
+            state: addr.state,
+            pincode: addr.pincode,
+            fullAddress: addr.full_address,
+            isDefault: Boolean(addr.is_default)
+        }));
+        
+        res.json(mappedAddresses);
+    } catch (error) {
+        console.error('Error fetching addresses:', error);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+app.post('/api/addresses', async (req, res) => {
+    try {
+        const { userEmail, nickname, fullName, mobileNumber, houseNo, street, landmark, city, state, pincode, fullAddress, isDefault } = req.body;
+        
+        if (!userEmail) return res.status(400).json({ message: 'User email is required' });
+
+        if (isDefault) {
+            // Unset other default addresses for this user
+            await pool.query('UPDATE user_addresses SET is_default = FALSE WHERE user_email = ?', [userEmail]);
+        }
+
+        const [result] = await pool.query(
+            `INSERT INTO user_addresses (user_email, nickname, full_name, mobile_number, house_no, street, landmark, city, state, pincode, full_address, is_default) 
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            [userEmail, nickname || 'Address', fullName || '', mobileNumber || '', houseNo || '', street || '', landmark || '', city || '', state || '', pincode || '', fullAddress || '', isDefault || false]
+        );
+
+        res.status(201).json({ message: 'Address saved', id: result.insertId.toString() });
+    } catch (error) {
+        console.error('Error saving address:', error);
+        res.status(500).json({ message: 'Server error: ' + error.message });
+    }
+});
+
+app.put('/api/addresses/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const { userEmail, nickname, fullName, mobileNumber, houseNo, street, landmark, city, state, pincode, fullAddress, isDefault } = req.body;
+        
+        if (isDefault && userEmail) {
+            await pool.query('UPDATE user_addresses SET is_default = FALSE WHERE user_email = ?', [userEmail]);
+        }
+
+        await pool.query(
+            `UPDATE user_addresses SET 
+                nickname = ?, full_name = ?, mobile_number = ?, house_no = ?, 
+                street = ?, landmark = ?, city = ?, state = ?, pincode = ?, 
+                full_address = ?, is_default = ? 
+             WHERE id = ?`,
+            [nickname || 'Address', fullName || '', mobileNumber || '', houseNo || '', street || '', landmark || '', city || '', state || '', pincode || '', fullAddress || '', isDefault || false, id]
+        );
+
+        res.json({ message: 'Address updated successfully' });
+    } catch (error) {
+        console.error('Error updating address:', error);
+        res.status(500).json({ message: 'Server error: ' + error.message });
+    }
+});
+
+app.delete('/api/addresses/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        await pool.query('DELETE FROM user_addresses WHERE id = ?', [id]);
+        res.json({ message: 'Address deleted' });
+    } catch (error) {
+        console.error('Error deleting address:', error);
         res.status(500).json({ message: 'Server error' });
     }
 });
@@ -161,7 +390,7 @@ app.get('/api/products/category/:category', (req, res) => {
 });
 
 app.get('/api/products/search', (req, res) => {
-    const searchTerm = req.query.q.toLowerCase();
+    const searchTerm = (req.query.q || '').toLowerCase();
     const searchResults = products.filter(p => 
         p.name.toLowerCase().includes(searchTerm) || 
         p.description.toLowerCase().includes(searchTerm)
@@ -169,79 +398,75 @@ app.get('/api/products/search', (req, res) => {
     res.json(searchResults);
 });
 
-// Simple in-memory orders
-let orders = [];
-
-app.post('/api/orders', (req, res) => {
+// Create order
+app.post('/api/orders', async (req, res) => {
     try {
-        const order = {
-            id: Date.now().toString(),
-            ...req.body,
-            date: new Date()
-        };
-        orders.push(order);
-        res.status(201).json(order);
+        const orderId = Date.now().toString();
+        const userEmail = req.body.userEmail || 'guest@example.com';
+        const totalAmount = req.body.totalAmount || 0;
+        const items = JSON.stringify(req.body.items || []);
+        const shippingAddress = JSON.stringify(req.body.shippingAddress || {});
+        const status = 'Pending';
+        
+        await pool.query(
+            'INSERT INTO orders (id, user_email, total_amount, status, items, shipping_address) VALUES (?, ?, ?, ?, ?, ?)',
+            [orderId, userEmail, totalAmount, status, items, shippingAddress]
+        );
+        
+        res.status(201).json({ id: orderId, user_email: userEmail, total_amount: totalAmount, status: status, date: new Date() });
     } catch (error) {
+        console.error(error);
         res.status(400).json({ message: error.message });
     }
 });
 
-app.get('/api/orders/:orderId', (req, res) => {
-    const order = orders.find(o => o.id === req.params.orderId);
-    if (order) {
-        res.json(order);
-    } else {
-        res.status(404).json({ message: 'Order not found' });
+// Get order by ID
+app.get('/api/orders/:orderId', async (req, res) => {
+    try {
+        const [orders] = await pool.query('SELECT * FROM orders WHERE id = ?', [req.params.orderId]);
+        if (orders.length > 0) {
+            res.json(orders[0]);
+        } else {
+            res.status(404).json({ message: 'Order not found' });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server error' });
     }
 });
 
-// Start the server with port fallback
-const startServer = (port) => {
-    const server = app.listen(port)
-        .on('error', (error) => {
-            if (error.code === 'EADDRINUSE') {
-                console.log(`Port ${port} is busy, trying port ${port + 1}`);
-                startServer(port + 1);
-            } else {
-                console.error('Error starting server:', error);
-            }
-        })
-        .on('listening', () => {
-            console.log(`Server is running on port ${port}`);
-        });
-};
-
-const PORT = process.env.PORT || 3002; // Change from 3001 to 3002
-startServer(PORT);
-// Delete or comment out this line
-// app.listen(PORT, () => {
-//     console.log(`Server is running on port ${PORT}`);
-// });
-// Add this route to protect users.json with admin authentication
-app.get('/api/users', (req, res) => {
-    // In a real app, you would check for admin authentication here
-    // For now, we'll just return the users array
-    res.json(users);
-});
-
-// Configure nodemailer transporter
+// Configure nodemailer transporter using environment variables
 const transporter = nodemailer.createTransport({
-    service: 'gmail', // You can use other services like 'hotmail', 'yahoo', etc.
+    service: process.env.EMAIL_SERVICE || 'gmail',
     auth: {
-        user: 'jagannathuniversity29@gmail.com', // Your email address
-        pass: 'hkjn kzrd iuts jugt' // Replace with your app password (not your regular password)
+        user: process.env.EMAIL_USER || '',
+        pass: process.env.EMAIL_PASS || ''
     }
 });
 
-// Add contact form submission endpoint
+// Contact form submission endpoint
 app.post('/api/contact', (req, res) => {
     try {
         const { name, email, subject, message } = req.body;
+
+        if (!name || !email || !subject || !message) {
+            return res.status(400).json({ success: false, message: 'All fields are required' });
+        }
         
+        // If email credentials are not configured, just log it
+        if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+            console.log('Contact form submission (email not configured):');
+            console.log({ name, email, subject, message });
+            return res.status(200).json({ 
+                success: true, 
+                message: 'Message received successfully' 
+            });
+        }
+
         // Email content
         const mailOptions = {
-            from: 'jagannathuniversity29@gmail.com', // Your email address
-            to: 'jagannathuniversity29@gmail.com', // Your email address (where you want to receive messages)
+            from: process.env.EMAIL_USER,
+            to: process.env.EMAIL_USER,
             subject: `New Contact Form Submission: ${subject}`,
             html: `
                 <h2>New Contact Form Submission</h2>
@@ -268,4 +493,22 @@ app.post('/api/contact', (req, res) => {
         console.error('Error in contact form submission:', error);
         res.status(500).json({ success: false, message: 'Server error' });
     }
+});
+
+// Catch-all: serve index.html for any unmatched routes (SPA-like behavior)
+app.get('*', (req, res) => {
+    // Only serve index.html for routes that don't match a file
+    const filePath = path.join(__dirname, req.path);
+    if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
+        res.sendFile(filePath);
+    } else {
+        res.sendFile(path.join(__dirname, 'index.html'));
+    }
+});
+
+// Start the server
+const PORT = process.env.PORT || 3002;
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server is running on port ${PORT}`);
+    console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
 });

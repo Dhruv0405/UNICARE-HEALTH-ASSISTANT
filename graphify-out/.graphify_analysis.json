@@ -1,0 +1,279 @@
+{
+  "communities": {
+    "0": [
+      "icon_js_medicines_js",
+      "js_medicines_addtocart",
+      "js_medicines_checkout",
+      "js_medicines_decreasequantity",
+      "js_medicines_deleteaddress",
+      "js_medicines_increasequantity",
+      "js_medicines_initializeaddtocartbuttons",
+      "js_medicines_js",
+      "js_medicines_loadcart",
+      "js_medicines_loadsavedaddresses",
+      "js_medicines_removeitem",
+      "js_medicines_saveaddress",
+      "js_medicines_savecart",
+      "js_medicines_searchproducts",
+      "js_medicines_selectaddress",
+      "js_medicines_shownotification",
+      "js_medicines_togglecart",
+      "js_medicines_updatecarttotal",
+      "js_medicines_updatecartui",
+      "js_medicines_updateheaderaddress"
+    ],
+    "1": [
+      "admin.html",
+      "ai-doctor.html",
+      "index.html",
+      "js/auth.js",
+      "js/main.js",
+      "server.js",
+      "users.json"
+    ],
+    "2": [
+      "icon_js_auth_js",
+      "js_auth_handlelogin",
+      "js_auth_handlelogout",
+      "js_auth_handlesignup",
+      "js_auth_js"
+    ],
+    "3": [
+      "create_image_placeholders_js",
+      "icon_create_image_placeholders_createallimages",
+      "icon_create_image_placeholders_createimageplaceholder",
+      "icon_create_image_placeholders_js"
+    ],
+    "4": [
+      "create_placeholder_images_js",
+      "icon_create_placeholder_images_createallimages",
+      "icon_create_placeholder_images_createplaceholderimage",
+      "icon_create_placeholder_images_js"
+    ],
+    "5": [
+      "download_images_js",
+      "icon_download_images_downloadallimages",
+      "icon_download_images_downloadimage",
+      "icon_download_images_js"
+    ],
+    "6": [
+      "icon_server_js",
+      "icon_server_saveusers",
+      "icon_server_startserver",
+      "server_js"
+    ],
+    "7": [
+      "icon_js_diet_planner_js",
+      "js_diet_planner_calculatebmi",
+      "js_diet_planner_generatedietplan",
+      "js_diet_planner_js"
+    ],
+    "8": [
+      "icon_lightslider_changeslide",
+      "icon_lightslider_js",
+      "lightslider_js"
+    ],
+    "9": [
+      "icon_js_login_js",
+      "js_login_js",
+      "js_login_signinwithgoogle"
+    ],
+    "10": [
+      "icon_js_main_js",
+      "js_main_js",
+      "js_main_updateauthui"
+    ],
+    "11": [
+      "diet-planner.html",
+      "js/diet-planner.js"
+    ],
+    "12": [
+      "js/medicines.js",
+      "medicines.html"
+    ],
+    "13": [
+      "GYM.html",
+      "exercise.js"
+    ],
+    "14": [
+      "exercise_js"
+    ],
+    "15": [
+      "jquery_js"
+    ],
+    "16": [
+      "punycode_shim_js"
+    ],
+    "17": [
+      "icon_exercise_js"
+    ],
+    "18": [
+      "icon_jquery_js"
+    ],
+    "19": [
+      "icon_punycode_shim_js"
+    ],
+    "20": [
+      "AuthSystem"
+    ],
+    "21": [
+      "D:\\128 gb files\\CODING\\icon\\gym2.png"
+    ],
+    "22": [
+      "D:\\128 gb files\\CODING\\icon\\imain.jpg"
+    ],
+    "23": [
+      "D:\\128 gb files\\CODING\\icon\\poster.png"
+    ],
+    "24": [
+      "D:\\128 gb files\\CODING\\icon\\trainer1.jpg"
+    ],
+    "25": [
+      "D:\\128 gb files\\CODING\\icon\\icon\\images\\abrollout.jpg"
+    ],
+    "26": [
+      "D:\\128 gb files\\CODING\\icon\\icon\\images\\advancegluco.jpg"
+    ],
+    "27": [
+      "D:\\128 gb files\\CODING\\icon\\icon\\images\\ai-healthcare-banner.jpg"
+    ],
+    "28": [
+      "D:\\128 gb files\\CODING\\icon\\icon\\images\\aidoctor.jpg"
+    ],
+    "29": [
+      "D:\\128 gb files\\CODING\\icon\\icon\\images\\antacid.jpg"
+    ],
+    "30": [
+      "D:\\128 gb files\\CODING\\icon\\icon\\images\\barbell.jpg"
+    ],
+    "31": [
+      "D:\\128 gb files\\CODING\\icon\\icon\\images\\barbellcurl.jpg"
+    ],
+    "32": [
+      "D:\\128 gb files\\CODING\\icon\\icon\\images\\bcomplex.jpg"
+    ],
+    "33": [
+      "D:\\128 gb files\\CODING\\icon\\icon\\images\\bloodgluco.jpg"
+    ],
+    "34": [
+      "D:\\128 gb files\\CODING\\icon\\icon\\images\\bpmnitor.jpg"
+    ],
+    "35": [
+      "D:\\128 gb files\\CODING\\icon\\icon\\images\\cablecrunch.jpg"
+    ],
+    "36": [
+      "D:\\128 gb files\\CODING\\icon\\icon\\images\\cablecurl.jpg"
+    ],
+    "37": [
+      "D:\\128 gb files\\CODING\\icon\\icon\\images\\calciumvitamind3.jpg"
+    ],
+    "38": [
+      "D:\\128 gb files\\CODING\\icon\\icon\\images\\calf.jpg"
+    ],
+    "39": [
+      "D:\\128 gb files\\CODING\\icon\\icon\\images\\cancer-care.jpg"
+    ]
+  },
+  "cohesion": {
+    "0": 0.29,
+    "1": 0.29,
+    "2": 0.5,
+    "3": 0.67,
+    "4": 0.67,
+    "5": 0.67,
+    "6": 0.5,
+    "7": 0.83,
+    "8": 0.67,
+    "9": 0.67,
+    "10": 0.67,
+    "11": 1.0,
+    "12": 1.0,
+    "13": 1.0,
+    "14": 1.0,
+    "15": 1.0,
+    "16": 1.0,
+    "17": 1.0,
+    "18": 1.0,
+    "19": 1.0,
+    "20": 1.0,
+    "21": 1.0,
+    "22": 1.0,
+    "23": 1.0,
+    "24": 1.0,
+    "25": 1.0,
+    "26": 1.0,
+    "27": 1.0,
+    "28": 1.0,
+    "29": 1.0,
+    "30": 1.0,
+    "31": 1.0,
+    "32": 1.0,
+    "33": 1.0,
+    "34": 1.0,
+    "35": 1.0,
+    "36": 1.0,
+    "37": 1.0,
+    "38": 1.0,
+    "39": 1.0
+  },
+  "gods": [
+    {
+      "id": "js_medicines_updatecartui",
+      "label": "updateCartUI()",
+      "degree": 8
+    },
+    {
+      "id": "js_medicines_shownotification",
+      "label": "showNotification()",
+      "degree": 7
+    },
+    {
+      "id": "js_medicines_savecart",
+      "label": "saveCart()",
+      "degree": 6
+    },
+    {
+      "id": "js_medicines_updateheaderaddress",
+      "label": "updateHeaderAddress()",
+      "degree": 5
+    },
+    {
+      "id": "js_medicines_loadsavedaddresses",
+      "label": "loadSavedAddresses()",
+      "degree": 5
+    },
+    {
+      "id": "js_medicines_addtocart",
+      "label": "addToCart()",
+      "degree": 5
+    },
+    {
+      "id": "js_medicines_deleteaddress",
+      "label": "deleteAddress()",
+      "degree": 5
+    },
+    {
+      "id": "js_medicines_decreasequantity",
+      "label": "decreaseQuantity()",
+      "degree": 4
+    },
+    {
+      "id": "js_medicines_increasequantity",
+      "label": "increaseQuantity()",
+      "degree": 4
+    },
+    {
+      "id": "js_medicines_removeitem",
+      "label": "removeItem()",
+      "degree": 4
+    }
+  ],
+  "surprises": [],
+  "questions": [
+    {
+      "type": "no_signal",
+      "question": null,
+      "why": "Not enough signal to generate questions. This usually means the corpus has no AMBIGUOUS edges, no bridge nodes, no INFERRED relationships, and all communities are tightly cohesive. Add more files or run with --mode deep to extract richer edges."
+    }
+  ]
+}

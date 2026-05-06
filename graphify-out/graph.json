@@ -1,0 +1,1969 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "hyperedges": [
+      {
+        "id": "PharmacyModule",
+        "label": "Pharmacy Module",
+        "members": [
+          "medicines.html",
+          "js/medicines.js",
+          "server.js"
+        ]
+      },
+      {
+        "id": "FitnessModule",
+        "label": "Fitness Module",
+        "members": [
+          "GYM.html",
+          "exercise.js",
+          "GYM.css"
+        ]
+      },
+      {
+        "id": "UserManagement",
+        "label": "User Management",
+        "members": [
+          "server.js",
+          "js/auth.js",
+          "login.html",
+          "admin.html",
+          "users.json"
+        ]
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "label": "create-image-placeholders.js",
+      "file_type": "code",
+      "source_file": "create-image-placeholders.js",
+      "source_location": "L1",
+      "id": "create_image_placeholders_js",
+      "community": 4,
+      "norm_label": "create-image-placeholders.js"
+    },
+    {
+      "label": "createImagePlaceholder()",
+      "file_type": "code",
+      "source_file": "icon/create-image-placeholders.js",
+      "source_location": "L12",
+      "id": "icon_create_image_placeholders_createimageplaceholder",
+      "community": 4,
+      "norm_label": "createimageplaceholder()"
+    },
+    {
+      "label": "createAllImages()",
+      "file_type": "code",
+      "source_file": "icon/create-image-placeholders.js",
+      "source_location": "L93",
+      "id": "icon_create_image_placeholders_createallimages",
+      "community": 4,
+      "norm_label": "createallimages()"
+    },
+    {
+      "label": "create-placeholder-images.js",
+      "file_type": "code",
+      "source_file": "create-placeholder-images.js",
+      "source_location": "L1",
+      "id": "create_placeholder_images_js",
+      "community": 5,
+      "norm_label": "create-placeholder-images.js"
+    },
+    {
+      "label": "createPlaceholderImage()",
+      "file_type": "code",
+      "source_file": "icon/create-placeholder-images.js",
+      "source_location": "L11",
+      "id": "icon_create_placeholder_images_createplaceholderimage",
+      "community": 5,
+      "norm_label": "createplaceholderimage()"
+    },
+    {
+      "label": "createAllImages()",
+      "file_type": "code",
+      "source_file": "icon/create-placeholder-images.js",
+      "source_location": "L73",
+      "id": "icon_create_placeholder_images_createallimages",
+      "community": 5,
+      "norm_label": "createallimages()"
+    },
+    {
+      "label": "download-images.js",
+      "file_type": "code",
+      "source_file": "download-images.js",
+      "source_location": "L1",
+      "id": "download_images_js",
+      "community": 6,
+      "norm_label": "download-images.js"
+    },
+    {
+      "label": "downloadImage()",
+      "file_type": "code",
+      "source_file": "icon/download-images.js",
+      "source_location": "L76",
+      "id": "icon_download_images_downloadimage",
+      "community": 6,
+      "norm_label": "downloadimage()"
+    },
+    {
+      "label": "downloadAllImages()",
+      "file_type": "code",
+      "source_file": "icon/download-images.js",
+      "source_location": "L97",
+      "id": "icon_download_images_downloadallimages",
+      "community": 6,
+      "norm_label": "downloadallimages()"
+    },
+    {
+      "label": "exercise.js",
+      "file_type": "code",
+      "source_file": "exercise.js",
+      "source_location": "L1",
+      "id": "exercise_js",
+      "community": 14,
+      "norm_label": "exercise.js"
+    },
+    {
+      "label": "jquery.js",
+      "file_type": "code",
+      "source_file": "jquery.js",
+      "source_location": "L1",
+      "id": "jquery_js",
+      "community": 15,
+      "norm_label": "jquery.js"
+    },
+    {
+      "label": "lightslider.js",
+      "file_type": "code",
+      "source_file": "lightslider.js",
+      "source_location": "L1",
+      "id": "lightslider_js",
+      "community": 8,
+      "norm_label": "lightslider.js"
+    },
+    {
+      "label": "changeSlide()",
+      "file_type": "code",
+      "source_file": "icon/lightslider.js",
+      "source_location": "L34",
+      "id": "icon_lightslider_changeslide",
+      "community": 8,
+      "norm_label": "changeslide()"
+    },
+    {
+      "label": "punycode-shim.js",
+      "file_type": "code",
+      "source_file": "punycode-shim.js",
+      "source_location": "L1",
+      "id": "punycode_shim_js",
+      "community": 16,
+      "norm_label": "punycode-shim.js"
+    },
+    {
+      "label": "server.js",
+      "file_type": "code",
+      "source_file": "server.js",
+      "source_location": "L1",
+      "id": "server_js",
+      "community": 2,
+      "norm_label": "server.js"
+    },
+    {
+      "label": "initializeDatabase()",
+      "file_type": "code",
+      "source_file": "server.js",
+      "source_location": "L39",
+      "id": "icon_server_initializedatabase",
+      "community": 2,
+      "norm_label": "initializedatabase()"
+    },
+    {
+      "label": "create-image-placeholders.js",
+      "file_type": "code",
+      "source_file": "icon/create-image-placeholders.js",
+      "source_location": "L1",
+      "id": "icon_create_image_placeholders_js",
+      "community": 4,
+      "norm_label": "create-image-placeholders.js"
+    },
+    {
+      "label": "create-placeholder-images.js",
+      "file_type": "code",
+      "source_file": "icon/create-placeholder-images.js",
+      "source_location": "L1",
+      "id": "icon_create_placeholder_images_js",
+      "community": 5,
+      "norm_label": "create-placeholder-images.js"
+    },
+    {
+      "label": "download-images.js",
+      "file_type": "code",
+      "source_file": "icon/download-images.js",
+      "source_location": "L1",
+      "id": "icon_download_images_js",
+      "community": 6,
+      "norm_label": "download-images.js"
+    },
+    {
+      "label": "exercise.js",
+      "file_type": "code",
+      "source_file": "icon/exercise.js",
+      "source_location": "L1",
+      "id": "icon_exercise_js",
+      "community": 17,
+      "norm_label": "exercise.js"
+    },
+    {
+      "label": "jquery.js",
+      "file_type": "code",
+      "source_file": "icon/jquery.js",
+      "source_location": "L1",
+      "id": "icon_jquery_js",
+      "community": 18,
+      "norm_label": "jquery.js"
+    },
+    {
+      "label": "lightslider.js",
+      "file_type": "code",
+      "source_file": "icon/lightslider.js",
+      "source_location": "L1",
+      "id": "icon_lightslider_js",
+      "community": 8,
+      "norm_label": "lightslider.js"
+    },
+    {
+      "label": "punycode-shim.js",
+      "file_type": "code",
+      "source_file": "icon/punycode-shim.js",
+      "source_location": "L1",
+      "id": "icon_punycode_shim_js",
+      "community": 19,
+      "norm_label": "punycode-shim.js"
+    },
+    {
+      "label": "server.js",
+      "file_type": "code",
+      "source_file": "icon/server.js",
+      "source_location": "L1",
+      "id": "icon_server_js",
+      "community": 2,
+      "norm_label": "server.js"
+    },
+    {
+      "label": "saveUsers()",
+      "file_type": "code",
+      "source_file": "icon/server.js",
+      "source_location": "L42",
+      "id": "icon_server_saveusers",
+      "community": 2,
+      "norm_label": "saveusers()"
+    },
+    {
+      "label": "startServer()",
+      "file_type": "code",
+      "source_file": "icon/server.js",
+      "source_location": "L199",
+      "id": "icon_server_startserver",
+      "community": 2,
+      "norm_label": "startserver()"
+    },
+    {
+      "label": "auth.js",
+      "file_type": "code",
+      "source_file": "icon/js/auth.js",
+      "source_location": "L1",
+      "id": "icon_js_auth_js",
+      "community": 3,
+      "norm_label": "auth.js"
+    },
+    {
+      "label": "handleSignup()",
+      "file_type": "code",
+      "source_file": "js/auth.js",
+      "source_location": "L2",
+      "id": "js_auth_handlesignup",
+      "community": 3,
+      "norm_label": "handlesignup()"
+    },
+    {
+      "label": "handleLogin()",
+      "file_type": "code",
+      "source_file": "js/auth.js",
+      "source_location": "L50",
+      "id": "js_auth_handlelogin",
+      "community": 3,
+      "norm_label": "handlelogin()"
+    },
+    {
+      "label": "diet-planner.js",
+      "file_type": "code",
+      "source_file": "icon/js/diet-planner.js",
+      "source_location": "L1",
+      "id": "icon_js_diet_planner_js",
+      "community": 7,
+      "norm_label": "diet-planner.js"
+    },
+    {
+      "label": "calculateBMI()",
+      "file_type": "code",
+      "source_file": "js/diet-planner.js",
+      "source_location": "L15",
+      "id": "js_diet_planner_calculatebmi",
+      "community": 7,
+      "norm_label": "calculatebmi()"
+    },
+    {
+      "label": "generateDietPlan()",
+      "file_type": "code",
+      "source_file": "js/diet-planner.js",
+      "source_location": "L53",
+      "id": "js_diet_planner_generatedietplan",
+      "community": 7,
+      "norm_label": "generatedietplan()"
+    },
+    {
+      "label": "login.js",
+      "file_type": "code",
+      "source_file": "icon/js/login.js",
+      "source_location": "L1",
+      "id": "icon_js_login_js",
+      "community": 9,
+      "norm_label": "login.js"
+    },
+    {
+      "label": "signInWithGoogle()",
+      "file_type": "code",
+      "source_file": "js/login.js",
+      "source_location": "L40",
+      "id": "js_login_signinwithgoogle",
+      "community": 9,
+      "norm_label": "signinwithgoogle()"
+    },
+    {
+      "label": "main.js",
+      "file_type": "code",
+      "source_file": "icon/js/main.js",
+      "source_location": "L1",
+      "id": "icon_js_main_js",
+      "community": 10,
+      "norm_label": "main.js"
+    },
+    {
+      "label": "updateAuthUI()",
+      "file_type": "code",
+      "source_file": "js/main.js",
+      "source_location": "L93",
+      "id": "js_main_updateauthui",
+      "community": 10,
+      "norm_label": "updateauthui()"
+    },
+    {
+      "label": "medicines.js",
+      "file_type": "code",
+      "source_file": "icon/js/medicines.js",
+      "source_location": "L1",
+      "id": "icon_js_medicines_js",
+      "community": 0,
+      "norm_label": "medicines.js"
+    },
+    {
+      "label": "updateHeaderAddress()",
+      "file_type": "code",
+      "source_file": "js/medicines.js",
+      "source_location": "L2",
+      "id": "js_medicines_updateheaderaddress",
+      "community": 0,
+      "norm_label": "updateheaderaddress()"
+    },
+    {
+      "label": "loadSavedAddresses()",
+      "file_type": "code",
+      "source_file": "js/medicines.js",
+      "source_location": "L22",
+      "id": "js_medicines_loadsavedaddresses",
+      "community": 0,
+      "norm_label": "loadsavedaddresses()"
+    },
+    {
+      "label": "initializeAddToCartButtons()",
+      "file_type": "code",
+      "source_file": "js/medicines.js",
+      "source_location": "L121",
+      "id": "js_medicines_initializeaddtocartbuttons",
+      "community": 0,
+      "norm_label": "initializeaddtocartbuttons()"
+    },
+    {
+      "label": "addToCart()",
+      "file_type": "code",
+      "source_file": "js/medicines.js",
+      "source_location": "L136",
+      "id": "js_medicines_addtocart",
+      "community": 0,
+      "norm_label": "addtocart()"
+    },
+    {
+      "label": "saveCart()",
+      "file_type": "code",
+      "source_file": "js/medicines.js",
+      "source_location": "L182",
+      "id": "js_medicines_savecart",
+      "community": 0,
+      "norm_label": "savecart()"
+    },
+    {
+      "label": "loadCart()",
+      "file_type": "code",
+      "source_file": "js/medicines.js",
+      "source_location": "L187",
+      "id": "js_medicines_loadcart",
+      "community": 0,
+      "norm_label": "loadcart()"
+    },
+    {
+      "label": "updateCartUI()",
+      "file_type": "code",
+      "source_file": "js/medicines.js",
+      "source_location": "L196",
+      "id": "js_medicines_updatecartui",
+      "community": 0,
+      "norm_label": "updatecartui()"
+    },
+    {
+      "label": "updateCartTotal()",
+      "file_type": "code",
+      "source_file": "js/medicines.js",
+      "source_location": "L262",
+      "id": "js_medicines_updatecarttotal",
+      "community": 0,
+      "norm_label": "updatecarttotal()"
+    },
+    {
+      "label": "decreaseQuantity()",
+      "file_type": "code",
+      "source_file": "js/medicines.js",
+      "source_location": "L271",
+      "id": "js_medicines_decreasequantity",
+      "community": 0,
+      "norm_label": "decreasequantity()"
+    },
+    {
+      "label": "increaseQuantity()",
+      "file_type": "code",
+      "source_file": "js/medicines.js",
+      "source_location": "L284",
+      "id": "js_medicines_increasequantity",
+      "community": 0,
+      "norm_label": "increasequantity()"
+    },
+    {
+      "label": "removeItem()",
+      "file_type": "code",
+      "source_file": "js/medicines.js",
+      "source_location": "L293",
+      "id": "js_medicines_removeitem",
+      "community": 0,
+      "norm_label": "removeitem()"
+    },
+    {
+      "label": "toggleCart()",
+      "file_type": "code",
+      "source_file": "js/medicines.js",
+      "source_location": "L302",
+      "id": "js_medicines_togglecart",
+      "community": 0,
+      "norm_label": "togglecart()"
+    },
+    {
+      "label": "checkout()",
+      "file_type": "code",
+      "source_file": "js/medicines.js",
+      "source_location": "L308",
+      "id": "js_medicines_checkout",
+      "community": 0,
+      "norm_label": "checkout()"
+    },
+    {
+      "label": "showNotification()",
+      "file_type": "code",
+      "source_file": "js/medicines.js",
+      "source_location": "L363",
+      "id": "js_medicines_shownotification",
+      "community": 0,
+      "norm_label": "shownotification()"
+    },
+    {
+      "label": "searchProducts()",
+      "file_type": "code",
+      "source_file": "js/medicines.js",
+      "source_location": "L398",
+      "id": "js_medicines_searchproducts",
+      "community": 0,
+      "norm_label": "searchproducts()"
+    },
+    {
+      "label": "saveAddress()",
+      "file_type": "code",
+      "source_file": "js/medicines.js",
+      "source_location": "L464",
+      "id": "js_medicines_saveaddress",
+      "community": 0,
+      "norm_label": "saveaddress()"
+    },
+    {
+      "label": "selectAddress()",
+      "file_type": "code",
+      "source_file": "js/medicines.js",
+      "source_location": "L517",
+      "id": "js_medicines_selectaddress",
+      "community": 0,
+      "norm_label": "selectaddress()"
+    },
+    {
+      "label": "deleteAddress()",
+      "file_type": "code",
+      "source_file": "js/medicines.js",
+      "source_location": "L542",
+      "id": "js_medicines_deleteaddress",
+      "community": 0,
+      "norm_label": "deleteaddress()"
+    },
+    {
+      "label": "auth.js",
+      "file_type": "code",
+      "source_file": "js/auth.js",
+      "source_location": "L1",
+      "id": "js_auth_js",
+      "community": 3,
+      "norm_label": "auth.js"
+    },
+    {
+      "label": "handleLogout()",
+      "file_type": "code",
+      "source_file": "js/auth.js",
+      "source_location": "L110",
+      "id": "js_auth_handlelogout",
+      "community": 3,
+      "norm_label": "handlelogout()"
+    },
+    {
+      "label": "diet-planner.js",
+      "file_type": "code",
+      "source_file": "js/diet-planner.js",
+      "source_location": "L1",
+      "id": "js_diet_planner_js",
+      "community": 7,
+      "norm_label": "diet-planner.js"
+    },
+    {
+      "label": "login.js",
+      "file_type": "code",
+      "source_file": "js/login.js",
+      "source_location": "L1",
+      "id": "js_login_js",
+      "community": 9,
+      "norm_label": "login.js"
+    },
+    {
+      "label": "main.js",
+      "file_type": "code",
+      "source_file": "js/main.js",
+      "source_location": "L1",
+      "id": "js_main_js",
+      "community": 10,
+      "norm_label": "main.js"
+    },
+    {
+      "label": "medicines.js",
+      "file_type": "code",
+      "source_file": "js/medicines.js",
+      "source_location": "L1",
+      "id": "js_medicines_js",
+      "community": 0,
+      "norm_label": "medicines.js"
+    },
+    {
+      "label": "server.js",
+      "type": "file",
+      "properties": {
+        "description": "Express backend server handling authentication, product management, orders, and contact forms.",
+        "technologies": [
+          "express",
+          "jwt",
+          "bcryptjs",
+          "nodemailer",
+          "dotenv"
+        ]
+      },
+      "community": 1,
+      "norm_label": "server.js",
+      "id": "server.js"
+    },
+    {
+      "label": "auth.js",
+      "type": "file",
+      "properties": {
+        "description": "Handles user signup and login operations by communicating with the backend API.",
+        "storage": "localStorage (token, userEmail)"
+      },
+      "community": 1,
+      "norm_label": "auth.js",
+      "id": "js/auth.js"
+    },
+    {
+      "label": "main.js",
+      "type": "file",
+      "properties": {
+        "description": "Global UI functionality, smooth scrolling, Firebase initialization, and Swiper slider setups.",
+        "integrations": [
+          "Firebase",
+          "Swiper"
+        ]
+      },
+      "community": 1,
+      "norm_label": "main.js",
+      "id": "js/main.js"
+    },
+    {
+      "label": "medicines.js",
+      "type": "file",
+      "properties": {
+        "description": "Manages shopping cart logic, product search, and user delivery addresses.",
+        "storage": "localStorage (cart, allUserAddresses)"
+      },
+      "community": 12,
+      "norm_label": "medicines.js",
+      "id": "js/medicines.js"
+    },
+    {
+      "label": "diet-planner.js",
+      "type": "file",
+      "properties": {
+        "description": "BMI calculation logic and dynamic generation of personalized diet plans."
+      },
+      "community": 11,
+      "norm_label": "diet-planner.js",
+      "id": "js/diet-planner.js"
+    },
+    {
+      "label": "exercise.js",
+      "type": "file",
+      "properties": {
+        "description": "Handles interactive collapsible categories for the exercise section."
+      },
+      "community": 13,
+      "norm_label": "exercise.js",
+      "id": "exercise.js"
+    },
+    {
+      "label": "index.html",
+      "type": "file",
+      "properties": {
+        "description": "Landing page showcasing services (Fitness, Diet, Medicine, AI Doctor) and contact form."
+      },
+      "community": 1,
+      "norm_label": "index.html",
+      "id": "index.html"
+    },
+    {
+      "label": "medicines.html",
+      "type": "file",
+      "properties": {
+        "description": "Online pharmacy interface for browsing products, managing addresses, and cart."
+      },
+      "community": 12,
+      "norm_label": "medicines.html",
+      "id": "medicines.html"
+    },
+    {
+      "label": "GYM.html",
+      "type": "file",
+      "properties": {
+        "description": "Fitness section with body shaping exercises and expert trainer profiles."
+      },
+      "community": 13,
+      "norm_label": "gym.html",
+      "id": "GYM.html"
+    },
+    {
+      "label": "diet-planner.html",
+      "type": "file",
+      "properties": {
+        "description": "UI for BMI calculation and diet plan visualization."
+      },
+      "community": 11,
+      "norm_label": "diet-planner.html",
+      "id": "diet-planner.html"
+    },
+    {
+      "label": "ai-doctor.html",
+      "type": "file",
+      "properties": {
+        "description": "AI-powered health assistant chat interface."
+      },
+      "community": 1,
+      "norm_label": "ai-doctor.html",
+      "id": "ai-doctor.html"
+    },
+    {
+      "label": "admin.html",
+      "type": "file",
+      "properties": {
+        "description": "Admin dashboard for managing users and viewing saved delivery addresses."
+      },
+      "community": 1,
+      "norm_label": "admin.html",
+      "id": "admin.html"
+    },
+    {
+      "label": "users.json",
+      "type": "file",
+      "properties": {
+        "description": "Persistent JSON storage for user credentials and registration data."
+      },
+      "community": 1,
+      "norm_label": "users.json",
+      "id": "users.json"
+    },
+    {
+      "label": "Authentication System",
+      "type": "concept",
+      "properties": {
+        "file_type": "rationale",
+        "mechanism": "JWT with Bcrypt hashing and LocalStorage persistence"
+      },
+      "community": 20,
+      "norm_label": "authentication system",
+      "id": "AuthSystem"
+    },
+    {
+      "type": "file",
+      "properties": {
+        "purpose": "Gym activity image showing a man running on a treadmill",
+        "category": "Fitness"
+      },
+      "community": 21,
+      "norm_label": "",
+      "id": "D:\\128 gb files\\CODING\\icon\\gym2.png"
+    },
+    {
+      "type": "file",
+      "properties": {
+        "purpose": "Main workout image showing a woman using battle ropes",
+        "category": "Fitness"
+      },
+      "community": 22,
+      "norm_label": "",
+      "id": "D:\\128 gb files\\CODING\\icon\\imain.jpg"
+    },
+    {
+      "type": "file",
+      "properties": {
+        "purpose": "Healthcare poster for 'UNI Care' featuring doctors and healthy lifestyle imagery",
+        "category": "Healthcare"
+      },
+      "community": 23,
+      "norm_label": "",
+      "id": "D:\\128 gb files\\CODING\\icon\\poster.png"
+    },
+    {
+      "type": "file",
+      "properties": {
+        "purpose": "Professional profile image of a female fitness trainer",
+        "category": "Fitness"
+      },
+      "community": 24,
+      "norm_label": "",
+      "id": "D:\\128 gb files\\CODING\\icon\\trainer1.jpg"
+    },
+    {
+      "type": "file",
+      "properties": {
+        "purpose": "Exercise demonstration image for ab rollout",
+        "category": "Exercise"
+      },
+      "community": 25,
+      "norm_label": "",
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\abrollout.jpg"
+    },
+    {
+      "type": "file",
+      "properties": {
+        "purpose": "Product image of a blood glucose monitor displaying a reading",
+        "category": "Medical Device"
+      },
+      "community": 26,
+      "norm_label": "",
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\advancegluco.jpg"
+    },
+    {
+      "type": "file",
+      "properties": {
+        "purpose": "Promotional banner for AI-driven healthcare services",
+        "category": "Healthcare"
+      },
+      "community": 27,
+      "norm_label": "",
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\ai-healthcare-banner.jpg"
+    },
+    {
+      "type": "file",
+      "properties": {
+        "purpose": "Avatar/icon representing an AI medical assistant",
+        "category": "Healthcare"
+      },
+      "community": 28,
+      "norm_label": "",
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\aidoctor.jpg"
+    },
+    {
+      "type": "file",
+      "properties": {
+        "purpose": "Product image for antacid oral suspension",
+        "category": "Medicine"
+      },
+      "community": 29,
+      "norm_label": "",
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\antacid.jpg"
+    },
+    {
+      "type": "file",
+      "properties": {
+        "purpose": "Exercise demonstration image for barbell upright row",
+        "category": "Exercise"
+      },
+      "community": 30,
+      "norm_label": "",
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\barbell.jpg"
+    },
+    {
+      "type": "file",
+      "properties": {
+        "purpose": "Exercise demonstration image for barbell curls",
+        "category": "Exercise"
+      },
+      "community": 31,
+      "norm_label": "",
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\barbellcurl.jpg"
+    },
+    {
+      "type": "file",
+      "properties": {
+        "purpose": "Product image for B-Complex vitamin supplement",
+        "category": "Medicine"
+      },
+      "community": 32,
+      "norm_label": "",
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\bcomplex.jpg"
+    },
+    {
+      "type": "file",
+      "properties": {
+        "purpose": "Product kit image for Dr Trust blood glucose monitor",
+        "category": "Medical Device"
+      },
+      "community": 33,
+      "norm_label": "",
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\bloodgluco.jpg"
+    },
+    {
+      "type": "file",
+      "properties": {
+        "purpose": "Product image for a digital blood pressure monitor",
+        "category": "Medical Device"
+      },
+      "community": 34,
+      "norm_label": "",
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\bpmnitor.jpg"
+    },
+    {
+      "type": "file",
+      "properties": {
+        "purpose": "Exercise demonstration image for cable crunches",
+        "category": "Exercise"
+      },
+      "community": 35,
+      "norm_label": "",
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\cablecrunch.jpg"
+    },
+    {
+      "type": "file",
+      "properties": {
+        "purpose": "Exercise demonstration image for cable curls",
+        "category": "Exercise"
+      },
+      "community": 36,
+      "norm_label": "",
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\cablecurl.jpg"
+    },
+    {
+      "type": "file",
+      "properties": {
+        "purpose": "Product image for Calcium and Vitamin D3 supplement",
+        "category": "Medicine"
+      },
+      "community": 37,
+      "norm_label": "",
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\calciumvitamind3.jpg"
+    },
+    {
+      "type": "file",
+      "properties": {
+        "purpose": "Exercise demonstration image for calf raises",
+        "category": "Exercise"
+      },
+      "community": 38,
+      "norm_label": "",
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\calf.jpg"
+    },
+    {
+      "type": "file",
+      "properties": {
+        "purpose": "Section banner or placeholder for Cancer Care services",
+        "category": "Healthcare"
+      },
+      "community": 39,
+      "norm_label": "",
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\cancer-care.jpg"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "create-image-placeholders.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "create_image_placeholders_js",
+      "target": "icon_create_image_placeholders_createimageplaceholder"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "create-image-placeholders.js",
+      "source_location": "L93",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "create_image_placeholders_js",
+      "target": "icon_create_image_placeholders_createallimages"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/create-image-placeholders.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_create_image_placeholders_js",
+      "target": "icon_create_image_placeholders_createimageplaceholder"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/create-image-placeholders.js",
+      "source_location": "L93",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_create_image_placeholders_js",
+      "target": "icon_create_image_placeholders_createallimages"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "create-placeholder-images.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "create_placeholder_images_js",
+      "target": "icon_create_placeholder_images_createplaceholderimage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "create-placeholder-images.js",
+      "source_location": "L73",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "create_placeholder_images_js",
+      "target": "icon_create_placeholder_images_createallimages"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/create-placeholder-images.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_create_placeholder_images_js",
+      "target": "icon_create_placeholder_images_createplaceholderimage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/create-placeholder-images.js",
+      "source_location": "L73",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_create_placeholder_images_js",
+      "target": "icon_create_placeholder_images_createallimages"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "download-images.js",
+      "source_location": "L76",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "download_images_js",
+      "target": "icon_download_images_downloadimage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "download-images.js",
+      "source_location": "L97",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "download_images_js",
+      "target": "icon_download_images_downloadallimages"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/download-images.js",
+      "source_location": "L76",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_download_images_js",
+      "target": "icon_download_images_downloadimage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/download-images.js",
+      "source_location": "L97",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_download_images_js",
+      "target": "icon_download_images_downloadallimages"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lightslider.js",
+      "source_location": "L34",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lightslider_js",
+      "target": "icon_lightslider_changeslide"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/lightslider.js",
+      "source_location": "L34",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_lightslider_js",
+      "target": "icon_lightslider_changeslide"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server.js",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "server_js",
+      "target": "icon_server_initializedatabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server.js",
+      "source_location": "L42",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_js",
+      "target": "icon_server_saveusers"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/server.js",
+      "source_location": "L42",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_server_js",
+      "target": "icon_server_saveusers"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/server.js",
+      "source_location": "L199",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_server_js",
+      "target": "icon_server_startserver"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/js/auth.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_js_auth_js",
+      "target": "js_auth_handlesignup"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/js/auth.js",
+      "source_location": "L56",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_js_auth_js",
+      "target": "js_auth_handlelogin"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/auth.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_auth_js",
+      "target": "js_auth_handlesignup"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/auth.js",
+      "source_location": "L50",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_auth_js",
+      "target": "js_auth_handlelogin"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/js/diet-planner.js",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_js_diet_planner_js",
+      "target": "js_diet_planner_calculatebmi"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/js/diet-planner.js",
+      "source_location": "L53",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_js_diet_planner_js",
+      "target": "js_diet_planner_generatedietplan"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "js/diet-planner.js",
+      "source_location": "L49",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_diet_planner_calculatebmi",
+      "target": "js_diet_planner_generatedietplan"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/diet-planner.js",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_diet_planner_js",
+      "target": "js_diet_planner_calculatebmi"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/diet-planner.js",
+      "source_location": "L53",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_diet_planner_js",
+      "target": "js_diet_planner_generatedietplan"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/js/login.js",
+      "source_location": "L40",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_js_login_js",
+      "target": "js_login_signinwithgoogle"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/login.js",
+      "source_location": "L40",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_login_js",
+      "target": "js_login_signinwithgoogle"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/js/main.js",
+      "source_location": "L221",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_js_main_js",
+      "target": "js_main_updateauthui"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/main.js",
+      "source_location": "L93",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_main_js",
+      "target": "js_main_updateauthui"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/js/medicines.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_js_medicines_js",
+      "target": "js_medicines_updateheaderaddress"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/js/medicines.js",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_js_medicines_js",
+      "target": "js_medicines_loadsavedaddresses"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/js/medicines.js",
+      "source_location": "L121",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_js_medicines_js",
+      "target": "js_medicines_initializeaddtocartbuttons"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/js/medicines.js",
+      "source_location": "L136",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_js_medicines_js",
+      "target": "js_medicines_addtocart"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/js/medicines.js",
+      "source_location": "L182",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_js_medicines_js",
+      "target": "js_medicines_savecart"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/js/medicines.js",
+      "source_location": "L187",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_js_medicines_js",
+      "target": "js_medicines_loadcart"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/js/medicines.js",
+      "source_location": "L196",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_js_medicines_js",
+      "target": "js_medicines_updatecartui"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/js/medicines.js",
+      "source_location": "L262",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_js_medicines_js",
+      "target": "js_medicines_updatecarttotal"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/js/medicines.js",
+      "source_location": "L271",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_js_medicines_js",
+      "target": "js_medicines_decreasequantity"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/js/medicines.js",
+      "source_location": "L284",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_js_medicines_js",
+      "target": "js_medicines_increasequantity"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/js/medicines.js",
+      "source_location": "L293",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_js_medicines_js",
+      "target": "js_medicines_removeitem"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/js/medicines.js",
+      "source_location": "L302",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_js_medicines_js",
+      "target": "js_medicines_togglecart"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/js/medicines.js",
+      "source_location": "L308",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_js_medicines_js",
+      "target": "js_medicines_checkout"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/js/medicines.js",
+      "source_location": "L335",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_js_medicines_js",
+      "target": "js_medicines_shownotification"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/js/medicines.js",
+      "source_location": "L370",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_js_medicines_js",
+      "target": "js_medicines_searchproducts"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/js/medicines.js",
+      "source_location": "L436",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_js_medicines_js",
+      "target": "js_medicines_saveaddress"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/js/medicines.js",
+      "source_location": "L489",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_js_medicines_js",
+      "target": "js_medicines_selectaddress"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "icon/js/medicines.js",
+      "source_location": "L514",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "icon_js_medicines_js",
+      "target": "js_medicines_deleteaddress"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L92",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_loadsavedaddresses",
+      "target": "js_medicines_updateheaderaddress"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L500",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_selectaddress",
+      "target": "js_medicines_updateheaderaddress"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L535",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_deleteaddress",
+      "target": "js_medicines_updateheaderaddress"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_js",
+      "target": "js_medicines_updateheaderaddress"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L484",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_saveaddress",
+      "target": "js_medicines_loadsavedaddresses"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L548",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_deleteaddress",
+      "target": "js_medicines_loadsavedaddresses"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_js",
+      "target": "js_medicines_loadsavedaddresses"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L121",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_js",
+      "target": "js_medicines_initializeaddtocartbuttons"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L163",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_addtocart",
+      "target": "js_medicines_savecart"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L166",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_addtocart",
+      "target": "js_medicines_updatecartui"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L178",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_addtocart",
+      "target": "js_medicines_shownotification"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L136",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_js",
+      "target": "js_medicines_addtocart"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L279",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_decreasequantity",
+      "target": "js_medicines_savecart"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L288",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_increasequantity",
+      "target": "js_medicines_savecart"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L297",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_removeitem",
+      "target": "js_medicines_savecart"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L182",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_js",
+      "target": "js_medicines_savecart"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L348",
+      "weight": 1.0,
+      "source": "js_medicines_checkout",
+      "target": "js_medicines_savecart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L191",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_loadcart",
+      "target": "js_medicines_updatecartui"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L187",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_js",
+      "target": "js_medicines_loadcart"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L258",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_updatecartui",
+      "target": "js_medicines_updatecarttotal"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L280",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_decreasequantity",
+      "target": "js_medicines_updatecartui"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L289",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_increasequantity",
+      "target": "js_medicines_updatecartui"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L298",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_removeitem",
+      "target": "js_medicines_updatecartui"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L196",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_js",
+      "target": "js_medicines_updatecartui"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L349",
+      "weight": 1.0,
+      "source": "js_medicines_checkout",
+      "target": "js_medicines_updatecartui",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L262",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_js",
+      "target": "js_medicines_updatecarttotal"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L271",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_js",
+      "target": "js_medicines_decreasequantity"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L284",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_js",
+      "target": "js_medicines_increasequantity"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L293",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_js",
+      "target": "js_medicines_removeitem"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L302",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_js",
+      "target": "js_medicines_togglecart"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L350",
+      "weight": 1.0,
+      "source": "js_medicines_checkout",
+      "target": "js_medicines_togglecart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L310",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_checkout",
+      "target": "js_medicines_shownotification"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L308",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_js",
+      "target": "js_medicines_checkout"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L442",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_saveaddress",
+      "target": "js_medicines_shownotification"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L509",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_selectaddress",
+      "target": "js_medicines_shownotification"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L551",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_deleteaddress",
+      "target": "js_medicines_shownotification"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L335",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_js",
+      "target": "js_medicines_shownotification"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L370",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_js",
+      "target": "js_medicines_searchproducts"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L436",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_js",
+      "target": "js_medicines_saveaddress"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L489",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_js",
+      "target": "js_medicines_selectaddress"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/medicines.js",
+      "source_location": "L514",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_medicines_js",
+      "target": "js_medicines_deleteaddress"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "js/auth.js",
+      "source_location": "L110",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "js_auth_js",
+      "target": "js_auth_handlelogout"
+    },
+    {
+      "label": "calls",
+      "properties": {
+        "endpoints": [
+          "/api/signup",
+          "/api/login"
+        ]
+      },
+      "confidence_score": 1.0,
+      "source": "js/auth.js",
+      "target": "server.js"
+    },
+    {
+      "label": "manages",
+      "properties": {
+        "actions": [
+          "read",
+          "write"
+        ]
+      },
+      "confidence_score": 1.0,
+      "source": "server.js",
+      "target": "users.json"
+    },
+    {
+      "label": "calls",
+      "properties": {
+        "endpoint": "/api/contact"
+      },
+      "confidence_score": 1.0,
+      "source": "js/main.js",
+      "target": "server.js"
+    },
+    {
+      "label": "references",
+      "confidence_score": 1.0,
+      "source": "index.html",
+      "target": "js/main.js"
+    },
+    {
+      "label": "references",
+      "confidence_score": 1.0,
+      "source": "ai-doctor.html",
+      "target": "js/main.js"
+    },
+    {
+      "label": "references",
+      "confidence_score": 1.0,
+      "source": "medicines.html",
+      "target": "js/medicines.js"
+    },
+    {
+      "label": "references",
+      "confidence_score": 1.0,
+      "source": "diet-planner.html",
+      "target": "js/diet-planner.js"
+    },
+    {
+      "label": "references",
+      "confidence_score": 1.0,
+      "source": "GYM.html",
+      "target": "exercise.js"
+    },
+    {
+      "label": "fetches",
+      "confidence_score": 1.0,
+      "source": "admin.html",
+      "target": "users.json"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "PharmacyModule",
+      "label": "Pharmacy Module",
+      "members": [
+        "medicines.html",
+        "js/medicines.js",
+        "server.js"
+      ]
+    },
+    {
+      "id": "FitnessModule",
+      "label": "Fitness Module",
+      "members": [
+        "GYM.html",
+        "exercise.js",
+        "GYM.css"
+      ]
+    },
+    {
+      "id": "UserManagement",
+      "label": "User Management",
+      "members": [
+        "server.js",
+        "js/auth.js",
+        "login.html",
+        "admin.html",
+        "users.json"
+      ]
+    }
+  ],
+  "built_at_commit": "164093e8d598bc723527a0c211967f22cb534d44"
+}

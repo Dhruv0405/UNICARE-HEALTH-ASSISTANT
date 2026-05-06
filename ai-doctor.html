@@ -4,46 +4,148 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UniCare - AI Doctor</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/aidoctor.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-</head>
+
+    <style>
+        /* Base header adjustments for flex */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%; 
+            position: relative; /* For z-index to work */
+            z-index: 1002;
+            /* Assuming background/shadow are in style.css */
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-right-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Style the hamburger menu icon */
+        .menu-toggle {
+            display: none; /* Hide by default */
+            font-size: 24px;
+            cursor: pointer;
+            color: #333; /* Adjust color as needed */
+            margin-left: 20px;
+            z-index: 1001;
+        }
+
+        /* Media Query for mobile (e.g., 992px and below) */
+        @media (max-width: 992px) {
+            .header {
+                padding: 15px 20px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .header-right-content {
+                display: none;
+                position: absolute;
+                top: 100%; /* Position right below the header */
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                flex-direction: column;
+                padding: 20px;
+                z-index: 1000;
+                border-top: 1px solid #eee;
+            }
+
+            .header-right-content.active {
+                display: flex;
+            }
+
+            .main-nav {
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+            }
+            .main-nav a {
+                padding: 12px 0;
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid #eee;
+            }
+            .main-nav a:last-child {
+                border-bottom: none;
+            }
+
+            .auth-buttons {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 15px;
+                align-items: center;
+            }
+            .auth-buttons .login-btn,
+            .auth-buttons .signup-btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+                margin: 5px 0;
+            }
+             .auth-buttons .signup-btn {
+                margin-bottom: 10px;
+            }
+            .user-profile {
+                margin-top: 15px;
+                align-self: center;
+            }
+        }
+    </style>
+    </head>
 <body>
-    <!-- Header Section - Removing address, offers and cart buttons -->
     <div class="header">
         <div class="header-left">
             <h1 id="firstlogo">UNI<span>CARE</span></h1>
         </div>
         <div class="header-right">
-            <nav class="main-nav">
-                <a href="index.html">Home</a>
-                <a href="GYM.html" class="active">Fitness</a>
-                <a href="medicines.html">Medicine</a>
-                <a href="diet-planner.html" >Diet</a>
-                <a href="ai-doctor.html">AI Doctor</a>
-            </nav>
-            <div class="auth-buttons" id="auth-section">
-                <a href="login.html" class="login-btn" id="login-btn">Login</a>
-                <a href="login.html" class="signup-btn" id="signup-btn">
-                    Sign up
-                    <div class="arrow-wrapper">
-                        <div class="arrow"></div>
-                    </div>
-                </a>
-                <!-- Add user profile section (initially hidden) -->
-                <div class="user-profile" id="user-profile" style="display: none;">
-                    <div class="user-initial" id="user-initial"></div>
-                    <div class="dropdown-menu">
-                        <a href="#" id="logout-btn">Logout</a>
+            <div class="header-right-content" id="header-right-content">
+                <nav class="main-nav">
+                    <a href="index.html">Home</a>
+                    <a href="GYM.html" >Fitness</a>
+                    <a href="medicines.html">Medicine</a>
+                    <a href="diet-planner.html" >Diet</a>
+                    <a href="ai-doctor.html" class="active">AI Doctor</a>
+                </nav>
+                <div class="auth-buttons" id="auth-section">
+                    <a href="login.html" class="login-btn" id="login-btn">Login</a>
+                    <a href="login.html" class="signup-btn" id="signup-btn">
+                        Sign up
+                        <div class="arrow-wrapper">
+                            <div class="arrow"></div>
+                        </div>
+                    </a>
+                    <div class="user-profile" id="user-profile" style="display: none;">
+                        <div class="user-initial" id="user-initial"></div>
+                        <div class="dropdown-menu">
+                            <a href="#" id="logout-btn">Logout</a>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </div>
-    
-    <!-- Navigation Menu - Ensuring proper display of links -->
-
-    <!-- Banner Image Section -->
     <div class="ai-banner-container">
         <img src="images/ai-healthcare-banner.jpg" alt="AI Healthcare Banner" class="ai-banner-image">
         <div class="ai-banner-text">
@@ -52,7 +154,6 @@
         </div>
     </div>
 
-    <!-- AI Doctor Section -->
     <div class="ai-doctor-container">
         <div class="ai-doctor-info">
             <img src="images/aidoctor.jpg" alt="AI Doctor" class="doctor-image">
@@ -92,7 +193,6 @@
                 <h2>UniCare Health Assistant</h2>
             </div>
             
-            <!-- Find this section in your HTML file and replace the existing message -->
             <div class="chat-messages" id="chat-messages">
                 <div class="message bot-message">
                     Hello! I'm your UniCare Health Assistant. How can I help you today? Please tell me about any symptoms or health concerns you're experiencing, and I'll do my best to provide guidance. Remember, I'm here to offer information, not to replace professional medical advice.
@@ -108,7 +208,6 @@
         </div>
     </div>
 
-    <!-- Footer Section -->
     <footer>
         <div class="footer-container">
             <div class="footer-row">
@@ -338,5 +437,29 @@
         }
     </script>
     <script src="js/main.js"></script>
-</body>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menu-toggle');
+            const headerRightContent = document.getElementById('header-right-content');
+
+            if (menuToggle && headerRightContent) {
+                menuToggle.addEventListener('click', function() {
+                    // Toggle the 'active' class on the menu content
+                    headerRightContent.classList.toggle('active');
+                    
+                    // Toggle the icon between 'bars' and 'times' (X)
+                    const icon = menuToggle.querySelector('i');
+                    if (headerRightContent.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            }
+        });
+    </script>
+    </body>
 </html>

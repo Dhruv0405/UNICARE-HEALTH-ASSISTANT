@@ -4,53 +4,154 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UniCare - Online Pharmacy</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/medicines.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <!-- OpenStreetMap Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <!-- OpenStreetMap Geocoder CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
-</head>
+
+    <style>
+        /* Base header adjustments for flex */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%; 
+            position: relative; /* For z-index to work */
+            z-index: 1002;
+            /* Assuming background/shadow are in style.css */
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-right-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Style the hamburger menu icon */
+        .menu-toggle {
+            display: none; /* Hide by default */
+            font-size: 24px;
+            cursor: pointer;
+            color: #333; /* Adjust color as needed */
+            margin-left: 20px;
+            z-index: 1001;
+        }
+
+        /* Media Query for mobile (e.g., 992px and below) */
+        @media (max-width: 992px) {
+            .header {
+                padding: 15px 20px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .header-right-content {
+                display: none;
+                position: absolute;
+                top: 100%; /* Position right below the header */
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                flex-direction: column;
+                padding: 20px;
+                z-index: 1000;
+                border-top: 1px solid #eee;
+            }
+
+            .header-right-content.active {
+                display: flex;
+            }
+
+            .main-nav {
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+            }
+            .main-nav a {
+                padding: 12px 0;
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid #eee;
+            }
+            .main-nav a:last-child {
+                border-bottom: none;
+            }
+
+            .auth-buttons {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 15px;
+                align-items: center;
+            }
+            .auth-buttons .login-btn,
+            .auth-buttons .signup-btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+                margin: 5px 0;
+            }
+             .auth-buttons .signup-btn {
+                margin-bottom: 10px;
+            }
+            .user-profile {
+                margin-top: 15px;
+                align-self: center;
+            }
+        }
+    </style>
+    </head>
 <body>
-    <!-- Header Section -->
     <div class="header">
         <div class="header-left">
             <h1 id="firstlogo">UNI<span>CARE</span></h1>
         </div>
         <div class="header-right">
-            <nav class="main-nav">
-                <a href="index.html">Home</a>
-                <a href="GYM.html">Fitness</a>
-                <a href="medicines.html" class="active">Medicine</a>
-                <a href="ai-doctor.html">AI Doctor</a>
-                <a href="diet-planner.html">Diet</a>
-            </nav>
-            <div class="auth-buttons" id="auth-section">
-                <a href="login.html" class="login-btn" id="login-btn">Login</a>
-                <a href="login.html" class="signup-btn" id="signup-btn">
-                    Sign up
-                    <div class="arrow-wrapper">
-                        <div class="arrow"></div>
-                    </div>
-                </a>
-                <!-- Add user profile section (initially hidden) -->
-                <div class="user-profile" id="user-profile" style="display: none;">
-                    <div class="user-initial" id="user-initial"></div>
-                    <div class="dropdown-menu">
-                        <a href="login.html" id="logout-btn">Logout</a>
+            <div class="header-right-content" id="header-right-content">
+                <nav class="main-nav">
+                    <a href="index.html">Home</a>
+                    <a href="GYM.html">Fitness</a>
+                    <a href="medicines.html" class="active">Medicine</a>
+                    <a href="ai-doctor.html">AI Doctor</a>
+                    <a href="diet-planner.html">Diet</a>
+                </nav>
+                <div class="auth-buttons" id="auth-section">
+                    <a href="login.html" class="login-btn" id="login-btn">Login</a>
+                    <a href="login.html" class="signup-btn" id="signup-btn">
+                        Sign up
+                        <div class="arrow-wrapper">
+                            <div class="arrow"></div>
+                        </div>
+                    </a>
+                    <div class="user-profile" id="user-profile" style="display: none;">
+                        <div class="user-initial" id="user-initial"></div>
+                        <div class="dropdown-menu">
+                            <a href="login.html" id="logout-btn">Logout</a>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </div>
-
-    <!-- Fixed Cart Button -->
     <div id="fixed-cart-btn">
         <a href="#" id="cart-btn"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a>
     </div>
 
-    <!-- User Actions Section -->
     <div class="user-actions-container">
         <div class="selected-address-display" id="header-address-container">
             <span id="current-address-display" style="cursor: pointer;" onclick="showAddressModal()">
@@ -69,16 +170,11 @@
             </button>
         </div>
         <div class="user-buttons">
-           
+            
             <a href="#" id="offers-btn"><i class="fas fa-percent"></i> Offers</a>
-            <!-- Cart button removed from here as it's now fixed at the top right -->
-        </div>
+            </div>
     </div>
 
-    <!-- Remove the separate Navigation Menu since it's now integrated in the header -->
-   
-
-    <!-- Search Section -->
     <div class="search-section">
         <div class="search-container">
             <i class="fas fa-search search-icon"></i>
@@ -88,7 +184,6 @@
         </div>
     </div>
 
-    <!-- Quick Links -->
     <div class="quick-links">
         <div class="quick-link-card" onclick="scrollToProducts()">
             <img src="images/med.jpg" alt="Medicine">
@@ -108,7 +203,6 @@
        
     </div>
 
-    <!-- Featured Sections -->
     <div class="featured-section">
         <div class="featured-card">
             <img src="images/nutrition.jpg" alt="Nutrition">
@@ -128,7 +222,6 @@
         </div>
     </div>
 
-    <!-- Product Categories -->
     <section class="product-categories">
         <h2>Shop by Category</h2>
         <div class="category-grid">
@@ -159,14 +252,12 @@
         </div>
     </section>
 
-    <!-- Products Grid -->
     <section class="products-section">
         <h2>Popular Products</h2>
         <div class="products-container">
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/paraceta.jpg" alt="Paracetamol" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">15% OFF</div>
                 <div class="savings-tag">Save ₹12</div>
@@ -183,7 +274,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/multiv.jpg" alt="Multivitamin" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">25% OFF</div>
                 <div class="savings-tag">Save ₹125</div>
@@ -200,7 +290,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/bpmnitor.jpg" alt="BP Monitor" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">20% OFF</div>
                 <div class="savings-tag">Save ₹300</div>
@@ -217,7 +306,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/sanitizer.jpg" alt="Hand Sanitizer" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">10% OFF</div>
                 <div class="savings-tag">Save ₹20</div>
@@ -234,7 +322,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/whey protien.jpg" alt="Protein Powder" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">18% OFF</div>
                 <div class="savings-tag">Save ₹180</div>
@@ -250,14 +337,12 @@
         </div>
     </section>
 
-    <!-- Trending Products -->
     <section class="trending-section">
         <h2>Trending Now</h2>
         <div class="trending-container">
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/dolo.jpg" alt="Product 1" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">20% OFF</div>
                 <div class="savings-tag">Save ₹150</div>
@@ -274,7 +359,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/vitamind34.jpg" alt="Vitamin D3" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">20% OFF</div>
                 <div class="savings-tag">Save ₹79.80</div>
@@ -291,7 +375,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/bloodgluco.jpg" alt="Glucose Monitor" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">30% OFF</div>
                 <div class="savings-tag">Save ₹299.80</div>
@@ -304,14 +387,9 @@
                 </div>
                 <button class="add-to-cart-btn">Add to Cart</button>
             </div>
-            <!-- More product cards will be dynamically loaded here -->
-        </div>
+            </div>
     </section>
 
-    <!-- Category Sections -->
-    <!-- Replace the empty product grids in each category section with these cards -->
-    
-    <!-- For the Covid Essentials section -->
     <section id="covid" class="category-section">
         <h2>Covid Essentials</h2>
         <div class="section-description">
@@ -321,7 +399,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/N95 mask.jpg" alt="N95 Face Mask" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">15% OFF</div>
                 <div class="savings-tag">Save ₹45</div>
@@ -338,7 +415,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/sanitizer.jpg" alt="Hand Sanitizer" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">20% OFF</div>
                 <div class="savings-tag">Save ₹50</div>
@@ -355,7 +431,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/pulse.jpg" alt="Pulse Oximeter" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">10% OFF</div>
                 <div class="savings-tag">Save ₹120</div>
@@ -372,7 +447,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/infrared.jpg" alt="Infrared Thermometer" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">25% OFF</div>
                 <div class="savings-tag">Save ₹250</div>
@@ -389,7 +463,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/immunity.jpg" alt="Immunity Booster" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">15% OFF</div>
                 <div class="savings-tag">Save ₹75</div>
@@ -405,7 +478,6 @@
         </div>
     </section>
     
-    <!-- For the Diabetes Care section -->
     <section id="diabetes" class="category-section">
         <h2>Diabetes Care</h2>
         <div class="section-description">
@@ -415,7 +487,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/bloodgluco.jpg" alt="Glucose Monitor" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">20% OFF</div>
                 <div class="savings-tag">Save ₹300</div>
@@ -432,7 +503,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/insulinpen.jpg" alt="Insulin Pen" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">15% OFF</div>
                 <div class="savings-tag">Save ₹150</div>
@@ -449,7 +519,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/diabeticsocks.jpg" alt="Diabetic Socks" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">25% OFF</div>
                 <div class="savings-tag">Save ₹125</div>
@@ -466,7 +535,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/sugarfree.jpg" alt="Sugar Free Sweetener" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">10% OFF</div>
                 <div class="savings-tag">Save ₹20</div>
@@ -483,7 +551,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/footcarecream.jpg" alt="Foot Care Cream" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">18% OFF</div>
                 <div class="savings-tag">Save ₹90</div>
@@ -499,7 +566,6 @@
         </div>
     </section>
     
-    <!-- For the Cardiac Care section -->
     <section id="cardiac" class="category-section">
         <h2>Cardiac Care</h2>
         <div class="section-description">
@@ -509,7 +575,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/bpmnitor.jpg" alt="BP Monitor" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">22% OFF</div>
                 <div class="savings-tag">Save ₹440</div>
@@ -526,7 +591,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/omega3fish.jpg" alt="Omega 3" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">15% OFF</div>
                 <div class="savings-tag">Save ₹105</div>
@@ -543,7 +607,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/Coq10 su.jpg" alt="CoQ10" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">20% OFF</div>
                 <div class="savings-tag">Save ₹180</div>
@@ -560,7 +623,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/Low-Dose Aspirin.jpg" alt="Aspirin" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">10% OFF</div>
                 <div class="savings-tag">Save ₹15</div>
@@ -577,7 +639,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/garlic.jpg" alt="Garlic Extract" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">18% OFF</div>
                 <div class="savings-tag">Save ₹72</div>
@@ -593,7 +654,6 @@
         </div>
     </section>
     
-    <!-- For the Stomach Care section -->
     <section id="stomach" class="category-section">
         <h2>Stomach Care</h2>
         <div class="section-description">
@@ -603,7 +663,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/antacid.jpg" alt="Antacid" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">12% OFF</div>
                 <div class="savings-tag">Save ₹24</div>
@@ -620,7 +679,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/probiotic.jpg" alt="Probiotic" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">20% OFF</div>
                 <div class="savings-tag">Save ₹120</div>
@@ -637,7 +695,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/fibre.jpg" alt="Fiber Supplement" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">15% OFF</div>
                 <div class="savings-tag">Save ₹60</div>
@@ -654,7 +711,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/digestive.jpg" alt="Digestive Enzyme" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">18% OFF</div>
                 <div class="savings-tag">Save ₹90</div>
@@ -671,7 +727,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/gasrelief.jpg" alt="Gas Relief" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">10% OFF</div>
                 <div class="savings-tag">Save ₹15</div>
@@ -687,7 +742,6 @@
         </div>
     </section>
     
-    <!-- For the Vitamins & Supplements section -->
     <section id="vitamins" class="category-section">
         <h2>Vitamins & Supplements</h2>
         <div class="section-description">
@@ -697,7 +751,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/multivitamin.jpg" alt="Multivitamin" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">25% OFF</div>
                 <div class="savings-tag">Save ₹150</div>
@@ -714,7 +767,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/vitaminc.jpg" alt="Vitamin C" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">20% OFF</div>
                 <div class="savings-tag">Save ₹80</div>
@@ -731,7 +783,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/vitamind34.jpg" alt="Vitamin B Complex" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">15% OFF</div>
                 <div class="savings-tag">Save ₹60</div>
@@ -748,7 +799,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/calciumvitamind3.jpg" alt="Calcium" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">18% OFF</div>
                 <div class="savings-tag">Save ₹90</div>
@@ -765,7 +815,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/iron.jpg" alt="Iron Supplement" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">12% OFF</div>
                 <div class="savings-tag">Save ₹36</div>
@@ -781,7 +830,6 @@
         </div>
     </section>
     
-    <!-- For the Personal Care section -->
     <section id="personal" class="category-section">
         <h2>Personal Care</h2>
         <div class="section-description">
@@ -791,7 +839,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/cetaphil.jpg" alt="Face Wash" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">15% OFF</div>
                 <div class="savings-tag">Save ₹45</div>
@@ -808,7 +855,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/moisture.jpg" alt="Moisturizing Lotion" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">20% OFF</div>
                 <div class="savings-tag">Save ₹100</div>
@@ -825,7 +871,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/dentalcarekit.jpg" alt="Dental Care Kit" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">25% OFF</div>
                 <div class="savings-tag">Save ₹125</div>
@@ -842,7 +887,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/shampoo.jpg" alt="Shampoo" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">18% OFF</div>
                 <div class="savings-tag">Save ₹72</div>
@@ -859,7 +903,6 @@
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="images/cream.jpg" alt="Hand Cream" class="product-image">
-                    <button class="quick-view-btn">Quick View</button>
                 </div>
                 <div class="discount-badge">10% OFF</div>
                 <div class="savings-tag">Save ₹20</div>
@@ -875,15 +918,13 @@
         </div>
     </section>
 
-    <!-- Shopping Cart Sidebar -->
     <div class="cart-sidebar" id="cart-sidebar">
         <div class="cart-header">
             <h2>Shopping Cart</h2>
             <button id="close-cart"><i class="fas fa-times"></i></button>
         </div>
         <div class="cart-items">
-            <!-- Cart items will be dynamically loaded here -->
-        </div>
+            </div>
         <div class="cart-total">
             <div class="savings-info">
                 <i class="fas fa-piggy-bank"></i>
@@ -894,150 +935,214 @@
         </div>
     </div>
 
-    <!-- Product Modal -->
     <div class="product-modal" id="product-modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <div class="modal-body">
-                <!-- Product details will be dynamically loaded here -->
-            </div>
+                </div>
         </div>
     </div>
 
-    <!-- Delivery Address Modal -->
     <div class="delivery-address-modal" id="delivery-address-modal">
-        <div class="modal-content">
+        <div class="modal-content address-redesign">
             <span class="close-address-modal">&times;</span>
-            <div class="modal-header">
-                <h2>Manage Delivery Addresses</h2>
+            <div class="modal-header-new">
+                <h2>My Addresses</h2>
+                <p>Manage your delivery locations for faster checkout.</p>
             </div>
-            <div class="address-modal-body">
-                <!-- Change this section in the address modal -->
-                <div class="address-list-container">
-                    <h3>Current Delivery Location</h3>
-                    <div id="saved-addresses" class="saved-addresses">
-                        <!-- Current location will be displayed here -->
-                    </div>
-                    <button id="detect-location" class="detect-location-btn" style="margin: 10px 0;">
-                        <i class="fas fa-crosshairs"></i> Detect My Current Location
-                    </button>
-                    <button id="add-new-address" class="add-address-btn">
-                        <i class="fas fa-plus"></i> Add New Address
-                    </button>
-                    
-                    <!-- Delivery Map Display for Selected Address -->
-                    <div class="delivery-map-container">
-                        <h3>Delivery Location</h3>
-                        <div id="delivery-map"></div>
-                        <div class="delivery-info">
-                            <div class="delivery-status">
-                                <i class="fas fa-truck"></i>
-                                <span>Delivery available to this location</span>
-                            </div>
-                            <div class="delivery-time">
-                                <i class="fas fa-clock"></i>
-                                <span>Estimated delivery: <strong>24-48 hours</strong></span>
-                            </div>
+            
+            <div class="address-modal-layout">
+                <!-- Left Column: Saved Addresses and Form -->
+                <div class="address-left-col">
+                    <div class="saved-addresses-section">
+                        <h3><i class="fas fa-map-marker-alt"></i> Saved Addresses</h3>
+                        <div id="saved-addresses" class="saved-addresses-grid">
+                            <!-- Address cards will be injected here -->
                         </div>
-                        <button id="proceed-with-address" class="proceed-address-btn">
-                            Proceed with this Address
-                        </button>
+                    </div>
+
+                    <div class="add-address-section">
+                        <div class="section-header">
+                            <div class="title-with-icon">
+                                <i class="fas fa-plus-circle"></i>
+                                <h3>Add New Address</h3>
+                            </div>
+                            <button id="detect-location-modal" class="detect-btn-modern">
+                                <i class="fas fa-crosshairs"></i> Detect My Location
+                            </button>
+                        </div>
+
+                        <form id="address-form" class="modern-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="full-name">FULL NAME</label>
+                                    <input type="text" id="full-name" placeholder="Enter recipient name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mobile-number">PHONE NUMBER</label>
+                                    <input type="tel" id="mobile-number" placeholder="+91 000 000-0000" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="house-no">FLAT / HOUSE NO</label>
+                                    <input type="text" id="house-no" placeholder="Apt, Building, Floor" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="street">STREET / AREA</label>
+                                    <input type="text" id="street" placeholder="Main Street, Neighborhood" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="landmark">LANDMARK</label>
+                                    <input type="text" id="landmark" placeholder="Near Hospital, Park, etc">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pincode">PINCODE</label>
+                                    <input type="text" id="pincode" placeholder="6-digit PIN code" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city">CITY</label>
+                                    <input type="text" id="city" placeholder="City name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="state">STATE</label>
+                                    <input type="text" id="state" placeholder="State name" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="display: none;">
+                                <input type="text" id="address-name" value="Home">
+                            </div>
+
+                            <div class="form-checkbox">
+                                <input type="checkbox" id="default-address" checked>
+                                <label for="default-address">Make this my default address</label>
+                            </div>
+
+                            <button type="submit" id="save-address" class="save-continue-btn">
+                                Save Address & Continue
+                            </button>
+                        </form>
                     </div>
                 </div>
-                <div class="address-form-container">
-                    <h3>Add New Address</h3>
-                    <form id="address-form">
-                        <div class="form-group">
-                            <label for="address-name">Address Nickname (e.g. Home, Office)</label>
-                            <input type="text" id="address-name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="full-name">Full Name</label>
-                            <input type="text" id="full-name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="mobile-number">Mobile Number</label>
-                            <input type="tel" id="mobile-number" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="pincode">Pincode</label>
-                            <input type="text" id="pincode" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="house-no">House No, Building Name</label>
-                            <input type="text" id="house-no" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="street">Road Name, Area, Colony</label>
-                            <input type="text" id="street" required>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group half">
-                                <label for="city">City</label>
-                                <input type="text" id="city" required>
+
+                <!-- Right Column: Map -->
+                <div class="address-right-col">
+                    <div class="map-card">
+                        <div class="map-header">
+                            <div>
+                                <h4>Pin Exact Location</h4>
+                                <p>Drag the marker to your precise doorstep</p>
                             </div>
-                            <div class="form-group half">
-                                <label for="state">State</label>
-                                <input type="text" id="state" required>
-                            </div>
+                            <i class="fas fa-map"></i>
                         </div>
-                        <div class="form-group">
-                            <label for="address-type">Address Type</label>
-                            <div class="address-type-container">
-                                <label class="address-type">
-                                    <input type="radio" name="address-type" value="home" checked>
-                                    <span>Home</span>
-                                </label>
-                                <label class="address-type">
-                                    <input type="radio" name="address-type" value="work">
-                                    <span>Work</span>
-                                </label>
-                                <label class="address-type">
-                                    <input type="radio" name="address-type" value="other">
-                                    <span>Other</span>
-                                </label>
-                            </div>
+                        <div id="address-map" class="modern-map"></div>
+                        <div class="map-footer">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Accurate pinning helps our delivery partners reach you faster.</span>
                         </div>
-                        <div class="form-group form-checkbox">
-                            <input type="checkbox" id="default-address">
-                            <label for="default-address">Make this my default address</label>
-                        </div>
-                        <div class="map-container">
-                            <h4>Verify Location on Map</h4>
-                            <div id="address-map"></div>
-                            <p class="map-help">Drag the marker to adjust the precise delivery location</p>
-                        </div>
-                        <div class="form-buttons">
-                            <button type="button" id="cancel-address">Cancel</button>
-                            <button type="submit" id="save-address">Save Address</button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Add button to Proceed to Checkout to open address modal -->
+    <!-- Order Success Modal -->
+    <div id="order-success-modal" class="order-success-modal">
+        <div class="success-modal-content">
+            <div id="main-success-view">
+                <div class="success-animation">
+                    <div class="checkmark-circle">
+                        <div class="background"></div>
+                        <div class="checkmark draw"></div>
+                    </div>
+                </div>
+                <h2>Order Placed Successfully!</h2>
+                <p>Your order has been confirmed and will be delivered soon.</p>
+                <div class="order-id-display">Order ID: <span id="confirmed-order-id">#123456789</span></div>
+                <div class="success-actions">
+                    <button id="track-order-btn" class="track-btn">
+                        <i class="fas fa-shipping-fast"></i> Track Order
+                    </button>
+                    <button id="continue-shopping-success" class="continue-btn">
+                        Continue Shopping
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tracking View (Initially Hidden) -->
+            <div id="tracking-view" style="display: none;">
+                <h2>Track Your Order</h2>
+                <div class="order-id-display small">Order <span id="tracking-order-id">#123456789</span></div>
+                
+                <div class="tracking-timeline">
+                    <div class="timeline-step active">
+                        <div class="step-icon"><i class="fas fa-clipboard-check"></i></div>
+                        <div class="step-text">
+                            <strong>Order Placed</strong>
+                            <span id="date-placed">Today, 2:30 PM</span>
+                        </div>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="step-icon"><i class="fas fa-truck"></i></div>
+                        <div class="step-text">
+                            <strong>In Transit</strong>
+                            <span id="date-transit">Expected by tomorrow</span>
+                        </div>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="step-icon"><i class="fas fa-home"></i></div>
+                        <div class="step-text">
+                            <strong>Delivered</strong>
+                            <span id="date-delivered">Estimated: Oct 25</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="success-actions" style="margin-top: 30px;">
+                    <button id="back-to-success" class="continue-btn">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Update the checkout button to manage addresses
         document.getElementById('checkout-btn').addEventListener('click', function() {
             // Open the delivery address modal
-            showDeliveryAddressModal();
+            showAddressModal();
         });
+        
+        // Duplicated script block from user's code, pointing to the same file
+        // It's better to have this only once, but keeping it as per user's file structure
+        // <script src="js/medicines.js"></script> 
     </script>
 
-    <script src="js/medicines.js"></script>
-    <!-- OpenStreetMap Leaflet JS -->
+    
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <!-- OpenStreetMap Geocoder JS -->
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
     <script>
         // Initialize location functionality when the page loads
         document.addEventListener('DOMContentLoaded', function() {
-            initializeLocationAutocomplete();
-            initializeAddressManagement();
+            // Check if functions exist before calling to avoid errors from duplicated script tags
+            if (typeof initializeLocationAutocomplete === 'function') {
+                initializeLocationAutocomplete();
+            }
+            if (typeof initializeAddressManagement === 'function') {
+                initializeAddressManagement();
+            }
         });
     </script>
+    
     <script src="js/medicines.js"></script>
 
     <script>
@@ -1056,7 +1161,6 @@
     }
     </script>
 
-    <!-- Footer Section -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-row">
@@ -1123,104 +1227,316 @@
             </div>
         </div>
     </footer>
-</body>
-</html>
 
-<script>
-    // Function to show the delivery address modal
-    function showAddressModal() {
-        const modal = document.getElementById('delivery-address-modal');
-        modal.style.display = 'block';
-    }
-
-    // Function to update the header address
-    function updateHeaderAddress(address) {
-        const headerAddress = document.getElementById('header-address');
-        headerAddress.textContent = address;
-    }
-
-    // Event listener for the address form submission
-    document.getElementById('address-form').addEventListener('submit', function(e) {
-        e.preventDefault();
+    <script>
+        let map, marker;
         
-        // Get form values
-        const nickname = document.getElementById('address-name').value;
-        const fullName = document.getElementById('full-name').value;
-        const mobileNumber = document.getElementById('mobile-number').value;
-        const houseNo = document.getElementById('house-no').value;
-        const street = document.getElementById('street').value;
-        const city = document.getElementById('city').value;
-        const state = document.getElementById('state').value;
-        const pincode = document.getElementById('pincode').value;
-        const isDefault = document.getElementById('default-address').checked;
-
-        // Create formatted address
-        const fullAddress = `${houseNo}, ${street}, ${city}, ${state} - ${pincode}`;
-        
-        // Create address data object
-        const addressData = {
-            nickname,
-            fullName,
-            mobileNumber,
-            houseNo,
-            street,
-            city,
-            state,
-            pincode,
-            fullAddress,
-            isDefault
-        };
-        
-        // Save address using the existing saveAddress function
-        saveAddress(addressData);
-        
-        // Update header address
-        updateHeaderAddress(addressData);
-        
-        // Close the modal
-        document.getElementById('delivery-address-modal').style.display = 'none';
-        
-        // Clear the form
-        this.reset();
-    });
-
-    // Close modal when clicking the close button
-    document.querySelector('.close-address-modal').addEventListener('click', function() {
-        document.getElementById('delivery-address-modal').style.display = 'none';
-    });
-
-    // Close modal when clicking outside
-    window.addEventListener('click', function(event) {
-        const modal = document.getElementById('delivery-address-modal');
-        if (event.target === modal) {
-            modal.style.display = 'none';
+        // Function to show the delivery address modal
+        function showAddressModal() {
+            const modal = document.getElementById('delivery-address-modal');
+            if (modal) {
+                modal.style.display = 'block';
+                if (typeof loadSavedAddresses === 'function') {
+                    loadSavedAddresses();
+                }
+                // Initialize map after modal is visible to ensure correct sizing
+                setTimeout(initMap, 300);
+            }
         }
-    });
 
-    // Initialize the address display
-    document.addEventListener('DOMContentLoaded', function() {
-        const savedAddress = localStorage.getItem('deliveryAddress');
-        if (savedAddress) {
-            updateHeaderAddress(savedAddress);
-        }
-        
-        // Add event listener for offers button to scroll to trending section
-        document.getElementById('offers-btn').addEventListener('click', function(e) {
-            e.preventDefault();
-            const trendingSection = document.querySelector('.trending-section');
-            if (trendingSection) {
-                trendingSection.scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'start'
+        function initMap() {
+            if (map) {
+                map.invalidateSize();
+                return;
+            }
+
+            // Default to India center if no location
+            const defaultLat = 20.5937;
+            const defaultLon = 78.9629;
+
+            map = L.map('address-map').setView([defaultLat, defaultLon], 5);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            marker = L.marker([defaultLat, defaultLon], {
+                draggable: true
+            }).addTo(map);
+
+            marker.on('dragend', function(e) {
+                const position = marker.getLatLng();
+                reverseGeocode(position.lat, position.lng);
+            });
+
+            // Try to get user location for initial map view
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+                    map.setView([lat, lon], 15);
+                    marker.setLatLng([lat, lon]);
                 });
+            }
+        }
+
+        function reverseGeocode(lat, lon) {
+            fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data && data.address) {
+                        const addr = data.address;
+                        const cityArea = addr.city || addr.town || addr.village || addr.suburb || "Unknown";
+                        
+                        if (document.getElementById('city')) document.getElementById('city').value = cityArea;
+                        if (document.getElementById('state')) document.getElementById('state').value = addr.state || '';
+                        if (document.getElementById('pincode')) document.getElementById('pincode').value = addr.postcode || '';
+                        if (document.getElementById('street')) {
+                            document.getElementById('street').value = addr.road || addr.neighbourhood || addr.suburb || '';
+                        }
+                        if (document.getElementById('landmark')) {
+                            document.getElementById('landmark').value = addr.amenity || addr.landmark || '';
+                        }
+                    }
+                });
+        }
+
+        // Function to update the header address
+        function updateHeaderAddress(address) {
+            const headerAddress = document.getElementById('header-address');
+            if (headerAddress) {
+                headerAddress.textContent = address;
+            }
+        }
+
+        // Function to detect location using Geolocation API
+        function detectLocation() {
+            const detectBtn = document.getElementById('detect-location-modal');
+            const originalText = detectBtn ? detectBtn.innerHTML : '';
+            if (detectBtn) detectBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Detecting...';
+            
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+                    
+                    fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (detectBtn) detectBtn.innerHTML = originalText;
+                            if (data && data.display_name) {
+                                const addr = data.address;
+                                const cityArea = addr.city || addr.town || addr.village || addr.suburb || "Unknown";
+                                
+                                // Update header
+                                updateHeaderAddress(cityArea);
+
+                                // Update map if initialized
+                                if (map && marker) {
+                                    map.setView([lat, lon], 16);
+                                    marker.setLatLng([lat, lon]);
+                                }
+
+                                // Auto-fill form
+                                if (document.getElementById('city')) document.getElementById('city').value = cityArea;
+                                if (document.getElementById('state')) document.getElementById('state').value = addr.state || '';
+                                if (document.getElementById('pincode')) document.getElementById('pincode').value = addr.postcode || '';
+                                if (document.getElementById('street')) {
+                                    document.getElementById('street').value = addr.road || addr.neighbourhood || addr.suburb || '';
+                                }
+                                if (document.getElementById('landmark')) {
+                                    document.getElementById('landmark').value = addr.amenity || addr.landmark || '';
+                                }
+                                if (document.getElementById('house-no') && addr.house_number) {
+                                    document.getElementById('house-no').value = addr.house_number;
+                                }
+
+                                if (typeof showNotification === 'function') {
+                                    showNotification('Location detected successfully!');
+                                }
+                                
+                                // Smoothly scroll to the form
+                                const addressForm = document.getElementById('address-form');
+                                if(addressForm) {
+                                    addressForm.scrollIntoView({behavior: 'smooth', block: 'center'});
+                                }
+                            } else {
+                                if (typeof showNotification === 'function') showNotification('Location not found', 'error');
+                            }
+                        })
+                        .catch(error => {
+                            if (detectBtn) detectBtn.innerHTML = originalText;
+                            console.error("Error fetching address:", error);
+                            if (typeof showNotification === 'function') showNotification('Error getting address details', 'error');
+                        });
+                }, function(error) {
+                    if (detectBtn) detectBtn.innerHTML = originalText;
+                    console.error("Geolocation error:", error);
+                    if (typeof showNotification === 'function') showNotification('Location access denied', 'error');
+                });
+            } else {
+                if (typeof showNotification === 'function') showNotification('Geolocation not supported', 'error');
+            }
+        }
+
+        // Event listener for the address form submission
+        document.getElementById('address-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const nickname = document.getElementById('address-name').value;
+            const fullName = document.getElementById('full-name').value;
+            const mobileNumber = document.getElementById('mobile-number').value;
+            const houseNo = document.getElementById('house-no').value;
+            const street = document.getElementById('street').value;
+            const landmark = document.getElementById('landmark').value;
+            const city = document.getElementById('city').value;
+            const state = document.getElementById('state').value;
+            const pincode = document.getElementById('pincode').value;
+            const isDefault = document.getElementById('default-address').checked;
+
+            // Create formatted address
+            const fullAddress = `${houseNo}, ${street}, ${landmark ? landmark + ', ' : ''}${city}, ${state} - ${pincode}`;
+            
+            // Create address data object
+            const addressData = {
+                nickname,
+                fullName,
+                mobileNumber,
+                houseNo,
+                street,
+                landmark,
+                city,
+                state,
+                pincode,
+                fullAddress,
+                isDefault
+            };
+            
+            const submitBtn = document.getElementById('save-address');
+            if(submitBtn) {
+                submitBtn.textContent = 'Saving...';
+                submitBtn.disabled = true;
+            }
+
+            try {
+                // Save address using the existing saveAddress function
+                if (typeof saveAddress === 'function') {
+                    const success = await saveAddress(addressData);
+                    if (success === false) {
+                        // User wasn't logged in or error occurred
+                        if(submitBtn) { submitBtn.textContent = 'Save Address & Continue'; submitBtn.disabled = false; }
+                        return;
+                    }
+                }
                 
-                // Add highlight animation to the trending section
-                trendingSection.classList.add('highlight-section');
-                setTimeout(() => {
-                    trendingSection.classList.remove('highlight-section');
-                }, 2000);
+                // Update header address
+                updateHeaderAddress(addressData.fullAddress);
+                
+                // Close the modal
+                document.getElementById('delivery-address-modal').style.display = 'none';
+                
+                // Clear the form
+                this.reset();
+            } catch(e) {
+                console.error("Error saving address:", e);
+            } finally {
+                if(submitBtn) {
+                    submitBtn.textContent = 'Save Address & Continue';
+                    submitBtn.disabled = false;
+                }
             }
         });
-    });
-</script>
-<script src="js/main.js"></script>
+
+        // Close modal when clicking the close button
+        document.querySelector('.close-address-modal').addEventListener('click', function() {
+            document.getElementById('delivery-address-modal').style.display = 'none';
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const addressModal = document.getElementById('delivery-address-modal');
+            const successModal = document.getElementById('order-success-modal');
+            
+            if (event.target === addressModal) {
+                addressModal.style.display = 'none';
+            }
+            if (event.target === successModal) {
+                successModal.style.display = 'none';
+            }
+        });
+
+        // Initialize the address display
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedAddress = localStorage.getItem('deliveryAddress');
+            if (savedAddress) {
+                try {
+                    const parsedAddress = JSON.parse(savedAddress);
+                    updateHeaderAddress(parsedAddress.fullAddress || "Select delivery location");
+                } catch (e) {
+                    updateHeaderAddress(savedAddress); // Fallback for old string format
+                }
+            }
+            
+            // Add event listener for offers button to scroll to trending section
+            document.getElementById('offers-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                const trendingSection = document.querySelector('.trending-section');
+                if (trendingSection) {
+                    trendingSection.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Add highlight animation to the trending section
+                    trendingSection.classList.add('highlight-section');
+                    setTimeout(() => {
+                        trendingSection.classList.remove('highlight-section');
+                    }, 2000);
+                }
+            });
+        });
+    </script>
+    <script src="js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menu-toggle');
+            const headerRightContent = document.getElementById('header-right-content');
+
+            if (menuToggle && headerRightContent) {
+                menuToggle.addEventListener('click', function() {
+                    // Toggle the 'active' class on the menu content
+                    headerRightContent.classList.toggle('active');
+                    
+                    // Toggle the icon between 'bars' and 'times' (X)
+                    const icon = menuToggle.querySelector('i');
+                    if (headerRightContent.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            }
+
+            // Fix for duplicated detect-location ID
+            const detectLocationModalBtn = document.getElementById('detect-location-modal');
+            const detectLocationHeaderBtn = document.getElementById('detect-location');
+
+            const handleDetectLocation = () => {
+                detectLocation();
+            };
+
+            if(detectLocationModalBtn && typeof detectLocation === 'function') {
+                detectLocationModalBtn.addEventListener('click', handleDetectLocation);
+            }
+            if(detectLocationHeaderBtn && typeof detectLocation === 'function') {
+                detectLocationHeaderBtn.addEventListener('click', handleDetectLocation);
+            }
+
+        });
+    </script>
+    </body>
+</html>

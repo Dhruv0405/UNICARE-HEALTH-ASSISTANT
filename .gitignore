@@ -1,1 +1,15 @@
+# Dependencies
+node_modules/
+
+# Environment variables
 .env
+
+# User data (contains passwords)
+users.json
+
+# IDE
+.vscode/
+
+# OS files
+Thumbs.db
+.DS_Store

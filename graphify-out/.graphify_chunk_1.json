@@ -1,0 +1,196 @@
+{
+  "nodes": [
+    {
+      "id": "server.js",
+      "label": "server.js",
+      "type": "file",
+      "properties": {
+        "description": "Express backend server handling authentication, product management, orders, and contact forms.",
+        "technologies": ["express", "jwt", "bcryptjs", "nodemailer", "dotenv"]
+      }
+    },
+    {
+      "id": "js/auth.js",
+      "label": "auth.js",
+      "type": "file",
+      "properties": {
+        "description": "Handles user signup and login operations by communicating with the backend API.",
+        "storage": "localStorage (token, userEmail)"
+      }
+    },
+    {
+      "id": "js/main.js",
+      "label": "main.js",
+      "type": "file",
+      "properties": {
+        "description": "Global UI functionality, smooth scrolling, Firebase initialization, and Swiper slider setups.",
+        "integrations": ["Firebase", "Swiper"]
+      }
+    },
+    {
+      "id": "js/medicines.js",
+      "label": "medicines.js",
+      "type": "file",
+      "properties": {
+        "description": "Manages shopping cart logic, product search, and user delivery addresses.",
+        "storage": "localStorage (cart, allUserAddresses)"
+      }
+    },
+    {
+      "id": "js/diet-planner.js",
+      "label": "diet-planner.js",
+      "type": "file",
+      "properties": {
+        "description": "BMI calculation logic and dynamic generation of personalized diet plans."
+      }
+    },
+    {
+      "id": "exercise.js",
+      "label": "exercise.js",
+      "type": "file",
+      "properties": {
+        "description": "Handles interactive collapsible categories for the exercise section."
+      }
+    },
+    {
+      "id": "index.html",
+      "label": "index.html",
+      "type": "file",
+      "properties": {
+        "description": "Landing page showcasing services (Fitness, Diet, Medicine, AI Doctor) and contact form."
+      }
+    },
+    {
+      "id": "medicines.html",
+      "label": "medicines.html",
+      "type": "file",
+      "properties": {
+        "description": "Online pharmacy interface for browsing products, managing addresses, and cart."
+      }
+    },
+    {
+      "id": "GYM.html",
+      "label": "GYM.html",
+      "type": "file",
+      "properties": {
+        "description": "Fitness section with body shaping exercises and expert trainer profiles."
+      }
+    },
+    {
+      "id": "diet-planner.html",
+      "label": "diet-planner.html",
+      "type": "file",
+      "properties": {
+        "description": "UI for BMI calculation and diet plan visualization."
+      }
+    },
+    {
+      "id": "ai-doctor.html",
+      "label": "ai-doctor.html",
+      "type": "file",
+      "properties": {
+        "description": "AI-powered health assistant chat interface."
+      }
+    },
+    {
+      "id": "admin.html",
+      "label": "admin.html",
+      "type": "file",
+      "properties": {
+        "description": "Admin dashboard for managing users and viewing saved delivery addresses."
+      }
+    },
+    {
+      "id": "users.json",
+      "label": "users.json",
+      "type": "file",
+      "properties": {
+        "description": "Persistent JSON storage for user credentials and registration data."
+      }
+    },
+    {
+      "id": "AuthSystem",
+      "label": "Authentication System",
+      "type": "concept",
+      "properties": {
+        "file_type": "rationale",
+        "mechanism": "JWT with Bcrypt hashing and LocalStorage persistence"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "js/auth.js",
+      "target": "server.js",
+      "label": "calls",
+      "properties": {
+        "endpoints": ["/api/signup", "/api/login"]
+      }
+    },
+    {
+      "source": "server.js",
+      "target": "users.json",
+      "label": "manages",
+      "properties": {
+        "actions": ["read", "write"]
+      }
+    },
+    {
+      "source": "medicines.html",
+      "target": "js/medicines.js",
+      "label": "references"
+    },
+    {
+      "source": "index.html",
+      "target": "js/main.js",
+      "label": "references"
+    },
+    {
+      "source": "GYM.html",
+      "target": "exercise.js",
+      "label": "references"
+    },
+    {
+      "source": "diet-planner.html",
+      "target": "js/diet-planner.js",
+      "label": "references"
+    },
+    {
+      "source": "ai-doctor.html",
+      "target": "js/main.js",
+      "label": "references"
+    },
+    {
+      "source": "js/main.js",
+      "target": "server.js",
+      "label": "calls",
+      "properties": {
+        "endpoint": "/api/contact"
+      }
+    },
+    {
+      "source": "admin.html",
+      "target": "users.json",
+      "label": "fetches"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "PharmacyModule",
+      "label": "Pharmacy Module",
+      "members": ["medicines.html", "js/medicines.js", "server.js"]
+    },
+    {
+      "id": "FitnessModule",
+      "label": "Fitness Module",
+      "members": ["GYM.html", "exercise.js", "GYM.css"]
+    },
+    {
+      "id": "UserManagement",
+      "label": "User Management",
+      "members": ["server.js", "js/auth.js", "login.html", "admin.html", "users.json"]
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

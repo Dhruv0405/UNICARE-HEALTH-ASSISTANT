@@ -19,12 +19,12 @@ function updateHeaderAddress(address) {
 }
 
 // Modify the loadSavedAddresses function to load addresses for the current user
-function loadSavedAddresses() {
+async function loadSavedAddresses() {
     const savedAddressesContainer = document.getElementById('saved-addresses');
     if (!savedAddressesContainer) return;
     
     // Clear container
-    savedAddressesContainer.innerHTML = '';
+    savedAddressesContainer.innerHTML = 'Loading addresses...';
     
     // Get current user email
     const userEmail = localStorage.getItem('userEmail');
@@ -40,17 +40,33 @@ function loadSavedAddresses() {
         return;
     }
     
-    // Get all addresses
-    const allAddressesJSON = localStorage.getItem('allUserAddresses');
     let userAddresses = [];
-    
-    if (allAddressesJSON) {
-        const allAddresses = JSON.parse(allAddressesJSON);
-        userAddresses = allAddresses[userEmail] || [];
-        
-        // Also update the legacy storage for compatibility
-        localStorage.setItem('userAddresses', JSON.stringify(userAddresses));
+    try {
+        const response = await fetch(`/api/addresses/${userEmail}`);
+        if (response.ok) {
+            userAddresses = await response.json();
+            
+            // Sync to local storage
+            let allAddresses = {};
+            const savedAddressesJSON = localStorage.getItem('allUserAddresses');
+            if (savedAddressesJSON) {
+                allAddresses = JSON.parse(savedAddressesJSON);
+            }
+            allAddresses[userEmail] = userAddresses;
+            localStorage.setItem('allUserAddresses', JSON.stringify(allAddresses));
+            localStorage.setItem('userAddresses', JSON.stringify(userAddresses));
+        }
+    } catch (error) {
+        console.error('Failed to load from DB, using localStorage fallback', error);
+        // Get all addresses from local storage as fallback
+        const allAddressesJSON = localStorage.getItem('allUserAddresses');
+        if (allAddressesJSON) {
+            const allAddresses = JSON.parse(allAddressesJSON);
+            userAddresses = allAddresses[userEmail] || [];
+        }
     }
+    
+    savedAddressesContainer.innerHTML = '';
     
     if (userAddresses.length === 0) {
         // No saved addresses
@@ -65,21 +81,25 @@ function loadSavedAddresses() {
     // Add each address to the container
     userAddresses.forEach(address => {
         const addressCard = document.createElement('div');
-        addressCard.className = `saved-address-card ${address.isDefault ? 'default' : ''}`;
+        addressCard.className = `address-card-modern ${address.isDefault ? 'selected' : ''}`;
+        addressCard.onclick = () => selectAddress(address.id);
+        
         addressCard.innerHTML = `
-            <div class="address-info">
-                <div class="address-type">${address.nickname} ${address.isDefault ? '(Default)' : ''}</div>
-                <div class="address-text">${address.fullAddress}</div>
+            <div class="card-top">
+                <span class="badge-modern ${address.nickname.toLowerCase()}">${address.nickname}</span>
+                ${address.isDefault ? '<div class="select-indicator"><i class="fas fa-check-circle"></i></div>' : ''}
             </div>
-            <div class="address-actions">
-                <button class="use-address-btn" onclick="selectAddress('${address.id}')">
-                    <i class="fas fa-check-circle"></i> Use
+            <div class="card-details">
+                <h4>${address.fullName}</h4>
+                <p>${address.fullAddress}</p>
+                <div class="phone"><i class="fas fa-phone-alt"></i> ${address.mobileNumber}</div>
+            </div>
+            <div class="card-actions">
+                <button class="edit" onclick="event.stopPropagation(); editAddress('${address.id}')">
+                    <i class="fas fa-edit"></i> Edit
                 </button>
-                <button class="edit-address-btn" onclick="editAddress('${address.id}')">
-                    <i class="fas fa-edit"></i>
-                </button>
-                <button class="delete-address-btn" onclick="deleteAddress('${address.id}')">
-                    <i class="fas fa-trash"></i>
+                <button class="delete" onclick="event.stopPropagation(); deleteAddress('${address.id}')">
+                    <i class="fas fa-trash"></i> Delete
                 </button>
             </div>
         `;
@@ -305,7 +325,7 @@ function toggleCart() {
 }
 
 // Checkout function
-function checkout() {
+async function checkout() {
     if (cart.length === 0) {
         showNotification('Your cart is empty!');
         return;
@@ -313,22 +333,110 @@ function checkout() {
     
     // Check if user has a delivery address
     const savedAddresses = localStorage.getItem('userAddresses');
-    if (!savedAddresses || JSON.parse(savedAddresses).length === 0) {
-        showAddressModal();
+    const parsedAddresses = savedAddresses ? JSON.parse(savedAddresses) : [];
+    if (parsedAddresses.length === 0) {
+        if(typeof showAddressModal === 'function') {
+            showAddressModal();
+        }
         showNotification('Please add a delivery address to proceed');
         return;
     }
     
-    // Proceed with checkout (this would typically redirect to a checkout page)
     showNotification('Proceeding to checkout...');
-    // For demo purposes, we'll just clear the cart
-    setTimeout(() => {
-        cart = [];
-        saveCart();
-        updateCartUI();
-        toggleCart();
-        showNotification('Order placed successfully!');
-    }, 2000);
+    
+    // Get user details
+    const userEmail = localStorage.getItem('userEmail') || 'guest@example.com';
+    const defaultAddress = parsedAddresses.find(addr => addr.isDefault) || parsedAddresses[0];
+    const totalAmount = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+    
+    try {
+        const response = await fetch('/api/orders', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                userEmail: userEmail,
+                totalAmount: totalAmount,
+                items: cart,
+                shippingAddress: defaultAddress
+            })
+        });
+        
+        if (response.ok) {
+            console.log('Order placed successfully, processing response...');
+            const orderData = await response.json();
+            console.log('Order data:', orderData);
+            cart = [];
+            saveCart();
+            updateCartUI();
+            toggleCart();
+            
+            // Show success modal
+            const successModal = document.getElementById('order-success-modal');
+            const orderIdSpan = document.getElementById('confirmed-order-id');
+            console.log('Success modal found:', !!successModal);
+            if (successModal && orderIdSpan) {
+                orderIdSpan.textContent = `#${orderData.id}`;
+                successModal.style.display = 'block';
+                console.log('Success modal style.display set to block');
+                
+                // Track order button
+                document.getElementById('track-order-btn').onclick = () => {
+                    const mainView = document.getElementById('main-success-view');
+                    const trackingView = document.getElementById('tracking-view');
+                    const trackingOrderId = document.getElementById('tracking-order-id');
+                    
+                    if (mainView && trackingView) {
+                        mainView.style.display = 'none';
+                        trackingView.style.display = 'block';
+                        if (trackingOrderId) trackingOrderId.textContent = `#${orderData.id}`;
+                        
+                        // Calculate dates
+                        const now = new Date();
+                        const tomorrow = new Date(now);
+                        tomorrow.setDate(tomorrow.getDate() + 1);
+                        const dayAfter = new Date(now);
+                        dayAfter.setDate(dayAfter.getDate() + 2);
+                        
+                        const formatOptions = { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+                        const dateOptions = { month: 'short', day: 'numeric' };
+                        
+                        document.getElementById('date-placed').textContent = now.toLocaleString('en-IN', formatOptions);
+                        document.getElementById('date-transit').textContent = `Expected by ${tomorrow.toLocaleString('en-IN', dateOptions)}`;
+                        document.getElementById('date-delivered').textContent = `Estimated: ${dayAfter.toLocaleString('en-IN', dateOptions)}`;
+                    }
+                };
+                
+                // Back to success view button
+                document.getElementById('back-to-success').onclick = () => {
+                    const mainView = document.getElementById('main-success-view');
+                    const trackingView = document.getElementById('tracking-view');
+                    if (mainView && trackingView) {
+                        mainView.style.display = 'block';
+                        trackingView.style.display = 'none';
+                    }
+                };
+                
+                // Continue shopping button
+                document.getElementById('continue-shopping-success').onclick = () => {
+                    successModal.style.display = 'none';
+                    // Reset to main view for next time
+                    document.getElementById('main-success-view').style.display = 'block';
+                    document.getElementById('tracking-view').style.display = 'none';
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                };
+            } else {
+                showNotification('Order placed successfully!');
+            }
+        } else {
+            const errData = await response.json();
+            showNotification('Failed to place order: ' + (errData.message || 'Unknown error'));
+        }
+    } catch (error) {
+        console.error('Error during checkout:', error);
+        showNotification('An error occurred. Please try again.');
+    }
 }
 
 // Show notification
@@ -433,56 +541,73 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Add this function to save an address
-function saveAddress(addressData) {
-    // Get the current user email from localStorage
+async function saveAddress(addressData) {
     const userEmail = localStorage.getItem('userEmail');
-    
-    // If no user is logged in, show login prompt
     if (!userEmail) {
         showNotification('Please log in to save addresses', 'error');
-        setTimeout(() => {
-            window.location.href = 'login.html';
-        }, 2000);
-        return;
+        setTimeout(() => window.location.href = 'login.html', 2000);
+        return false;
     }
     
-    // Generate a unique ID for the address
-    addressData.id = Date.now().toString();
-    
-    // Add user identifier to the address
+    const form = document.getElementById('address-form');
+    const editingId = form ? form.getAttribute('data-editing-id') : null;
     addressData.userEmail = userEmail;
     
-    // Get all saved addresses
-    let allAddresses = {};
-    const savedAddressesJSON = localStorage.getItem('allUserAddresses');
-    if (savedAddressesJSON) {
-        allAddresses = JSON.parse(savedAddressesJSON);
+    try {
+        let response;
+        if (editingId) {
+            // Update existing address
+            addressData.id = editingId;
+            response = await fetch(`/api/addresses/${editingId}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(addressData)
+            });
+        } else {
+            // Save new address
+            response = await fetch('/api/addresses', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(addressData)
+            });
+            if (response.ok) {
+                const data = await response.json();
+                addressData.id = data.id;
+            }
+        }
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message || 'Server error');
+        }
+    } catch (error) {
+        console.error('Failed to sync with DB', error);
+        showNotification(error.message, 'error');
+        if (!addressData.id) addressData.id = Date.now().toString();
     }
     
-    // Initialize user's addresses array if it doesn't exist
-    if (!allAddresses[userEmail]) {
-        allAddresses[userEmail] = [];
-    }
+    // Local storage sync
+    let allAddresses = JSON.parse(localStorage.getItem('allUserAddresses') || '{}');
+    if (!allAddresses[userEmail]) allAddresses[userEmail] = [];
     
-    // If this is set as default, update other addresses
     if (addressData.isDefault) {
-        allAddresses[userEmail].forEach(addr => {
-            addr.isDefault = false;
-        });
+        allAddresses[userEmail].forEach(addr => addr.isDefault = false);
     }
     
-    // Add the new address
-    allAddresses[userEmail].push(addressData);
+    if (editingId) {
+        const index = allAddresses[userEmail].findIndex(addr => addr.id == editingId);
+        if (index !== -1) allAddresses[userEmail][index] = addressData;
+        form.removeAttribute('data-editing-id');
+    } else {
+        allAddresses[userEmail].push(addressData);
+    }
     
-    // Save all addresses back to localStorage
     localStorage.setItem('allUserAddresses', JSON.stringify(allAddresses));
-    
-    // Also save to the current user's addresses for backward compatibility
     localStorage.setItem('userAddresses', JSON.stringify(allAddresses[userEmail]));
     
-    // Update the UI
-    loadSavedAddresses();
-    showNotification('Address saved successfully', 'success');
+    await loadSavedAddresses();
+    showNotification(editingId ? 'Address updated successfully' : 'Address saved successfully', 'success');
+    return true;
 }
 
 // Add this function to handle address selection
@@ -493,16 +618,28 @@ function selectAddress(addressId) {
     if (allAddressesJSON && userEmail) {
         const allAddresses = JSON.parse(allAddressesJSON);
         const userAddresses = allAddresses[userEmail] || [];
-        const selectedAddress = userAddresses.find(addr => addr.id === addressId);
+        const selectedAddress = userAddresses.find(addr => addr.id == addressId);
         
         if (selectedAddress) {
             // Update the header address
             updateHeaderAddress(selectedAddress);
             
+            // Highlight the selected card in UI
+            document.querySelectorAll('.address-card-modern').forEach(card => {
+                card.classList.remove('selected');
+            });
+            const selectedCard = Array.from(document.querySelectorAll('.address-card-modern')).find(card => 
+                card.innerHTML.includes(selectedAddress.fullName) && card.innerHTML.includes(selectedAddress.mobileNumber)
+            );
+            if(selectedCard) selectedCard.classList.add('selected');
+            
             // Close the modal
             const modal = document.getElementById('delivery-address-modal');
             if (modal) {
-                modal.style.display = 'none';
+                // Wait a bit so user sees the selection
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                }, 300);
             }
             
             // Show success notification
@@ -511,44 +648,88 @@ function selectAddress(addressId) {
     }
 }
 
-function deleteAddress(addressId) {
+// Add this function to edit an address
+function editAddress(addressId) {
     const userEmail = localStorage.getItem('userEmail');
     const allAddressesJSON = localStorage.getItem('allUserAddresses');
     
     if (allAddressesJSON && userEmail) {
         const allAddresses = JSON.parse(allAddressesJSON);
         const userAddresses = allAddresses[userEmail] || [];
+        const address = userAddresses.find(addr => addr.id == addressId);
         
-        // Find the address index
-        const addressIndex = userAddresses.findIndex(addr => addr.id === addressId);
+        if (address) {
+            // Fill the form fields
+            document.getElementById('full-name').value = address.fullName || '';
+            document.getElementById('mobile-number').value = address.mobileNumber || '';
+            document.getElementById('house-no').value = address.houseNo || '';
+            document.getElementById('street').value = address.street || '';
+            document.getElementById('landmark').value = address.landmark || '';
+            document.getElementById('city').value = address.city || '';
+            document.getElementById('state').value = address.state || '';
+            document.getElementById('pincode').value = address.pincode || '';
+            document.getElementById('default-address').checked = address.isDefault || false;
+            
+            // Store the ID being edited in a data attribute
+            document.getElementById('address-form').setAttribute('data-editing-id', addressId);
+            
+            // Change button text
+            document.getElementById('save-address').textContent = 'Update Address & Continue';
+            
+            // Scroll to form
+            document.getElementById('address-form').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }
+}
+
+async function deleteAddress(addressId) {
+    const userEmail = localStorage.getItem('userEmail');
+    
+    if (userEmail) {
+        try {
+            await fetch(`/api/addresses/${addressId}`, {
+                method: 'DELETE'
+            });
+        } catch (error) {
+            console.error('Failed to delete from DB', error);
+        }
         
-        if (addressIndex !== -1) {
-            // Check if we're deleting the default address
-            const isDefault = userAddresses[addressIndex].isDefault;
+        const allAddressesJSON = localStorage.getItem('allUserAddresses');
+        if (allAddressesJSON) {
+            const allAddresses = JSON.parse(allAddressesJSON);
+            const userAddresses = allAddresses[userEmail] || [];
             
-            // Remove the address
-            userAddresses.splice(addressIndex, 1);
+            // Find the address index
+            const addressIndex = userAddresses.findIndex(addr => addr.id === addressId || addr.id === parseInt(addressId));
             
-            // If we deleted the default address and have other addresses, make the first one default
-            if (isDefault && userAddresses.length > 0) {
-                userAddresses[0].isDefault = true;
-                updateHeaderAddress(userAddresses[0]);
-            } else if (userAddresses.length === 0) {
-                updateHeaderAddress('No address selected');
+            if (addressIndex !== -1) {
+                // Check if we're deleting the default address
+                const isDefault = userAddresses[addressIndex].isDefault;
+                
+                // Remove the address
+                userAddresses.splice(addressIndex, 1);
+                
+                // If we deleted the default address and have other addresses, make the first one default
+                if (isDefault && userAddresses.length > 0) {
+                    userAddresses[0].isDefault = true;
+                    updateHeaderAddress(userAddresses[0]);
+                } else if (userAddresses.length === 0) {
+                    updateHeaderAddress('No address selected');
+                }
+                
+                // Update the addresses in localStorage
+                allAddresses[userEmail] = userAddresses;
+                localStorage.setItem('allUserAddresses', JSON.stringify(allAddresses));
+                
+                // Update legacy storage for compatibility
+                localStorage.setItem('userAddresses', JSON.stringify(userAddresses));
+                
+                // Refresh the addresses display
+                await loadSavedAddresses();
+                
+                // Show success notification
+                showNotification('Address deleted successfully');
             }
-            
-            // Update the addresses in localStorage
-            allAddresses[userEmail] = userAddresses;
-            localStorage.setItem('allUserAddresses', JSON.stringify(allAddresses));
-            
-            // Update legacy storage for compatibility
-            localStorage.setItem('userAddresses', JSON.stringify(userAddresses));
-            
-            // Refresh the addresses display
-            loadSavedAddresses();
-            
-            // Show success notification
-            showNotification('Address deleted successfully');
         }
     }
 }

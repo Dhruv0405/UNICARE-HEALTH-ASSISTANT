@@ -1,0 +1,472 @@
+{
+  "nodes": [
+    {
+      "id": "server.js",
+      "label": "server.js",
+      "type": "file",
+      "properties": {
+        "description": "Express backend server handling authentication, product management, orders, and contact forms.",
+        "technologies": [
+          "express",
+          "jwt",
+          "bcryptjs",
+          "nodemailer",
+          "dotenv"
+        ]
+      }
+    },
+    {
+      "id": "js/auth.js",
+      "label": "auth.js",
+      "type": "file",
+      "properties": {
+        "description": "Handles user signup and login operations by communicating with the backend API.",
+        "storage": "localStorage (token, userEmail)"
+      }
+    },
+    {
+      "id": "js/main.js",
+      "label": "main.js",
+      "type": "file",
+      "properties": {
+        "description": "Global UI functionality, smooth scrolling, Firebase initialization, and Swiper slider setups.",
+        "integrations": [
+          "Firebase",
+          "Swiper"
+        ]
+      }
+    },
+    {
+      "id": "js/medicines.js",
+      "label": "medicines.js",
+      "type": "file",
+      "properties": {
+        "description": "Manages shopping cart logic, product search, and user delivery addresses.",
+        "storage": "localStorage (cart, allUserAddresses)"
+      }
+    },
+    {
+      "id": "js/diet-planner.js",
+      "label": "diet-planner.js",
+      "type": "file",
+      "properties": {
+        "description": "BMI calculation logic and dynamic generation of personalized diet plans."
+      }
+    },
+    {
+      "id": "exercise.js",
+      "label": "exercise.js",
+      "type": "file",
+      "properties": {
+        "description": "Handles interactive collapsible categories for the exercise section."
+      }
+    },
+    {
+      "id": "index.html",
+      "label": "index.html",
+      "type": "file",
+      "properties": {
+        "description": "Landing page showcasing services (Fitness, Diet, Medicine, AI Doctor) and contact form."
+      }
+    },
+    {
+      "id": "medicines.html",
+      "label": "medicines.html",
+      "type": "file",
+      "properties": {
+        "description": "Online pharmacy interface for browsing products, managing addresses, and cart."
+      }
+    },
+    {
+      "id": "GYM.html",
+      "label": "GYM.html",
+      "type": "file",
+      "properties": {
+        "description": "Fitness section with body shaping exercises and expert trainer profiles."
+      }
+    },
+    {
+      "id": "diet-planner.html",
+      "label": "diet-planner.html",
+      "type": "file",
+      "properties": {
+        "description": "UI for BMI calculation and diet plan visualization."
+      }
+    },
+    {
+      "id": "ai-doctor.html",
+      "label": "ai-doctor.html",
+      "type": "file",
+      "properties": {
+        "description": "AI-powered health assistant chat interface."
+      }
+    },
+    {
+      "id": "admin.html",
+      "label": "admin.html",
+      "type": "file",
+      "properties": {
+        "description": "Admin dashboard for managing users and viewing saved delivery addresses."
+      }
+    },
+    {
+      "id": "users.json",
+      "label": "users.json",
+      "type": "file",
+      "properties": {
+        "description": "Persistent JSON storage for user credentials and registration data."
+      }
+    },
+    {
+      "id": "AuthSystem",
+      "label": "Authentication System",
+      "type": "concept",
+      "properties": {
+        "file_type": "rationale",
+        "mechanism": "JWT with Bcrypt hashing and LocalStorage persistence"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\gym2.png",
+      "type": "file",
+      "properties": {
+        "purpose": "Gym activity image showing a man running on a treadmill",
+        "category": "Fitness"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\imain.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Main workout image showing a woman using battle ropes",
+        "category": "Fitness"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\poster.png",
+      "type": "file",
+      "properties": {
+        "purpose": "Healthcare poster for 'UNI Care' featuring doctors and healthy lifestyle imagery",
+        "category": "Healthcare"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\trainer1.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Professional profile image of a female fitness trainer",
+        "category": "Fitness"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\abrollout.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Exercise demonstration image for ab rollout",
+        "category": "Exercise"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\advancegluco.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Product image of a blood glucose monitor displaying a reading",
+        "category": "Medical Device"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\ai-healthcare-banner.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Promotional banner for AI-driven healthcare services",
+        "category": "Healthcare"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\aidoctor.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Avatar/icon representing an AI medical assistant",
+        "category": "Healthcare"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\antacid.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Product image for antacid oral suspension",
+        "category": "Medicine"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\barbell.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Exercise demonstration image for barbell upright row",
+        "category": "Exercise"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\barbellcurl.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Exercise demonstration image for barbell curls",
+        "category": "Exercise"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\bcomplex.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Product image for B-Complex vitamin supplement",
+        "category": "Medicine"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\bloodgluco.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Product kit image for Dr Trust blood glucose monitor",
+        "category": "Medical Device"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\bpmnitor.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Product image for a digital blood pressure monitor",
+        "category": "Medical Device"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\cablecrunch.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Exercise demonstration image for cable crunches",
+        "category": "Exercise"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\cablecurl.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Exercise demonstration image for cable curls",
+        "category": "Exercise"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\calciumvitamind3.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Product image for Calcium and Vitamin D3 supplement",
+        "category": "Medicine"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\calf.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Exercise demonstration image for calf raises",
+        "category": "Exercise"
+      }
+    },
+    {
+      "id": "D:\\128 gb files\\CODING\\icon\\icon\\images\\cancer-care.jpg",
+      "type": "file",
+      "properties": {
+        "purpose": "Section banner or placeholder for Cancer Care services",
+        "category": "Healthcare"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "js/auth.js",
+      "target": "server.js",
+      "label": "calls",
+      "properties": {
+        "endpoints": [
+          "/api/signup",
+          "/api/login"
+        ]
+      }
+    },
+    {
+      "source": "server.js",
+      "target": "users.json",
+      "label": "manages",
+      "properties": {
+        "actions": [
+          "read",
+          "write"
+        ]
+      }
+    },
+    {
+      "source": "medicines.html",
+      "target": "js/medicines.js",
+      "label": "references"
+    },
+    {
+      "source": "index.html",
+      "target": "js/main.js",
+      "label": "references"
+    },
+    {
+      "source": "GYM.html",
+      "target": "exercise.js",
+      "label": "references"
+    },
+    {
+      "source": "diet-planner.html",
+      "target": "js/diet-planner.js",
+      "label": "references"
+    },
+    {
+      "source": "ai-doctor.html",
+      "target": "js/main.js",
+      "label": "references"
+    },
+    {
+      "source": "js/main.js",
+      "target": "server.js",
+      "label": "calls",
+      "properties": {
+        "endpoint": "/api/contact"
+      }
+    },
+    {
+      "source": "admin.html",
+      "target": "users.json",
+      "label": "fetches"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\gym2.png",
+      "target": "Fitness",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\imain.jpg",
+      "target": "Fitness",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\trainer1.jpg",
+      "target": "Fitness",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\poster.png",
+      "target": "Healthcare",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\icon\\images\\ai-healthcare-banner.jpg",
+      "target": "Healthcare",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\icon\\images\\aidoctor.jpg",
+      "target": "Healthcare",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\icon\\images\\cancer-care.jpg",
+      "target": "Healthcare",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\icon\\images\\antacid.jpg",
+      "target": "Medicine",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\icon\\images\\bcomplex.jpg",
+      "target": "Medicine",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\icon\\images\\calciumvitamind3.jpg",
+      "target": "Medicine",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\icon\\images\\advancegluco.jpg",
+      "target": "Medical Device",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\icon\\images\\bloodgluco.jpg",
+      "target": "Medical Device",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\icon\\images\\bpmnitor.jpg",
+      "target": "Medical Device",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\icon\\images\\abrollout.jpg",
+      "target": "Exercise",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\icon\\images\\barbell.jpg",
+      "target": "Exercise",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\icon\\images\\barbellcurl.jpg",
+      "target": "Exercise",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\icon\\images\\cablecrunch.jpg",
+      "target": "Exercise",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\icon\\images\\cablecurl.jpg",
+      "target": "Exercise",
+      "type": "belongs_to"
+    },
+    {
+      "source": "D:\\128 gb files\\CODING\\icon\\icon\\images\\calf.jpg",
+      "target": "Exercise",
+      "type": "belongs_to"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "PharmacyModule",
+      "label": "Pharmacy Module",
+      "members": [
+        "medicines.html",
+        "js/medicines.js",
+        "server.js"
+      ]
+    },
+    {
+      "id": "FitnessModule",
+      "label": "Fitness Module",
+      "members": [
+        "GYM.html",
+        "exercise.js",
+        "GYM.css"
+      ]
+    },
+    {
+      "id": "UserManagement",
+      "label": "User Management",
+      "members": [
+        "server.js",
+        "js/auth.js",
+        "login.html",
+        "admin.html",
+        "users.json"
+      ]
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}
