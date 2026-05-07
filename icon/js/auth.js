@@ -9,9 +9,10 @@ async function handleSignup(event) {
     console.log('Signup form submitted with:', { name, email, password: '***' });
     
     try {
+        const API_BASE_URL = 'https://unicare-health-assistant.onrender.com'
         console.log('Attempting to connect to server at /api/signup');
         // Change this line to use the correct port (3002 instead of 3001)
-        const response = await fetch('http://localhost:3002/api/signup', {
+        const response = await fetch(`${API_BASE_URL}/api/signup`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -65,7 +66,7 @@ async function handleLogin(event) {
     try {
         console.log('Attempting to connect to server at /api/login');
         // Also update this line to use port 3002
-        const response = await fetch('http://localhost:3002/api/login', {
+        const response = await fetch('https://unicare-health-assistant.onrender.com/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
