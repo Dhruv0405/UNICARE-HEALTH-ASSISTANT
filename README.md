@@ -61,6 +61,117 @@ UNICARE is built on a modern, battle-tested technology foundation designed for p
 
 ---
 
+## 🛠️ Getting Started — Setup on Your Computer
+
+Follow these steps to run UNICARE locally on your machine.
+
+### Prerequisites
+
+Make sure you have the following installed before you begin:
+
+| Tool | Version | Download |
+|------|---------|----------|
+| **Node.js** | v18 or higher | [nodejs.org](https://nodejs.org/) |
+| **npm** | v9 or higher *(comes with Node.js)* | — |
+| **Git** | Any recent version | [git-scm.com](https://git-scm.com/) |
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Dhruv0405/UNICARE-HEALTH-ASSISTANT.git
+cd UNICARE-HEALTH-ASSISTANT
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Configure Environment Variables
+
+Copy the example environment file and fill in your API keys:
+
+```bash
+# On Windows
+copy .env.example .env
+
+# On macOS/Linux
+cp .env.example .env
+```
+
+Then open `.env` in any text editor and add your keys:
+
+```env
+# Google Gemini API Key — required for AI chat & voice features
+# Get yours free at: https://aistudio.google.com/apikey
+VITE_GOOGLE_API_KEY=your-google-api-key-here
+
+# OpenRouter API Key — required for diet & records AI features
+# Get yours at: https://openrouter.ai/keys
+VITE_OPENROUTER_API_KEY=your-openrouter-api-key-here
+
+# Firebase Configuration — required for user authentication
+# Create a project at: https://console.firebase.google.com
+# Then go to Project Settings → General → Your Apps → Web App → Config
+VITE_FIREBASE_API_KEY=
+VITE_FIREBASE_AUTH_DOMAIN=
+VITE_FIREBASE_PROJECT_ID=
+VITE_FIREBASE_STORAGE_BUCKET=
+VITE_FIREBASE_MESSAGING_SENDER_ID=
+VITE_FIREBASE_APP_ID=
+```
+
+> **⚠️ Important:** Never commit your `.env` file to Git. It is already listed in `.gitignore` to keep your keys safe.
+
+### 4. Run the App
+
+#### Option A — Web Browser (Fastest, for development)
+```bash
+npm run dev
+```
+Then open [http://localhost:5173](http://localhost:5173) in your browser.
+
+#### Option B — Electron Desktop App
+```bash
+npm run electron:dev
+```
+This launches UNICARE as a native desktop application.
+
+### 5. Build for Production (Optional)
+
+To create a distributable desktop installer:
+```bash
+npm run electron:build
+```
+The output will be in the `dist-electron/` folder.
+
+---
+
+## 🔑 Getting Your API Keys
+
+### Google Gemini API Key
+1. Go to [https://aistudio.google.com/apikey](https://aistudio.google.com/apikey)
+2. Sign in with your Google account
+3. Click **Create API Key**
+4. Copy the key and paste it as `VITE_GOOGLE_API_KEY` in your `.env`
+
+### OpenRouter API Key
+1. Go to [https://openrouter.ai/keys](https://openrouter.ai/keys)
+2. Create a free account
+3. Click **Create Key**
+4. Copy the key and paste it as `VITE_OPENROUTER_API_KEY` in your `.env`
+
+### Firebase Configuration
+1. Go to [https://console.firebase.google.com](https://console.firebase.google.com)
+2. Click **Add Project** and follow the setup wizard
+3. Go to **Project Settings → General → Your Apps**
+4. Click the **Web** icon (`</>`) to add a web app
+5. Copy the config values into your `.env` file
+6. In the Firebase console, enable **Authentication → Sign-in method → Email/Password**
+
+---
+
 ## 🎨 Design Philosophy
 
 UNICARE follows a **Clinical Clarity** design system featuring:
