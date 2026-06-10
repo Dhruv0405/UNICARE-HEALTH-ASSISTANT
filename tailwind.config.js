@@ -1,0 +1,138 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    './index.html',
+    './src/**/*.{js,ts,jsx,tsx}',
+  ],
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          50: '#e8f0ff',
+          100: '#d4e2ff',
+          200: '#b2c5ff',
+          300: '#809fff',
+          400: '#4d79ff',
+          500: '#0052cc',
+          600: '#003d9b',
+          700: '#002d73',
+          800: '#001e4d',
+          900: '#001030',
+        },
+        teal: {
+          50: '#e6f7f5',
+          100: '#b3ebe4',
+          200: '#80dfd3',
+          300: '#4dd3c2',
+          400: '#26c9b5',
+          500: '#006a61',
+          600: '#005049',
+          700: '#003d38',
+          800: '#002a27',
+          900: '#001a18',
+        },
+        danger: {
+          50: '#fff5f5',
+          100: '#ffe0dd',
+          200: '#ffc5be',
+          300: '#ff9e94',
+          400: '#ff6b5e',
+          500: '#b90012',
+          600: '#93000a',
+          700: '#6e0008',
+          800: '#4a0005',
+          900: '#2d0003',
+        },
+        surface: {
+          DEFAULT: '#f6fafe',
+          dim: '#d6dade',
+          bright: '#f6fafe',
+          container: {
+            lowest: '#ffffff',
+            low: '#f0f4f8',
+            DEFAULT: '#eaeef2',
+            high: '#e4e9ed',
+            highest: '#dfe3e7',
+          },
+        },
+        'on-surface': '#171c1f',
+        'on-surface-variant': '#434654',
+        outline: '#737685',
+        'outline-variant': '#c3c6d6',
+        // Dark mode surfaces
+        dark: {
+          surface: '#1a1c2e',
+          'surface-container': '#232538',
+          'surface-container-high': '#2c2e42',
+          'on-surface': '#e4e6f0',
+        },
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      fontSize: {
+        'headline-lg': ['40px', { lineHeight: '1.2', fontWeight: '700', letterSpacing: '-0.02em' }],
+        'headline-md': ['32px', { lineHeight: '1.2', fontWeight: '700' }],
+        'headline-sm': ['24px', { lineHeight: '1.3', fontWeight: '600' }],
+        'body-lg': ['20px', { lineHeight: '1.6', fontWeight: '400' }],
+        'body-md': ['18px', { lineHeight: '1.6', fontWeight: '400' }],
+        'label-lg': ['16px', { lineHeight: '1.4', fontWeight: '600', letterSpacing: '0.01em' }],
+        'label-md': ['14px', { lineHeight: '1.4', fontWeight: '500' }],
+        'label-sm': ['12px', { lineHeight: '1.4', fontWeight: '500' }],
+      },
+      borderRadius: {
+        'sm': '0.25rem',
+        DEFAULT: '0.5rem',
+        'md': '0.75rem',
+        'lg': '1rem',
+        'xl': '1.5rem',
+        '2xl': '2rem',
+      },
+      spacing: {
+        'touch': '48px',
+        'gutter': '24px',
+      },
+      boxShadow: {
+        'card': '0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06)',
+        'card-hover': '0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06)',
+        'elevated': '0 8px 24px rgba(0, 0, 0, 0.12)',
+        'modal': '0 16px 48px rgba(0, 0, 0, 0.2)',
+      },
+      animation: {
+        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'fade-in': 'fadeIn 0.3s ease-out',
+        'slide-in': 'slideIn 0.3s ease-out',
+        'slide-up': 'slideUp 0.3s ease-out',
+        'scale-in': 'scaleIn 0.2s ease-out',
+        'bounce-in': 'bounceIn 0.5s ease-out',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        slideIn: {
+          '0%': { transform: 'translateX(-16px)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
+        slideUp: {
+          '0%': { transform: 'translateY(16px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        scaleIn: {
+          '0%': { transform: 'scale(0.95)', opacity: '0' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+        bounceIn: {
+          '0%': { transform: 'scale(0.3)', opacity: '0' },
+          '50%': { transform: 'scale(1.05)' },
+          '70%': { transform: 'scale(0.9)' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+      },
+    },
+  },
+  plugins: [],
+};
